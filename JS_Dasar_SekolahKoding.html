@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Belajar JavaScript</title>
+    <style>
+        #wrap{
+            background: black;
+            font-size: 20px;
+            color: white;
+        }
+        .subMateri{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Belajar JavaScript dasar</h1>
+    <h2>by Sekolah Koding</h2>
+
+    <h3>1. menghubungkan file JavaScript dan kode pertama</h3>
+    <div id="wrap"></div>
+
+    <script>
+        /* 1. Memilih id wrap
+         2. Metode innerHTML = nulis konten */
+        document.getElementById("wrap").innerHTML="Belajar JavaScript Dasar"
+    </script>
+    
+    <h3>2. membuat variable</h3>
+    <div id="variable"></div>
+    <script>
+        var Tabungan = 123123123
+        document.getElementById("variable").innerHTML ="var Tabungan = " + Tabungan
+    </script>
+    
+    <p class="subMateri">Metode Angka</p>
+    <!-- toFixed digunakan untuk menentukan berapa banyak angka dibelakang koma -->
+    <!-- random digunakan untuk menampilkan angka dengan rentang angka dari 0 sampai 1  -->
+    <!-- min dan max digunakan untuk menampilkan angka terbesar dan terkecil pada beberapa variable -->
+    <!-- round() digunakan untuk membulatkan angka terdekatnya -->
+    <!-- cell() digunakan untuk mebulatkan angka ke atas -->
+    <!-- floor( digunakan untuk membulatkan angka ke bawah) -->
+    <div id="metodeAngka" />
+    <script>
+        var numb = 100;
+        var numb2 = 123.123
+
+        // var numb2_new = numb2.toFixed(2);
+        // var numb2_new = Math.random().toFixed(2)
+        // var numb2_new = Math.min(numb, numb2)
+        // var numb2_new = Math.max(numb2, numb)
+        // var numb2_new = Math.round(242.421)
+        // var numb2_new = Math.ceil(242.421)
+        // var numb2_new = Math.floor(242.421)
+
+        var x = 10; //batas maksimal
+        var y = 5;  //batas minimal
+        var evaluasi = Math.floor(Math.random() * x) + y
+        
+        document.getElementById("metodeAngka").innerHTML = evaluasi;
+    </script>
+
+    <p class="subMateri">Metode String</p>
+    <div id='metodeString' />
+    <script>
+        var nama = 'Ismail Nur Alam';
+        // var hasil = nama.length;
+        // var hasil = nama.indexOf("i")
+        // var hasil = nama.lastIndexOf('i');
+
+        // CARI TEXT
+        // length digunakan untuk mengetahui berapa banyak huruf atau angka di variable tersebut dan hasilnya berupa angka
+        // indexOf digunakan untuk return angka di string tersebut
+        // lastIndexOF sama seperti indexOf, tetapi bedanya terletak dimana dia akan me-return huruf yang sama yang ada di akhir
+        // search pada umumnya sama seperti yang ada di atas tetapi lebih spesifik, seperti ketika kita menggunakan shortcut ctrl + f
+
+        var hasil = nama.replace('Nur', 'Bura')
+        // toUpperCase() digunakan untuk mengubah string menjadi huruf besar
+        // toLowerCase() digunakan untuk mengubah string menjadi huruf kecil
+        // replace digunakan untuk mengganti string yang ada menjadi string yang baru
+
+        
+        document.getElementById('metodeString').innerHTML = hasil
+    </script>
+
+</body>
+</html>
