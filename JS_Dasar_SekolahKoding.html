@@ -65,6 +65,8 @@
     <div id='metodeString' />
     <script>
         var nama = 'Ismail Nur Alam';
+        var angka = "120";
+
         // var hasil = nama.length;
         // var hasil = nama.indexOf("i")
         // var hasil = nama.lastIndexOf('i');
@@ -75,13 +77,49 @@
         // lastIndexOF sama seperti indexOf, tetapi bedanya terletak dimana dia akan me-return huruf yang sama yang ada di akhir
         // search pada umumnya sama seperti yang ada di atas tetapi lebih spesifik, seperti ketika kita menggunakan shortcut ctrl + f
 
-        var hasil = nama.replace('Nur', 'Bura')
         // toUpperCase() digunakan untuk mengubah string menjadi huruf besar
         // toLowerCase() digunakan untuk mengubah string menjadi huruf kecil
         // replace digunakan untuk mengganti string yang ada menjadi string yang baru
+        // substr(start, length) digunakan untuk menampilkan angka dimulai dari suku keberapa dan paramater keduanya diisi panjangnya berapa
+        // substring sama dengan substr tapi ada batasnya, dimulai dari huruf keberapa dan diakhiri huruf ke berapa
+        //  parseInt mengubah string menjadi angka
+        //  parseFloat mengubah string menjadi angka yang boleh ada angkanya
 
+        // var hasil = nama.replace('Nur', 'Bura')
+        // var hasil = nama.substring(12, 5)
+        // var hasil = parseInt(angka) * 10;
+        var hasil = parseFloat(angka) * 0.5
         
         document.getElementById('metodeString').innerHTML = hasil
+    </script>
+
+    <p class="subMateri">Fungsi pada JavaScriipt</p>
+    <div id="fungsiJS"/>
+    <script>
+        //membuat fungsi
+        
+        /*
+        function printText(){
+            var x = 'manjat jiwa'
+            document.getElementById("fungsiJS").innerHTML = x
+        }
+        */
+
+        // const printText = () => {
+        //     var x = 'manjat jiwa'
+        //     document.getElementById("fungsiJS").innerHTML = x
+        // }
+
+        //parameter pada fungsi
+        const printText = (nama, nama2) => {
+            var text = `${nama} yang baru ${nama2}` 
+            document.getElementById("fungsiJS").innerHTML = text;
+        }
+
+        // memanggil fungsi
+        var nama = "sekolah koding"
+        printText(nama + " 123", 'aku belajar');
+
     </script>
 
 </body>
