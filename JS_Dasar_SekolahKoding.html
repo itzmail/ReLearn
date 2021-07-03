@@ -122,5 +122,80 @@
 
     </script>
 
+    // return adalah sebuah aturan atau metode atau apapun itu yang digunakan untuk mengembalikan 1 nilai dari suatu fungsi
+    <p class="subMateri">Return Pada JavaScript</p>
+    <div id="returnJS" />
+    <script>
+        function returntText() {
+            const a = "aku";
+            const b = " kamu";
+            const c = a + b;
+            return "loh kok ngga muncul";
+        }
+
+        document.getElementById("returnJS").innerHTML = returntText();
+    </script>
+
+    // Scope adalah sebuah ruang lingkup
+    <p class="subMateri">Scope pada JavaScript</p>
+    <div id="scopeJS" />
+    <script>
+        // global
+        var text = "Global scope bisa diakses dimana saja dan siapa saja";
+
+        function varFunction() {
+            // local
+            // var text2 = "hanya bisa diakses di dalam function";
+
+            // global
+            text3 = "meskipun didalam function tetapi bisa diakses oleh siapa saja dengan cara jangan mendeklarasikan variable";
+        }
+
+        varFunction();
+
+        document.getElementById("scopeJS").innerHTML = text3;
+    </script>
+
+
+    
+    <p class="subMateri">Mengenal array</p>
+    <div id="arrayJS" />
+    <script>
+    // Array adalah tipe data yang mengandung lebih dari satu nilai
+    // Array dimulai dari angka 0
+
+        var kotak = ["hilman", "ismail", "dua"]
+    
+    // cara mengganti nilai array
+        
+        kotak[1] = "nura"
+
+        document.getElementById("arrayJS").innerHTML = kotak[1];
+    </script> 
+
+
+    <p class="subMateri">Metode array</p>
+    <div id="metodeArrayJS" />
+    <script>
+        var namaOrang = ["hilman", "ismail", "baky"];
+        var skill = ["php", "javascript"];
+        var age = [2, 3, 4, 4]
+
+        // metode sort digunakan untuk mengurutkan array sesuai abjad
+        // document.getElementById("metodeArrayJS").innerHTML = namaOrang.sort();
+
+        // metode reverse digunakan untuk membalikan urutan dari belakang
+        // document.getElementById("metodeArrayJS").innerHTML = namaOrang.reverse();
+
+        // metode concat untuk menggabungkan nilai array
+        // document.getElementById("metodeArrayJS").innerHTML = namaOrang.concat(skill, age);
+
+        // metode length untuk mengetahui banyak array
+        document.getElementById("metodeArrayJS").innerHTML = namaOrang.concat(skill, age).length;
+
+        // metode joint untuk memsiahkan antara nilai array
+        document.getElementById("metodeArrayJS").innerHTML = namaOrang.concat(skill, age). join(" | ");
+
+    </script> 
 </body>
 </html>
