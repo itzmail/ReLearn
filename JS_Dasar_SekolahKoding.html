@@ -197,5 +197,79 @@
         document.getElementById("metodeArrayJS").innerHTML = namaOrang.concat(skill, age). join(" | ");
 
     </script> 
+
+    <p class="subMateri">Metode Array bag 2</p>
+    <div id="metodeArrayJS2" />
+    <script>
+        var namaOrang = ["hilman", "ismail", "baky"];
+        var skill = ["php", "javascript"];
+        var age = [2, 3, 4, 4];
+        /** 
+         * * SPLICE
+         * ? splice -> add(mulai, dihapus? isi), splice bisa juga digunakan untuk remove
+        **/
+        
+        // namaOrang.splice(2, 0, "emmy", "abdullah")
+        
+        /** 
+         * ! artinya ditambahkan pada barisan ke-2 dengan isinya nama orang tersebut dan 0 artinya tidak ada yang dihapus
+        **/
+
+        /**  
+         * * POP
+         * ? digunakan untuk menghapus anggota array TERAKHIR
+        **/ 
+
+        // namaOrang.pop()
+
+        /**  
+         * * PUSH
+         * ? digunakan untuk menambah anggota array TERAKHIR
+        **/ 
+
+        // namaOrang.push("Joko")
+
+        /**  
+         * * SHIFT
+         * ? digunakan untuk menghapus AWAL anggota array
+        **/ 
+
+        // namaOrang.shift()
+
+        /**  
+         * * UNSHIFT
+         * ? digunakan untuk menambah AWAL anggota array
+        **/ 
+
+        // namaOrang.unshift("Joko")
+
+        document.getElementById("metodeArrayJS2").innerHTML = namaOrang.join(" | ");
+    </script>
+
+    <p class="subMateri">Tipe data Boolean</p>
+    <div id="booleanJS" />
+    <script>
+        var uang = 2500;
+        var barang = 10000;
+
+        // if ( uang == barang ) {
+        //     document.write("Transaksi Berhasil")
+        // } else if (uang < barang) {
+        //     document.getElementById("booleanJS").innerHTML = "Uang anda kurang";
+        // } else if (uang > barang) {
+        //     document.getElementById("booleanJS").innerHTML = "Ini ada uang kembalian";
+        // } else {
+        //     document.write("Transaksi gagal")
+        // }
+
+        /** 
+         * * Operation Ternary
+        **/
+        {uang == barang ? 
+            (document.getElementById("booleanJS").innerHTML = "Transakasi berhasil") : 
+            uang > barang ? (document.getElementById("booleanJS").innerHTML = "Uang anda kurang") : 
+            uang < barang ? (document.getElementById("booleanJS").innerHTML = "ada uang kembaliannya") : ("Transaksi anda gagal")
+        }
+    </script>
 </body>
 </html>
