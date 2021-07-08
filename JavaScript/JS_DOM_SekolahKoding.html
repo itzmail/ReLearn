@@ -17,7 +17,7 @@
             
         </style>
     </head>
-    <body>
+    <body onload="function selesai() {alert('selesai')">
         <p class="SubMateri">Memilih elemen HTML</p>
         <div id="box"></div>
 
@@ -77,7 +77,7 @@
 
         <p class="SubMateri">men-Style menggunakan JavaScript</p>
         
-        <img src="./assets/astronout.png" width="300px"  id="gambar" class="border" />
+        <img onclick="berubah()" src="./assets/astronout.png" width="300px"  id="gambar" class="border" />
             </br>
         <input type="text" value="nama" id="input" />
         
@@ -97,6 +97,29 @@
             input.style.border = '3px solid blue';
             input.style.backgroundColor = 'yellow';
 
+            /** 
+             * * EVENT 
+            **/
+
+            // metode 1
+            function berubah() {
+                img.style.backgroundColor = 'yellow';
+            }
+
+            // metode 2
+            input.onclick = function change() {
+                input.style.backgroundColor = "blue";
+            }
+
+            // menambahkan event => addEventListener('nama event', perintahnya)
+            input.addEventListener("mouseenter", 
+            function perubahan() {
+                input.style.backgroundColor = 'pink';
+            })
+
+            input.addEventListener("mouseleave",
+             input.style.backgroundColor = "brown"
+            )
         </script>
     </body>
 </html>
