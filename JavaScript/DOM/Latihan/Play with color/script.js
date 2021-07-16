@@ -23,3 +23,45 @@ tRandomColor.addEventListener('click', function() {
     const b = Math.round(Math.random() * 255 + 1);
     body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
 })
+
+//Mengatur kadar warna menggunakan input type range
+const sMerah = document.querySelector('input[name=sMerah]');
+
+sMerah.addEventListener('input', function() {
+    const merah = sMerah.value;
+    const hijau = sHijau.value;
+    const biru = sBiru.value;
+
+    body.style.backgroundColor = `rgb(${merah}, ${hijau}, ${biru})`
+})
+
+const sHijau = document.querySelector('input[name=sHijau]');
+
+sHijau.addEventListener('input', function() {
+    const merah = sMerah.value;
+    const hijau = sHijau.value;
+    const biru = sBiru.value;
+
+    body.style.backgroundColor = `rgb(${merah}, ${hijau}, ${biru})`
+})
+
+const sBiru = document.querySelector('input[name=sBiru]');
+
+sBiru.addEventListener('input', function() {
+    const merah = sMerah.value;
+    const hijau = sHijau.value;
+    const biru = sBiru.value;
+
+    body.style.backgroundColor = `rgb(${merah}, ${hijau}, ${biru})`
+})
+
+//Dynamic mouse pointer change color
+document.body.addEventListener('mousemove', function(event) {
+    /* Posisi mouse */
+    // console.log(event.clientX);
+    /* Ukuran Browser */
+    // console.log(window.innerWidth)
+    const xPos = Math.round((event.clientX / window.innerWidth) * 255);
+    const yPos = Math.round((event.clientY / window.innerHeight) * 255);
+    body.style.backgroundColor = 'rgb('+xPos+','+yPos+', 100)'
+})
