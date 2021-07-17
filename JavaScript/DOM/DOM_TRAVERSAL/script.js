@@ -32,5 +32,11 @@ closes.forEach(function (el) {
 
 /**
  * ? diatas merupakan intro saja
- * * berikut adalah DOM Traversal Method
+ * TODO berikut adalah DOM Traversal Method
+ * * parentNode -> node
+ * * parentElement -> element
+ * * nextSibling -> node
+ * * nextElementSibling -> element
+ * * previousSibling -> node
+ * * previousElementSibling
  */
