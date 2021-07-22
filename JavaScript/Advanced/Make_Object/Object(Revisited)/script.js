@@ -17,30 +17,49 @@ let energiMurid = 'dasar lemah';
 //   murid.nama = nama;
 //   murid.energi = energi;
 
-// kekurangannya ada di bawah ini karena ketika fungsi ini di panggil maka fungsi yang ke bawah juga ikut dipanggil padahal parameternya cuman ada dua
+// kekurangannya ada di bawah ini karena ketika fungsi ini di panggil maka fungsi yang ke bawah juga ikut diduplikat padahal parameternya cuman ada dua. jadi tidak efektif
 
-//   murid.makan = function (porsi) {
-//     this.energi += porsi;
-//     console.log(`Selamat datang ${this.nama}, Kamu makan ${energi} porsi`);
-//   };
+  // murid.makan = function (porsi) {
+  //   this.energi += porsi;
+  //   console.log(`Selamat datang ${this.nama}, Kamu makan ${energi} porsi`);
+  // };
 //   return murid;
-}
+// }
   /** 
    * * solusinya ialah di bawah ini
   */
-  const 
+ 
+  const methodMurid = {
+    makan: function(porsi) {
+      this.energi += porsi;
+      console.log(`Selamat datang ${this.nama}, Kamu makan ${porsi} porsi`);
+    },
+    main: function(jam) {
+      this.energi -= jam;
+      console.log(`Halo ${this.nama}, Kamu main ${jam} jam`)
+    },
+    tidur: function(jam) {
+      this.energi += jam;
+      console.log(`Halo ${this.nama}, Kamu sudah tidur ${jam} jam`)
+    }
+  }
 
    function pendidikan(nama, energi) {
-    let murid = {};
+    let murid = Object.create(methodMurid); // perbedaan method ini dengan cara sebelumnya ialah kita bisa memberikan parameter di Object.create() yang mengacu pada element parentnya sehingga dapat membawa property dari object lainnya
     murid.nama = nama;
     murid.energi = energi;
-    // kekurangannya ada di bawah ini karena ketika fungsi ini di panggil maka fungsi yang ke bawah juga ikut dipanggil padahal parameternya cuman ada dua
-    murid.makan = function (porsi) {
-      
-    };
+
     return murid;
-  
-// let dataMurid = pendidikan(namaMurid, energiMurid);
+   }
+let dataIsmail = pendidikan('Ismail', 98);
+let dataDoddy = pendidikan('Doddy', 88);
+
+/**
+ * !CARA INI MASIH TIDAK EFECTIFE
+ * * Karena bila ada object baru di variable method Murid maka kita harus ikut menambahkan method tersebut.
+ * * Ada cara yan lebih efectife lagi yatitu menggunakan object.create()
+ */
+
 
 // 3. constructor function
 /**
