@@ -36,3 +36,12 @@ function pesanMakanan() {
 
 * ! Untuk melihat JS VIsualisasi bisa kunjungi http://www.pythontutor.com/javascript.html#mode=edit
 */
+
+var username = "@ismailify";
+
+function dataUser (a) {
+  var link = "https://instagram.com/";
+  return link + a;
+}
+
+console.log(dataUser(username))
