@@ -70,3 +70,7 @@ const hasilChaining = angka
   .filter((a) => a > 5)
   .map((a) => a * 3)
   .reduce((acc, cur) => acc + cur, 0);
+
+/**
+ * TODO Latihan
+ */
