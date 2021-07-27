@@ -96,3 +96,36 @@ let mhsKkuliah = `<div class="classMHS">
 </div>`;
 
 document.body.innerHTML = mhsKkuliah;
+
+//Tagged Template
+const nama = 'Ismail';
+const umur = 20;
+
+/**
+ * * kita tidak tahu ada berapa banyak expressions di template literal sehingga di parameter kedua menggunakan rust parameter
+ * * rust parameter berguna untuk menampung seluruh expressions (ex: nama dan umur)
+ * ? Kenapa ada lebih dari satu argumen di fungsi coba... karena kalau kita hanya memberikan satu argumen saja maka yang dibaca hanya strings tanpa expresions dan berupa array
+ */
+
+function coba(strings, ...expresions) {
+  let result = '';
+  /*  strings.forEach((str, i) => {
+    result += `${str}${expresions[i] || ''}`; // dikasih 'atau' agar tidak muncul nilai akhir undefined
+  }); ada cara yang lebih ringkas... berikut dibawah ini */
+
+  /* return strings.reduce(
+    (result, str, i) => `${result}${str}${expresions[i] || ''}`,
+    ''
+  ); */
+}
+
+function highlight(strings, ...expresions) {
+  return strings.reduce(
+    (result, str, i) =>
+      `${result}${str}<span class="hl">${expresions[i] || ''}</span>`,
+    ''
+  );
+}
+
+const str = highlight`Halo, nama saya ${nama}, saya ${umur} tahun`;
+document.body.innerHTML = str;
