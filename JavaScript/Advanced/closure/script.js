@@ -17,6 +17,7 @@ panggilNama('alam');
 */
 
 // function factory
+// kita buat function yang dimana terdapat function again di dalam function sebenarnya
 function ucapkanSalam(waktu) {
   return function (nama) {
     return `Halo ${nama}, Selamat ${waktu}, semoga harimu menyenangkan`;
@@ -28,9 +29,10 @@ let selamatPagi = ucapkanSalam('Pagi');
 let selamatSiang = ucapkanSalam('Siang');
 let selamatMalam = ucapkanSalam('Malam');
 
-console.log(selamatMalam('Ismail'));
+/* console.log(selamatMalam('Ismail')); */
 
 // private methode atau private variable
+// Kita buat variable dimana isinya function
 
 // const add = () => {
 //   let counter = 0;
