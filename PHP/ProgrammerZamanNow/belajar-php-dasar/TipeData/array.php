@@ -51,3 +51,6 @@ angka index 0, 1, dst bisa diubah menjadi seperti diatas
 */
 
 var_dump($bagas["id"]);
+
+$names[] = "adalah";
+var_dump($names);
