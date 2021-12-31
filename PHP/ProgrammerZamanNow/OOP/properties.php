@@ -31,3 +31,42 @@ $person2->addres = "Ilalang";
 $person2->country = "Amerina";
 
 var_dump($person2);
+
+/*Properties Type Declaration
+* Untuk menambahkan type declaration, kita bisa tambahkan setelah kata kunci var di properties*/
+
+class Data {
+  var int $age;
+  var string $name;
+}
+
+$data = new Data();
+$data->age = 13;
+$data->name = "Jawadi";
+var_dump($data);
+
+/*Default Properties Value
+* Sama seperti variable, di properties juga kita bisa langsung mengisi valuenya
+* Ini mirip seperti default value, jadi jika tidak diubah di object, maka properties akan memiliki value tersbut*/
+
+class Bioma {
+  var string $live = "Coral";
+  var string $thing = "Bekicot";
+}
+
+$bioma = new Bioma();
+$bioma->live = 'Seeweed';
+var_dump($bioma);
+
+/*Nullable Properties
+* Saat menambahkan type declaration di properties atau di function argument, maka secara otomatis kita tidak bisa mengirim data null ke dalam properties atau function argument tersebut
+* PHP 7.4 dikenalkan nullable type, jadi kita bisa mengirim data null ke properties atau function arguments
+* Caranya sebelum type declaration nya, kita bisa tambahkan tanda ?*/
+
+class Nullable {
+  // var int $total = null; kalau seperti ini artinya tidak boleh null, akan muncul syntax error
+  var ?string $name = null; // value dari properties boleh null
+}
+
+$nullable = new Nullable();
+var_dump($nullable);
