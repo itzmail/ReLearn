@@ -5,12 +5,17 @@
 * Membuat field sama seperti membuat variable, namun ditempatkan di block class, namun diawali dengan kata kunci var*/
 
 class Person {
-  var $name;
+  const AUTHOR = "itzmail";
+  var $name = "Paijo";
   var $addres;
   var $country;
 
   function sayHello(?string $name){
-    echo "Hello $name";
+    if(is_null($name)){
+      echo "Hi, my name is {$this->name}" . PHP_EOL; // akan mengakses variable name yang ada di properties var $name
+    } else {
+      echo "Hello $name, my name is $this->name" . PHP_EOL;
+    }
   }
 }
 
