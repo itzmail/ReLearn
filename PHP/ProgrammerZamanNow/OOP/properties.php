@@ -8,6 +8,10 @@ class Person {
   var $name;
   var $addres;
   var $country;
+
+  function sayHello(?string $name){
+    echo "Hello $name";
+  }
 }
 
 /*Manipulasi Properties
