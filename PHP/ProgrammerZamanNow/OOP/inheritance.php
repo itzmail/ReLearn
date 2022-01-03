@@ -11,7 +11,7 @@
  class Manager {
      var string $name;
 
-     function greetings(?string $name) : void
+     function greetings(?string $name) : void // untuk memberitahu kepada komputer bahwa function ini tidak mengembalikan nilai
      {  
         echo "Hi $name, my name is $this->name" . PHP_EOL;
 
