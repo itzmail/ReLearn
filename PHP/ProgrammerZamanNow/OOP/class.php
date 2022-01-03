@@ -16,4 +16,9 @@ class Person {
   function info(){
     echo "AUTHOR : " . self::AUTHOR . PHP_EOL; // keyword self untuk mengakses constanta di dalam class yang sama
   }
+
+  function __construct() { // yang akan dieksekusi pertama, jika kita memberikan paramteter pada function ini, ketika kita eksekusi harus diberikan parameter juga
+    $this->name = $name;
+    $this->addres = $addres;
+  }
 }
