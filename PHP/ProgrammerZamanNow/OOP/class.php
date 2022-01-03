@@ -12,4 +12,8 @@ class Person {
       echo "Hello $name, my name is $this->name" . PHP_EOL;
     }
   }
+
+  function info(){
+    echo "AUTHOR : " . self::AUTHOR . PHP_EOL; // keyword self untuk mengakses constanta di dalam class yang sama
+  }
 }
