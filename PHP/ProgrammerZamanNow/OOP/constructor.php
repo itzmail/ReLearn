@@ -6,7 +6,6 @@
  * Nama constructor di di PHP haruslah __construct() 
  */
 
-<?php
 class Person {
   const AUTHOR = "itzmail";
   var $name = "Paijo";
