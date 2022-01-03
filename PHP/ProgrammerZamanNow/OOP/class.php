@@ -18,7 +18,10 @@ class Person {
   }
 
   function __construct() { // yang akan dieksekusi pertama, jika kita memberikan paramteter pada function ini, ketika kita eksekusi harus diberikan parameter juga
-    $this->name = $name;
-    $this->addres = $addres;
+    echo "Function Construtor runned" . PHP_EOL;
+  }
+
+  function __destruct() {
+    echo "Object person $this->name is destroyed" . PHP_EOL;
   }
 }

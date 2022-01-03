@@ -17,8 +17,9 @@ class Person {
     $this->addres = $addres;
   } */
 
-  function __construct() { // yang akan dieksekusi pertama, jika kita memberikan paramteter pada function ini, ketika kita eksekusi harus diberikan parameter juga
-    echo "Hallo Dunia" . PHP_EOL;
+  function __construct(string $name, ?string $addres) { // yang akan dieksekusi pertama, jika kita memberikan paramteter pada function ini, ketika kita eksekusi harus diberikan parameter juga
+    $this->name = $name;
+    $this->addres = $addres;
   }
 
 }
