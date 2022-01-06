@@ -4,6 +4,12 @@ namespace Eksekutif {
     var string $materi = "Namespace";
     var $hobby = ["Baca", "Coding", "Game"];
   }
+  class Sample{
+
+  }
+  class Dummy {
+
+  }
 }
 
 namespace Data {
