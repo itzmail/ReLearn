@@ -5,6 +5,7 @@
 * Anonymous function membuat kita bisa mengirim function sebagai argument di function lainnya
 * */
 
+// Anonymous function sebagai value dari variable
 $sayHello = function (string $name) {
   echo "Hello $name" . PHP_EOL;
 };
