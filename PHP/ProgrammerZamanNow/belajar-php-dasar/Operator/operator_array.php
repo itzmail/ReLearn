@@ -33,8 +33,8 @@ var_dump($a === $b); // Output bool(false)
 
 // Inequality
 // true jika $a dan $b tidak sama
-var_dump($a != $b);
+var_dump($a != $b); // Output bool(false)
 
 // Nonidentity
 // true jika $a dan $b tidak identik
-var_dump($a !== $b);
+var_dump($a !== $b); // Output bool(true)

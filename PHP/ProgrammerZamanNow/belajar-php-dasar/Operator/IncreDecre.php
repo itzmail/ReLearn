@@ -1,9 +1,10 @@
 <?php
 $a = 10;
-$a++; // kembalikan $a lalu naikan 1 angka
-++$a; // Naikan $a satu angka, lalu kembalikan $a
+// $a++ kembalikan $a lalu naikan 1 angka
+// ++$a Naikan $a satu angka, lalu kembalikan $a
 
 // JADI
+++$a;
 $b = $a++; // outputnya jadi 12 bukan 13
 
 var_dump($a);

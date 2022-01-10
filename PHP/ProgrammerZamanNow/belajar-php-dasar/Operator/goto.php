@@ -10,7 +10,7 @@ Agar goto bisa loncat maka perlu dibuat label
 echo "Pergi menuju lokasi blok A" . PHP_EOL;
 goto a;
 
-echo "Lokasi blok B \n";
+echo "Lokasi blok B \n"; // Programm ini ngga dijalankan atau dilewati
 
 a:
 echo "Anda sudah sampai di lokasi blok A" . PHP_EOL;
