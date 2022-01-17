@@ -4,21 +4,21 @@ class Category{
  private string $name;
  private bool $expensive;
 
-  function getName() : string {
+  public function getName() : string {
     return $this->name;
   }
 
-  function setName(?string $input) : void {
-    if(trim($name) != ""){
+  public function setName(?string $input) : void {
+    if(trim($name) !== ""){ // membuat validasi
      $this->name = $input;
     }
   }
 
-  function isExpensive() : bool {
+  public function isExpensive() : bool {
     return $this->expensive;
   }
 
-  function setExpensive(bool $input) : void {
+  public function setExpensive(bool $input) : void {
     $this->expensive = $input;
   }
 }
@@ -29,3 +29,5 @@ $cg->setExpensive(true);
 
 echo "Nama barang : {$cg->getName()}" . PHP_EOL;
 echo "Apakah produk tersebut mahal {$cg->isExpensive()}" . PHP_EOL;
+
+// Masih muncul error
