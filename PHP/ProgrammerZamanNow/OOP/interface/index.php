@@ -25,6 +25,3 @@ class Avanza implements Car {
     return 4;
   }
 }
-
-$av = new Avanza();
-$av->drive();
