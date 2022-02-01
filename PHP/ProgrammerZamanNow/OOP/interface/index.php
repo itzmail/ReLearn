@@ -30,6 +30,7 @@ class Avanza implements Car, IsMaintenance {
     return "Toyota";
   }
 
+  // Yang ini juga harus dicantumkan karena kita mencantumkan implements IsMaintenance
   function isMaintenance(): bool {
     return false
   }
