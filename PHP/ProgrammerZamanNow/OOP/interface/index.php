@@ -16,7 +16,7 @@ interface Car {
   function getTire(): int;
 }
 
-class Avanza implements Car {
+class Avanza implements Car, IsMaintenance {
   function drive(): void {
     echo "Drive Avanza" . PHP_EOL;
   }
@@ -24,4 +24,34 @@ class Avanza implements Car {
   function getTire(): int {
     return 4;
   }
+
+  // function ini harus dicantumkan karenan implement car merupakan extends dari interface HasBrand
+  function getBrand(): string {
+    return "Toyota";
+  }
+
+  function isMaintenance(): bool {
+    return false
+  }
+}
+
+
+/*
+* INTERFACE INHERITANCE
+* Sebelumnya kit asudah tahu kalo di PHP, child class hanya bisa punya 1 class parent
+* Namun berbeda dengan interface, sebuah child class bisa implement lebih dari 1 interface
+* Bahkan interface pun bisa implement interface lain, bisa lebih dari 1, Namun jika interface ingin mewarisi interface lain, kita menggunakan kata kunci extends, buka implements*/
+
+interface HasBrand {
+  function getBrand(): string;
+}
+
+interface IsMaintenance {
+  function isMaintenance(): bool;
+}
+
+interface Car extends HasBrand { // ini akan error karena class Avanza implements Car sehingga function getBrand() harus dijalankan
+  function drive(): void;
+
+  function getTire(): int;
 }
