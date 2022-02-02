@@ -35,11 +35,6 @@ trait SayHello
   }
 }
 
-class Person {
-  use SayGoodBye, SayHello, HasName;
-}
-
-// Menambahkan properties menggunakan Traits
-trait HasName {
-  public string $name;
+class People {
+  use SayGoodBye, SayHello;
 }

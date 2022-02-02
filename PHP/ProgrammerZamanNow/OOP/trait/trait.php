@@ -2,11 +2,14 @@
 
 require_once './index.php';
 
-use Data\Traits\{Person, SayHello, SayGoodBye};
+use Data\Traits\{People, SayHello, SayGoodBye};
 
-$person = new Person();
+$person = new People();
 $person->goodBye('Ismail');
 $person->hello('Ismail');
 
 $person->name = "Ismail";
-var_dump($person);
+// var_dump($person);
+
+// Trait Overriding
+// $person->run();
