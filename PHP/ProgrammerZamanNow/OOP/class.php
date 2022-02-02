@@ -1,9 +1,9 @@
 <?php
 class Person {
   const AUTHOR = "itzmail";
-  var $name = "Paijo";
-  var $addres;
-  var $country;
+  var string $name = "Paijo";
+  var ?string $addres;
+  var string $country;
 
   function sayHello(?string $name){
     if(is_null($name)){
@@ -21,7 +21,15 @@ class Person {
     echo "Function Construtor runned" . PHP_EOL;
   }
 
-  function __destruct() {
+  function __destruct() { // akan berjalan setelah semua codingan berjalan
     echo "Object person $this->name is destroyed" . PHP_EOL;
   }
 }
+
+$person = new Person();
+$person->info();
+
+$person->sayHello("Ismail");
+
+// mengakses constant 
+echo "Author dari class : ". Person::AUTHOR . PHP_EOL;
