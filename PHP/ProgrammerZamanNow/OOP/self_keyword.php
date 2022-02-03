@@ -4,7 +4,7 @@
  * Namun jika di dalam class yang sama, kita bisa menggunakan kata kunci self untuk mempermudah;
  */
 
-require './class.php';
+require './class/class.php';
 
 $person = new Person();
 
