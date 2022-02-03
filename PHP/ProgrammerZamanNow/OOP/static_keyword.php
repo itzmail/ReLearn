@@ -8,6 +8,17 @@
 class MathHelper
 {
   static public string $name = "MathHelper";
+
+  static public function sum(int... $numbers): int
+  {
+    $total = 0;
+    foreach($numbers as $number) {
+      $total += $number;
+    }
+    return $total;
+  }
 }
 
 echo MathHelper::$name . PHP_EOL;
+// $static_function = MathHelper::sum(21, 22, 23, 24, 25);
+echo "result : ". MathHelper::sum(21,22,32,234) . PHP_EOL;
