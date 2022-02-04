@@ -5,7 +5,9 @@
 * Misal saja kita hanya ingin menyalin beberapa properties saja
 * Jika kita ingin memodifikasi cara PHP melakukan clone, kita bisa membuat function di dalam class nya dengan nama function __clone()
 * Function __clone() akan dipanggil di object hasil duplikasi setelah duplikasi selesai
-* Jadi jika kita ingin menghapus beberapa properties, bisa kita lakukan di function __clone()*/
+* Jadi jika kita ingin menghapus beberapa properties, bisa kita lakukan di function __clone()
+* 
+* FUnction ini akan berjalan ketika semua sudah di clone*/
 
 // $tuden1 => clone $tuden2 => $tudent2->__clone()
 
