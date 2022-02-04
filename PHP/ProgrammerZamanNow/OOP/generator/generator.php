@@ -2,7 +2,8 @@
 /*
 * Sebelumnhya kita tahu bahwa untuk membuat object yang bisa di iterasi, kita menggunakan ITerator
 * Namun pembuatan Iterator secara manual sangatlah ribet
-* Untungnya di PHP, terdapat fitur generator, yang bisa kita gunakan untuk membuat Iteraotr secara otomatis hanya dengan menggunakan kata kunci yield*/
+* Untungnya di PHP, terdapat fitur generator, yang bisa kita gunakan untuk membuat Iteraotr secara otomatis hanya dengan menggunakan kata kunci yield
+* Inti dari generator adalah untuk menggenerate iterator secara otomatis*/
 
 function getGanjil(int $max): Iterator {
   for($i = 0; $i<=$max; $i++) {
@@ -24,7 +25,7 @@ class Data implements IteratorAggregate {
 
   public function getIterator() 
   {
-     yield "first" => $this->first;
+     yield "first" => $this->first; // dengan menggunakan yield kita tidak perlu membuat array lagi
      yield "second" => $this->second;
      yield "third" => $this->third;
      yield "forth" => $this->forth;
