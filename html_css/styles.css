@@ -127,6 +127,7 @@ form input{
     font-size: 24px;
     border: 4px solid white;
     border-radius: 28px;
+    text-align: center;
 }
 
 footer{
@@ -134,4 +135,47 @@ footer{
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+/* Pseudo Class */
+nav li:hover{
+    text-decoration: underline;
+}
+
+.images li:hover{
+    position: relative;
+    top: -8px;
+}
+
+form input:focus{
+    border: 4px dashed #4B4B4B;
+    outline: none;
+}
+
+form input:valid{
+    border: 4px solid #71D300
+}
+
+/* Pseudo elements */
+
+article p::first-line{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+section.join p::first-letter{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+p::selection{
+    background: #F63232;
+    color: white;
+}
+
+/* Add elements with pseudo elements*/
+article p::after{
+    content: " ...";
+    font-size: 20px;
+    font-weight: 800;
 }
