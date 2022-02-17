@@ -6,7 +6,7 @@
  * Jika kita ingin membuat exception, maka kita harus membuat class yang implement interface Throwable atau turunan-turunannya
  */
 
- class ValidationException extends Exception {
+ class ValidationException extends Exception { // extends dari class Exception => ini merupakan fitur bawaan dari PHP
 
  }
 
@@ -36,8 +36,8 @@ function validateLoginRequest(LoginRequest $request)
     }
 }
 
-$loginRequest = new LoginRequest();
-$loginRequest->username = "eko";
+// $loginRequest = new LoginRequest();
+// $loginRequest->username = "eko";
 // $loginRequest->password = "";
 
-validateLoginRequest($loginRequest);
+// validateLoginRequest($loginRequest);
