@@ -6,6 +6,7 @@
  * Jika kita ingin membuat exception, maka kita harus membuat class yang implement interface Throwable atau turunan-turunannya
  */
 
+ // membuat class khusus untuk heritance dari exception
  class ValidationException extends Exception { // extends dari class Exception => ini merupakan fitur bawaan dari PHP
 
  }
