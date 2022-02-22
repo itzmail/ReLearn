@@ -13,6 +13,7 @@ import NotFound from './components/404';
 import Admin from './components/admin';
 import Profile from './components/profile';
 import { AuthProvider } from './components/auth';
+import { Login } from './components/login';
 
 const LazyAbout = React.lazy(() => import("./components/about"));
 
@@ -39,6 +40,7 @@ function App() {
             <Route path='admin' element={<Admin />} />
           </Route>
           <Route path="profile" element={<Profile />} />
+          <Route path="login" element={<Login />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </AuthProvider>
