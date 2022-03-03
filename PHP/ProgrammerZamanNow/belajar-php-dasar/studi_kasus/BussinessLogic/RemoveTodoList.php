@@ -11,7 +11,7 @@
  * Yang mau dihapus dua. Jadi nanti key 3 digeser ke dua dan nanti kita unset data terakhir
  */
 
-function removeTodoList(?int $number) : bool
+function removeTodoList(int $number) : bool
 {
     global $todolist;
     
@@ -27,5 +27,3 @@ function removeTodoList(?int $number) : bool
     
     return true;
 }
-
-removeTodoList(null);
