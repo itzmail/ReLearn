@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4ee99c6b-2c5c-4484-855f-96b52fb34398" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Basic/HelloWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Basic/HelloWorld.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataBool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataBool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataChar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataChar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataNumber.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TipeDataArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TipeDataArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TipeDataBukanPrimitif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TipeDataBukanPrimitif.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TipeDataString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TipeDataString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Variable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/callback_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/callback_function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/return_fix_typedata.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/return_fix_typedata.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/string_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/string_function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React/react-bootstrap/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../React/react-bootstrap/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../React/react-bootstrap/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../React/react-bootstrap/src/App.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="25v6fzkjj06sq9AxfO5qvdRKjKz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="Application.TipeDataArray">
+    <configuration name="TipeDataArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TipeDataArray" />
+      <module name="Java_Basic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TipeDataBool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TipeDataBool" />
+      <module name="Java_Basic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TipeDataChar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TipeDataChar" />
+      <module name="Java_Basic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TipeDataArray" />
+        <item itemvalue="Application.TipeDataChar" />
+        <item itemvalue="Application.TipeDataBool" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4ee99c6b-2c5c-4484-855f-96b52fb34398" name="Changes" comment="" />
+      <created>1646395326729</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646395326729</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
