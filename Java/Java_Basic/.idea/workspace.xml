@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ee99c6b-2c5c-4484-855f-96b52fb34398" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/OperatorPerbandingan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OperasiBoolean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/callback_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/callback_function.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/return_fix_typedata.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/return_fix_typedata.php" afterDir="false" />
@@ -39,7 +39,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.OperatorPerbandingan">
+  <component name="RunManager" selected="Application.OperasiBoolean">
+    <configuration name="OperasiBoolean" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OperasiBoolean" />
+      <module name="Java_Basic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="OperasiMatematika" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="OperasiMatematika" />
       <module name="Java_Basic" />
@@ -61,13 +68,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TipeDataBool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TipeDataBool" />
-      <module name="Java_Basic" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TipeDataChar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TipeDataChar" />
       <module name="Java_Basic" />
@@ -77,11 +77,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.OperasiBoolean" />
         <item itemvalue="Application.OperatorPerbandingan" />
         <item itemvalue="Application.OperasiMatematika" />
         <item itemvalue="Application.TipeDataArray" />
         <item itemvalue="Application.TipeDataChar" />
-        <item itemvalue="Application.TipeDataBool" />
       </list>
     </recent_temporary>
   </component>
