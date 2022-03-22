@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ee99c6b-2c5c-4484-855f-96b52fb34398" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java_Basic/HelloWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Basic/HelloWorld.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataBool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataBool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataChar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataChar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Basic/TipeDataNumber.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TipeDataArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TipeDataArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TipeDataBukanPrimitif.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TipeDataBukanPrimitif.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TipeDataString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TipeDataString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Variable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Variable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OperasiMatematika.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/callback_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/callback_function.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/return_fix_typedata.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/return_fix_typedata.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/string_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/string_function.php" afterDir="false" />
@@ -47,7 +39,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.TipeDataArray">
+  <component name="RunManager" selected="Application.OperasiMatematika">
+    <configuration name="OperasiMatematika" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OperasiMatematika" />
+      <module name="Java_Basic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TipeDataArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TipeDataArray" />
       <module name="Java_Basic" />
@@ -71,6 +70,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.OperasiMatematika" />
         <item itemvalue="Application.TipeDataArray" />
         <item itemvalue="Application.TipeDataChar" />
         <item itemvalue="Application.TipeDataBool" />
