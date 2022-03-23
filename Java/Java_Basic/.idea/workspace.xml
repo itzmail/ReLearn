@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ee99c6b-2c5c-4484-855f-96b52fb34398" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/TernaryOperator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DoWhileLoop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ForLoop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WhileLoop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/callback_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/callback_function.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/return_fix_typedata.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/return_fix_typedata.php" afterDir="false" />
@@ -39,23 +41,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.TernaryOperator">
-    <configuration name="ExpressionStatementBlock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ExpressionStatementBlock" />
+  <component name="RunManager" selected="Application.DoWhileLoop">
+    <configuration name="DoWhileLoop" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DoWhileLoop" />
       <module name="Java_Basic" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IfStatement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="IfStatement" />
-      <module name="Java_Basic" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="OperasiBoolean" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OperasiBoolean" />
+    <configuration name="ForLoop" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ForLoop" />
       <module name="Java_Basic" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -75,13 +70,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WhileLoop" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="WhileLoop" />
+      <module name="Java_Basic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DoWhileLoop" />
+        <item itemvalue="Application.WhileLoop" />
+        <item itemvalue="Application.ForLoop" />
         <item itemvalue="Application.TernaryOperator" />
         <item itemvalue="Application.SwitchStatement" />
-        <item itemvalue="Application.IfStatement" />
-        <item itemvalue="Application.ExpressionStatementBlock" />
-        <item itemvalue="Application.OperasiBoolean" />
       </list>
     </recent_temporary>
   </component>
