@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ee99c6b-2c5c-4484-855f-96b52fb34398" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ExpressionStatementBlock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IfStatement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SwitchStatement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Java_Basic/OperasiBoolean.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Basic/OperasiBoolean.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Java_Basic/ExpressionStatementBlock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Java_Basic/ExpressionStatementBlock.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/callback_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/callback_function.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/return_fix_typedata.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/return_fix_typedata.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/string_function.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../PHP/ProgrammerZamanNow/belajar-php-dasar/function/string_function.php" afterDir="false" />
@@ -40,9 +41,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.ExpressionStatementBlock">
+  <component name="RunManager" selected="Application.SwitchStatement">
     <configuration name="ExpressionStatementBlock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ExpressionStatementBlock" />
+      <module name="Java_Basic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="IfStatement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="IfStatement" />
       <module name="Java_Basic" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -55,13 +63,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OperasiMatematika" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OperasiMatematika" />
-      <module name="Java_Basic" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="OperatorPerbandingan" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="OperatorPerbandingan" />
       <module name="Java_Basic" />
@@ -69,8 +70,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TipeDataArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TipeDataArray" />
+    <configuration name="SwitchStatement" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="SwitchStatement" />
       <module name="Java_Basic" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -78,11 +79,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SwitchStatement" />
+        <item itemvalue="Application.IfStatement" />
         <item itemvalue="Application.ExpressionStatementBlock" />
         <item itemvalue="Application.OperasiBoolean" />
         <item itemvalue="Application.OperatorPerbandingan" />
-        <item itemvalue="Application.OperasiMatematika" />
-        <item itemvalue="Application.TipeDataArray" />
       </list>
     </recent_temporary>
   </component>
