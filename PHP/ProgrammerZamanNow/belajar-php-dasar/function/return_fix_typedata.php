@@ -9,7 +9,7 @@ var_dump(sum(2,3));
 function getFinalValue(int $value) : string
 {
     if($value >= 80) {
-        return "A";:
+        return "A";
     } else if($value >=70) {
         return 'B';
     } else if($value >=60) {

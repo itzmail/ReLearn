@@ -22,7 +22,7 @@ function App() {
             </Button>
 
             <div className="text mt-3">
-              <a href="#" className="forgot-password">Forgot Password</a>
+              <a href="index.js" className="forgot-password">Forgot Password</a>
             </div>
 
           </Form>

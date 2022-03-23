@@ -9,6 +9,7 @@
 
 function sayHello(string $name, callable $filter) {
   $finalName = call_user_func($filter, $name); // bentuk lain dari $filter(arguments)
+  // $finalName = $filter($name); // bentuk singkatnya dari yang ada di atas
   echo "Hello $finalName" . PHP_EOL;
 }
 
