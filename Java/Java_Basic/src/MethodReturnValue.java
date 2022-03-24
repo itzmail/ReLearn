@@ -8,12 +8,25 @@ public class MethodReturnValue {
         var a = 100;
         var b = 200;
         var c = sum(a, b);
-
         System.out.println(c);
+
+        var d = moreSum(a, "+", b);
+        System.out.println(d);
     }
 
     static int sum(int value1, int value2) {
         var total = value1 + value2;
         return total;
+    }
+
+    static int moreSum(int value1, String operation, int value2){
+        switch(operation){
+            case "+":
+                return value1 + value2;
+            case "-":
+                return value1 - value2;
+            default:
+                return 0;
+        }
     }
 }
