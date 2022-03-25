@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ee99c6b-2c5c-4484-855f-96b52fb34398" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MethodOverloading.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MethodVariableArgument.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MethodRecursive.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,14 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="Application.MethodOverloading">
-    <configuration name="Method" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Method" />
-      <module name="Java_Basic" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.MethodRecursive">
     <configuration name="MethodOverloading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MethodOverloading" />
       <module name="Java_Basic" />
@@ -52,6 +44,13 @@
     </configuration>
     <configuration name="MethodParameter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MethodParameter" />
+      <module name="Java_Basic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MethodRecursive" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MethodRecursive" />
       <module name="Java_Basic" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -73,11 +72,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MethodRecursive" />
         <item itemvalue="Application.MethodOverloading" />
         <item itemvalue="Application.MethodVariableArgument" />
         <item itemvalue="Application.MethodReturnValue" />
         <item itemvalue="Application.MethodParameter" />
-        <item itemvalue="Application.Method" />
       </list>
     </recent_temporary>
   </component>
