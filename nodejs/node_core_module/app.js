@@ -43,9 +43,9 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const question1 = quesetion => {
+const generalQuestion = question => {
   return new Promise((resolve, reject) => {
-    rl.question("Siapa nama mu : ", (answer) => {
+    rl.question(question, (answer) => {
       resolve(answer);
     });    
   })
@@ -64,7 +64,8 @@ const question2 = quesetion => {
 }
 
 async function main() {
-  const nama = await question1();
+  const nama = await generalQuestion("Masukkan Nama mu : ");
+  const noHp = await generalQuestion("Masukkan No Telepon mu : ");
   const email = await question2();
 
   const contact = {nama, email};
