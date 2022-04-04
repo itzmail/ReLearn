@@ -1,1 +1,13 @@
-[{"nama":"ismail","email":"ismailnuralam@ismail.com","noHp":"0846512354654"},{"nama":"ismail","email":"ismailnuralam@ismail.com","noHp":"0846512354654"},{"nama":"Bayu","email":"asdf@gmail.com","noHp":"085157935571"}]
+[
+  {
+    "nama": "ismail",
+    "email": "ismailnuralam@ismail.com",
+    "noHp": "0846512354654"
+  },
+  {
+    "nama": "ismail",
+    "email": "ismailnuralam@ismail.com",
+    "noHp": "0846512354654"
+  },
+  { "nama": "Bayu", "email": "asdf@gmail.com", "noHp": "085157935571" }
+]
