@@ -8,15 +8,14 @@ const App = () => {
   }, []);
 
   const text =
-    '[R]<img>https://res.cloudinary.com/dvgiis6ey/image/upload/v1649231756/Work/mutif_client_kydaab.jpg</img>\n' +
-    '[L]\n' +
-    "[C]<font size='big'>Jl. Alamat Mutif dimana ya no 8</font>\n" +
-    "[C]<font size='big'>Kabupaten Bandung Lautan Api</font>\n" +
-    '[L]\n' +
-    '[L]\n' +
-    '[C]=========================\n' +
-    '[L]\n' +
-    '[L]\n' +
+    '[C]<img>https://res.cloudinary.com/dvgiis6ey/image/upload/v1649315878/Work/LogoMutifGray_kdkh11.jpg</img>\n' +
+    // '[L]\n' +
+    "[C]<font size='normal'>Jl. Raya Padalarang No.783</font>" +
+    "[L]<font size='normal'>Ciburuy, Kec. Padalarang</font>" +
+    "[C]<font size='normal'>Kabupaten Bandung Barat, Jawa Barat 40553</font>\n" +
+    '================================';
+    // '[L]\n'; 
+    /* +
     '[L]<b>Baju Koko Putih</b>[R]Rp30,0000,00\n' +
     '[L]\n' +
     '[L]<b>Baju Gamis</b>[R]Rp50,000,00\n' +
@@ -28,18 +27,22 @@ const App = () => {
     '[L]\n' +
     '[L]\n' +
     "[C]<barcode type='ean13' height='10'>831254784551</barcode>\n" +
-    "[C]<qrcode size='20'>http://www.developpeur-web.dantsu.com/</qrcode>";
+    "[C]<qrcode size='20'>http://www.developpeur-web.dantsu.com/</qrcode>"; */
+
   async function printSomething() {
     try {
       console.log('Printer Running');
       await ThermalPrinterModule.printBluetooth({
         payload: text,
         macAddress: '66:22:5A:B0:B6:08',
-        printerWidthMM: 40,
+        // printerWidthMM: 56,
+        printerWidthMM: 50,
+        printerNbrCharactersPerLine: 50,
+        autoCut: false
       });
       console.log('Printer Done');
     } catch (e) {
-      console.log(e);
+      console.log(e.message);
     }
   }
 
@@ -61,57 +64,66 @@ const App = () => {
       </View>
       <View style={styles.boxReceipt}>
         <View>
-          <Image source={require('./mutif_client.png')} style={{height: 75}} />
+          <Image source={require('./LogoMutifGray.jpg')} style={{height: 75, width: 125}} />
         </View>
         <View>
-          <Text style={{fontSize: 17}}>Jl. Alamat Mutif dimana ya no 8</Text>
-          <Text style={{fontSize: 17}}>Kabupaten Bandung Lautan Api</Text>
+          <Text style={{fontSize: 18, textAlign: 'center'}}>Jl. Raya Padalarang No.783, Ciburuy, Kec. Padalarang, Kabupaten Bandung Barat, Jawa Barat 40553</Text>
         </View>
-        <Text>================================</Text>
-        <View style={{marginVertical: 20, width: '90%'}}>
+        <View style={{marginVertical: 15}}>
+          <Text style={{fontSize: 25, textAlign: 'center', fontWeight: 'bold'}}>Bukti Pembayaran</Text>
+          <Text style={{fontSize: 19, textAlign: 'center'}}>7 April 2022 13:09 WIB</Text>
+        </View>
+        <Image source={require('./Dash.jpg')} style={{width: '98%',height: 10}} />
+        <View style={{marginVertical: 20, width: '95%'}}>
+          <View style={{marginBottom: 10}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}>
+              <Text style={{fontSize: 18}}>Baju Koko Putih</Text>
+              <Text style={{fontSize: 18}}>x2</Text>
+            </View>
+            <Text style={{fontSize: 19}}>Rp130,000,00</Text>
+          </View>
+          <View>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}>
+              <Text style={{fontSize: 20}}>Baju Gamis</Text>
+              <Text style={{fontSize: 20}}>x1</Text>
+            </View>
+            <Text style={{fontSize: 19}}>Rp130,000,00</Text>
+          </View>
+        </View>
+        <Image source={require('./Dash.jpg')} style={{width: '98%',height: 10, marginBottom: 20}} />
+        <View style={{width: '98%'}}>
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
             }}>
-            <Text style={{fontSize: 20}}>Baju Koko Putih</Text>
-            <Text style={{fontSize: 20}}>Rp30,000,00</Text>
+            <Text style={{fontSize: 23, fontWeight: '800'}}>Total Bayar</Text>
+            <Text style={{fontSize: 23, fontWeight: '800'}}>Rp260,000,00</Text>
           </View>
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
             }}>
-            <Text style={{fontSize: 20}}>Baju Gamis</Text>
-            <Text style={{fontSize: 20}}>Rp50,000,00</Text>
+            <Text style={{fontSize: 18}}>dibayar</Text>
+            <Text style={{fontSize: 18}}>Rp100,000,00</Text>
           </View>
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
             }}>
-            <Text style={{fontSize: 20}}>Quran</Text>
-            <Text style={{fontSize: 20}}>Rp20,000,00</Text>
+            <Text style={{fontSize: 18}}>kembalian</Text>
+            <Text style={{fontSize: 18}}>Rp10,000,00</Text>
           </View>
-        </View>
-        <Text>================================</Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            width: '90%',
-            justifyContent: 'space-between',
-          }}>
-          <Text style={{fontSize: 20}}>dibayar</Text>
-          <Text style={{fontSize: 20}}>Rp100,000,00</Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            width: '90%',
-            justifyContent: 'space-between',
-          }}>
-          <Text style={{fontSize: 20}}>kembalian</Text>
-          <Text style={{fontSize: 20}}>Rp10,000,00</Text>
         </View>
       </View>
       <View style={styles.boxButton}>
