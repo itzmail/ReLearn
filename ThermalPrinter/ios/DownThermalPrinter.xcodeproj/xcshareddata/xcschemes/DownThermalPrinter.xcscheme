@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ThermalPrinter.app"
-               BlueprintName = "ThermalPrinter"
-               ReferencedContainer = "container:ThermalPrinter.xcodeproj">
+               BuildableName = "DownThermalPrinter.app"
+               BlueprintName = "DownThermalPrinter"
+               ReferencedContainer = "container:DownThermalPrinter.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ThermalPrinterTests.xctest"
-               BlueprintName = "ThermalPrinterTests"
-               ReferencedContainer = "container:ThermalPrinter.xcodeproj">
+               BuildableName = "DownThermalPrinterTests.xctest"
+               BlueprintName = "DownThermalPrinterTests"
+               ReferencedContainer = "container:DownThermalPrinter.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ThermalPrinter.app"
-            BlueprintName = "ThermalPrinter"
-            ReferencedContainer = "container:ThermalPrinter.xcodeproj">
+            BuildableName = "DownThermalPrinter.app"
+            BlueprintName = "DownThermalPrinter"
+            ReferencedContainer = "container:DownThermalPrinter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ThermalPrinter.app"
-            BlueprintName = "ThermalPrinter"
-            ReferencedContainer = "container:ThermalPrinter.xcodeproj">
+            BuildableName = "DownThermalPrinter.app"
+            BlueprintName = "DownThermalPrinter"
+            ReferencedContainer = "container:DownThermalPrinter.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

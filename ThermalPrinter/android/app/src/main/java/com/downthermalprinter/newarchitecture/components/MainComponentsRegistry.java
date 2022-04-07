@@ -1,4 +1,4 @@
-package com.thermalprinter.newarchitecture.components;
+package com.downthermalprinter.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

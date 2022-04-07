@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface ThermalPrinterTests : XCTestCase
+@interface DownThermalPrinterTests : XCTestCase
 
 @end
 
-@implementation ThermalPrinterTests
+@implementation DownThermalPrinterTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

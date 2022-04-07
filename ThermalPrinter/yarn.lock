@@ -2484,9 +2484,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.4.84:
-  version "1.4.103"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.103.tgz#abfe376a4d70fa1e1b4b353b95df5d6dfd05da3a"
-  integrity sha512-c/uKWR1Z/W30Wy/sx3dkZoj4BijbXX85QKWu9jJfjho3LBAXNEGAEW3oWiGb+dotA6C6BzCTxL2/aLes7jlUeg==
+  version "1.4.104"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.104.tgz#60973b0a7d398efa877196e8ccb0c93d48b918d8"
+  integrity sha512-2kjoAyiG7uMyGRM9mx25s3HAzmQG2ayuYXxsFmYugHSDcwxREgLtscZvbL1JcW9S/OemeQ3f/SG6JhDwpnCclQ==
 
 emittery@^0.7.1:
   version "0.7.2"
@@ -3006,9 +3006,9 @@ flatted@^3.1.0:
   integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
 
 flow-parser@0.*:
-  version "0.175.0"
-  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.175.0.tgz#622c2e1dadeed0cc3d25779b143a0935bf515983"
-  integrity sha512-9XG5JGOjhODF+OQF5ufCw8XiGi+8B46scjr3Q49JxN7IDRdT2W+1AOuvKKd6j766/5E7qSuCn/dsq1y3hihntg==
+  version "0.175.1"
+  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.175.1.tgz#835a0ea46346c8bdd947e70b2814c2b613beb238"
+  integrity sha512-gYes5/nxeLYiu02MMb+WH4KaOIYrVcTVIuV9M4aP/4hqJ+zULxxS/In+WEj/tEBsQ+8/wSHo9IDWKQL1FhrLmA==
 
 flow-parser@^0.121.0:
   version "0.121.0"
@@ -5463,10 +5463,10 @@ react-native-gradle-plugin@^0.0.5:
   dependencies:
     react-native-codegen "*"
 
-react-native-thermal-printer@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/react-native-thermal-printer/-/react-native-thermal-printer-2.3.1.tgz#309fb7a48753c94893bbc72d6dea89c77f2ee558"
-  integrity sha512-aLa1fJ9TD5JCmnZjV452NE5m+dmUUzjzf7KD+VnwhWjX8NYmRM7Qymj9d4/we9pwbUuf6Zhkdu5voUzAYu27/Q==
+react-native-thermal-printer@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-thermal-printer/-/react-native-thermal-printer-2.3.0.tgz#a185d155d419b76a639956ae47f87184a5461889"
+  integrity sha512-w0R2pYwyuEa7uMSXFhugs+Sh6b40vqhW6HawnBeqgtTp/HTe36DuEoWICjc4gXwogrIVR7y3BTJ1Th9D1X3Epw==
 
 react-native@0.68.0:
   version "0.68.0"

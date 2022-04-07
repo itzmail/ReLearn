@@ -1,4 +1,4 @@
-package com.thermalprinter.newarchitecture;
+package com.downthermalprinter.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.thermalprinter.BuildConfig;
-import com.thermalprinter.newarchitecture.components.MainComponentsRegistry;
-import com.thermalprinter.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.downthermalprinter.BuildConfig;
+import com.downthermalprinter.newarchitecture.components.MainComponentsRegistry;
+import com.downthermalprinter.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
