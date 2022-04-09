@@ -1,21 +1,44 @@
 const http = require("http");
+const fs = require("fs");
+const port = 3000;
+
+// Method untuk pindah screen HTML
+function routeScreen(path, res) {
+  fs.readFile(path, (err, data) => {
+    if (err) {
+      res.writeHead(404);
+      res.write("404 not Found");
+    } else {
+      res.write(data);
+    }
+    res.end();
+  });
+}
 
 http
   .createServer((req, res) => {
     const url = req.url;
 
+    res.writeHead(200, {
+      "Content-Type": "text/html",
+    });
+
     switch (url) {
       case "/about":
-        res.write("Hello Mail");
-        res.end();
+        routeScreen("./about.html", res);
+        break;
       case "/contact":
-        res.write("Hello Mail");
-        res.end();
+        routeScreen("./contact.html", res);
+        break;
       default:
-        res.write("Hello Mail");
-        res.end();
+        routeScreen("./index.html", res);
     }
+    /* if (url === "/about") {
+    } else if (url === "/contact") {
+    } else {
+      // res.write("<h1>Halo Dunia</h1>");
+    } */
   })
-  .listen(1234, () => {
-    console.log("Server is running in port 1234..");
+  .listen(port, () => {
+    console.log(`Server is running in port ${port}`);
   });
