@@ -14,7 +14,14 @@ public class ApplikasiTodoList {
     *  Menampilkan Todo ke List
     */
     public static void showTodoList(){
+        for(var i = 0; i < model.length; i++){
+            String todo = model[i];
+            var no = i + 1;
 
+            if(todo != null){
+                System.out.println(no + "." + todo);
+            }
+        }
     }
 
     /*
