@@ -8,7 +8,7 @@ public class ApplikasiTodoList {
         System.out.println(model);
     }
 
-    // Kita Buat Method Terlebih dahulu
+    // Kita Buat Method Terlebih dahulu atau Bussiness Logic
 
     /*
     *  Menampilkan Todo ke List
@@ -28,6 +28,26 @@ public class ApplikasiTodoList {
     * Mengahapus Todo dari list
     */
     public static void removeTodoList(){
+
+    }
+
+    // Membuat View Method
+
+    /*
+    * Menampilkan View todo list*/
+    public static void viewShowTodoList(){
+
+    }
+
+    /*
+    * Menampilkan view add todo list*/
+    public static void viewAddTodoList(){
+
+    }
+
+    /*
+    * Menampilkan view remove todo list*/
+    public static void viewRemoveTodoList(){
 
     }
 }
