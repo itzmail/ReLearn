@@ -3,16 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4ee99c6b-2c5c-4484-855f-96b52fb34398" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React/react-responsive/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../React/react-responsive/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React/react-responsive/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../React/react-responsive/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React/react-responsive/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../React/react-responsive/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React/react-responsive/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../React/react-responsive/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React/react-responsive/src/components/Navbar/NavbarElements.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React/react-responsive/src/components/Navbar/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React/react-responsive/src/components/Sidebar/SidebarElement.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React/react-responsive/src/components/Sidebar/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React/react-responsive/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../React/react-responsive/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../React/react-responsive/yarn.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
