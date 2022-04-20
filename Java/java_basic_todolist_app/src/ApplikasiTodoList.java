@@ -5,7 +5,7 @@ public class ApplikasiTodoList {
     public static String[] model = new String[10];
 
     public static void main(String[] args){
-        testAddTodoList();
+        testRemoveTodoList();
     }
 
     // Kita Buat Method Terlebih dahulu atau Bussiness Logic
@@ -74,8 +74,42 @@ public class ApplikasiTodoList {
     /*
     * Mengahapus Todo dari list
     */
-    public static void removeTodoList(){
+    public static boolean removeTodoList(Integer number){
+        Integer InputIndex = number -1;
+        // Cek apakah kita input index tidak sesuai denang todo yang ada di list
+        if(InputIndex >= model.length){
+            return false;
+        }
 
+        // Cek apatakh index yang kita input ada datanya tidak
+        if(model[InputIndex] == null){
+            return false;
+        } else {
+            // List yang mau dihapus digeser ke index terakhir baru set null
+            for(int i = InputIndex; i < model.length; i++){
+                if(i == (model.length - 1)){
+                    model[i] = null;
+                } else {
+                    model[i] = model[i + 1];
+                }
+            }
+            return true;
+        }
+    }
+
+    public static void testRemoveTodoList() {
+        addTodoList("Satu");
+        addTodoList("Dua");
+        addTodoList("Tiga");
+        addTodoList("Empat");
+
+        var result = removeTodoList(1);
+        System.out.println(result);
+
+        result = removeTodoList(4);
+        System.out.println(result);
+
+        showTodoList();
     }
 
     // Membuat View Method
