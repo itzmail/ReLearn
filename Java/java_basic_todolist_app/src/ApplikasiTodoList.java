@@ -3,9 +3,10 @@ public class ApplikasiTodoList {
     // Kita buat Variabel yang nantinya digunakan untuk menampung semua todo berupa string
     // Kita beri maksimal daya tampung sebanyak sepuluh, jika melebihi hal tersebut kita buat ulang lagi
     public static String[] model = new String[10];
+    public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args){
-        testRemoveTodoList();
+        testInput();
     }
 
     // Kita Buat Method Terlebih dahulu atau Bussiness Logic
@@ -112,10 +113,28 @@ public class ApplikasiTodoList {
         showTodoList();
     }
 
+    /*
+     * Buat Method Input Data
+     */
+    public static String input(String info) {
+        System.out.print(info + " : ");
+        String data = scanner.nextLine();
+        return data;
+    }
+
+    public static void testInput() {
+        var nama = input("Nama");
+        System.out.println("Hi " + nama);
+
+        var channel = input("Channel");
+        System.out.println(channel);
+    }
+
     // Membuat View Method
 
     /*
-    * Menampilkan View todo list*/
+    * Menampilkan View todo list
+    */
     public static void viewShowTodoList(){
 
     }
