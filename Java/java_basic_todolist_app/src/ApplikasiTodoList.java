@@ -5,7 +5,7 @@ public class ApplikasiTodoList {
     public static String[] model = new String[10];
 
     public static void main(String[] args){
-        System.out.println(model);
+        testAddTodoList();
     }
 
     // Kita Buat Method Terlebih dahulu atau Bussiness Logic
@@ -19,16 +19,56 @@ public class ApplikasiTodoList {
             var no = i + 1;
 
             if(todo != null){
-                System.out.println(no + "." + todo);
+                System.out.println(no + ". " + todo);
             }
         }
+    }
+
+    public static void testShowTodoList() {
+//        model[0] = "Belajar Java Basic";
+//        model[1] = "Studi Kasus Java Basic : Aplikasi TodoList";
+        showTodoList();
     }
 
     /*
     * Menambahkan Todo ke list
     */
-    public static void addTodoList(){
+    public static void addTodoList(String todo){
+        // Cek apakah var model penuh atau tidak
+        boolean isFull = true;
+        for(int i = 0; i < model.length; i++) {
+            if(model[i] == null){
+                isFull = false;
+                break;
+            }
+        }
 
+        // Jika Penuh maka ubah daya tampung menjadi 2x lipat
+        if(isFull) {
+            System.out.println("variabel Penuh");
+            var temp = model;
+            model = new String[model.length * 2];
+
+            for(int i = 0; i < temp.length; i++) {
+                model[i] = temp[i];
+            }
+        }
+
+        // Tambahkan ke posisi yang data array nya null
+        for(int i = 0; i < model.length; i++) {
+//            System.out.println(i);
+            if(model[i] == null){
+                model[i] = todo;
+                break;
+            }
+        }
+    }
+
+    public static void testAddTodoList() {
+        for(byte i = 0; i < 25; i++) {
+            addTodoList("Menambahkan todo ke " + (i + 1));
+        }
+        showTodoList();
     }
 
     /*
