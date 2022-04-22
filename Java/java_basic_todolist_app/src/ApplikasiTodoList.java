@@ -6,7 +6,7 @@ public class ApplikasiTodoList {
     public static java.util.Scanner scanner = new java.util.Scanner(System.in);
 
     public static void main(String[] args){
-        testInput();
+        testViewShowTodoList();
     }
 
     // Kita Buat Method Terlebih dahulu atau Bussiness Logic
@@ -136,7 +136,36 @@ public class ApplikasiTodoList {
     * Menampilkan View todo list
     */
     public static void viewShowTodoList(){
+        while (true){
+            System.out.println("TODOLIST");
+            showTodoList();
 
+            System.out.println("Menu : ");
+            System.out.println("1. Add Todolist");
+            System.out.println("2. Remove Todolist");
+            System.out.println(("x. Exit"));
+
+            var input = input("Pilih menu berapa");
+            if(input.equals("1")){
+                viewAddTodoList();
+            } else if(input.equals("2")){
+                viewRemoveTodoList();
+            } else if(input.equals("x")){
+                break;
+            } else {
+                System.out.println("Pilihan tidak dimengerti");
+            }
+        }
+    }
+
+    public static void testViewShowTodoList() {
+        addTodoList("Satu");
+        addTodoList("Dua");
+        addTodoList("Tiga");
+        addTodoList("Empat");
+        addTodoList("Lima");
+
+        viewShowTodoList();
     }
 
     /*
