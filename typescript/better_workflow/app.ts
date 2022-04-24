@@ -1,0 +1,1 @@
+console.log('File ini tidak akan di compile ke dir public');
