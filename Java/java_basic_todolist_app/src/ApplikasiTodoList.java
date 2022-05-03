@@ -196,10 +196,9 @@ public class ApplikasiTodoList {
         var number = input("Pilih nomor(x jika batal)");
 
         if(number.equals("x")){
-            System.out.println("Kembali ke halaman sebelumnya");
+            System.out.println("Batal menghapus todo");
         } else {
-            boolean succes = removeTodoList(Integer.valueOf(number));
-
+            boolean succes = removeTodoList(Integer.valueOf(number)); // Lakukan konversi dari string ke integer
             if(!succes){
                 System.out.println("Gagal menghapus todo ke-" + number);
             }
