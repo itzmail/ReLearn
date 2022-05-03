@@ -6,7 +6,7 @@ public class ApplikasiTodoList {
     public static java.util.Scanner scanner = new java.util.Scanner(System.in); // OOP untuk input via terminal
 
     public static void main(String[] args){
-        testViewRemoveTodoList();
+        viewShowTodoList();
     }
 
     // Kita Buat Method Terlebih dahulu atau Bussiness Logic
