@@ -81,3 +81,44 @@ Ada juga selain itu ada tipe data DECIMAL. Ini tipe data number khusus yang bisa
   * Tipe data lainnya.....
 
   Tipe data lainnya bisa dilihat di (link ini)['https://dev.mysql.com/doc/refman/8.0/en/data-types.html'']
+
+
+## Table
+
+  * Data biasanya disimpan dalam table
+  * Tiap table biasanya menyimpan satu jenis database
+  * Sebelum kita bisa memasukkan data ke tabel, kita wajib terlebih dahulu membuat tablenya terlebih dahulu
+  * Dan tiap table yang kita buat, wajib ditentukan kolom-kolomnya dan tipe data tiap kolomnya
+  * Kita juga bisa mengubah tabel yang sudah terlanjur dibuat, seperti CRUD pada tabel
+
+### Sebelum Belajar table
+
+Kita belajar dulu tentang **STORAGE ENGINE**
+
+## Storage Engine 
+
+* storage engine adalah engine yang berguna untuk melakukan pengolahan database
+* Saat ini, yang popular adalah InnoDB
+* untuk melihat storage engine yang kita punya, kita cukup ketik `show engines;`
+
+### lanjut belajar Table
+
+untuk melihat table pada database `show tables;`
+
+* Membuat table
+```mysql
+CREATE TABLE barang(
+  id INT,
+  nama VARCHAR(100),
+  harga INT,
+  jumlah INT
+) ENGINE = InnoDB;
+```
+
+* Melihar struktur table
+
+`DESCRIBE atau DESC nama_table;`
+
+  ~ Kalau melihat struktur bagaimana cara kita buat table bisa gunakan perintah
+
+  `show create table nama_table;`
