@@ -10,6 +10,16 @@ public class Person {
         address = paramAddress;
     }
 
+    // * Constructor Overloading
+    Person(String paramName) {
+        name = paramName;
+    }
+
+    // Memanggil Constructor lain
+    Person() {
+        this("ismail", null);
+    }
+
     // Membuat method
     void sayHello(String paramName){
         System.out.println("Hello " + paramName + ", My name is " + name);
