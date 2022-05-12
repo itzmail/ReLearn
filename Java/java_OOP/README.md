@@ -46,4 +46,12 @@ contoh lihat di file `./Person.java`
 * Sama seperti method biasanya, kita juga bisa menambahkan return value, parameter dan method overloading di method yang ada di dalam block class
 * Untuk mengakses method tersebut kita bisa menggunakan tanda .(titik) dan diikuti nama methodnya
 
-contoh lihat di file `./Person.java` 
+contoh lihat di file `./Person.java`
+
+# Life Cycle
+
+## Constructor
+* Constructor adalah method yang pertama kali dijalankan
+* Nama constructor harus sama dengan nama class, dant tidak membutuhkan kata kunci void atau return value
+
+contoh lihat di file `./Person.java`
