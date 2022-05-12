@@ -62,3 +62,22 @@ Ada juga selain itu ada tipe data DECIMAL. Ini tipe data number khusus yang bisa
   contoh :
 
   ~ ENUM('Pria', 'Wanita'), artinya kita hanya bisa menerima data 'Pria' atua 'wanita'
+
+  * Date and Time
+
+  Tipe data ini nantinya bisa kita manipulasi lewat database
+
+  ~ Jenis tipe data date and Time
+  1. DATE => YYYY-MM-DD
+  2. DATETIME => YYYY-MM-DD HH:MM:SS
+  3. TIMESTAMP => YYYY-MM-DD HH:MM:SS 
+  4. TIME => HH:MM:SS 
+  5. YEAR => YYYY
+
+  * Boolean
+
+  Tipe data ini tipe data kebenaran, sama seperti bahasa pemrograman lainnya
+
+  * Tipe data lainnya.....
+
+  Tipe data lainnya bisa dilihat di (link ini)['https://dev.mysql.com/doc/refman/8.0/en/data-types.html'']
