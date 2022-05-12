@@ -4,6 +4,13 @@ Model mysql ini hampir sama seperti model excel dimana kita belajar mengatur dat
 
 **Tetapi yang membedakan adalah MySQl di setiap kolomnya tidak boleh memiliki tipe data yang berbeda**
 
+## Syntax Umum
+* `show databases;` = Digunakan untuk melihat seluruh databases
+* `create nama_database;` = Digunakan untuk membuat database baru
+* `drop database nama_database;` = Digunakan untuk menghapus database
+* `use nama_database;` = Digunakan untuk memilih database
+* `show tables` = Digunakan untuk melihat table di database itu
+
 ### Tipe Data MySQL
 1. Tipe Data Number
 
