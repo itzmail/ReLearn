@@ -74,3 +74,7 @@ contoh lihat di file `./Person.java`
 * Saat kiat membuat kode di dalam block constructor atau method di dalam class, kita bisa menggunakan kata kunci this untuk mengakses object saat ini.
 * `this` juga tidak hanya  digunakan untuk mengakses field milik object saat ini, namun juga bisa digunakan untuk mengakses method
 * `this` bisa digunakan untuk mengatasi masalah _variable shadowing_
+
+## Inheritance
+* Inheritance adalah kemampuan untuk menurunkan ke sebuah class ke class lain
+* Di java class Child hanya boleh punya 1 Parent dan 1 parent boleh punya banyak child
