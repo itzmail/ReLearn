@@ -85,3 +85,7 @@ contoh lihat di file `./Person.java`
 * _method overloading itu mendeklarasikan method dengan nama yang sama di class yang sama_
 * _method overriding itu mendekalarsikan method di child class dengan nama yang sama di parent class-nya_
 * Bisa lihat di parent `./Manager.java` dan childnya `./VicePresident.java`
+
+## Super keyword
+* Super keyword digunakan saat kita mengakses field (object, method) pada parent class
+lihat di file `./Shape.java`
