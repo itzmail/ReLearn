@@ -4,7 +4,7 @@
 * Ada banyak sudut pandang bahasa pemrograman, namun OOP adalah sangat populer saat ini.
 * Ada beberapa istilah yang perlu dimengerti dalam OOP, yaitu: Object dan Class
 
-## Apa itu OBject?
+## Apa itu Object?
 * Object adalah data yang berisi properties/attributes
 * Semua data yang bukan data Primitive itu adalah Object
 
@@ -78,3 +78,10 @@ contoh lihat di file `./Person.java`
 ## Inheritance
 * Inheritance adalah kemampuan untuk menurunkan ke sebuah class ke class lain
 * Di java class Child hanya boleh punya 1 Parent dan 1 parent boleh punya banyak child
+
+## Method Overriding
+
+**Ingat!!**
+* _method overloading itu mendeklarasikan method dengan nama yang sama di class yang sama_
+* _method overriding itu mendekalarsikan method di child class dengan nama yang sama di parent class-nya_
+* Bisa lihat di parent `./Manager.java` dan childnya `./VicePresident.java`
