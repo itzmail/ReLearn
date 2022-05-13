@@ -5,9 +5,10 @@ public class Person {
     final String country = "Indonesia";
 
     // membuat Constructor()
-    Person(String paramName, String paramAddress) {
-        name = paramName;
-        address = paramAddress;
+    Person(String name, String address) {
+        // Pakai this agar tidak terjadi variable shadowing
+        this.name = name;
+        this.address = address;
     }
 
     // * Constructor Overloading

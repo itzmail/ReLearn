@@ -69,3 +69,8 @@ contoh lihat di file `./Person.java`
 * Variable shadowing adalah kejadian ketika kita membuat nama variable dengan nama yang sama di scope yang menutupi variable dnegan nama yang sama di scope diatasnya
 * Ini bisa terjadi seperti kita membuat nama parameter di method sama dengan nama field di class
 * Saat terjadi kejadian ini, maka secara otomatis variable di scope diatasnya tidak bisa diakses
+
+## This Keyword
+* Saat kiat membuat kode di dalam block constructor atau method di dalam class, kita bisa menggunakan kata kunci this untuk mengakses object saat ini.
+* `this` juga tidak hanya  digunakan untuk mengakses field milik object saat ini, namun juga bisa digunakan untuk mengakses method
+* `this` bisa digunakan untuk mengatasi masalah _variable shadowing_
