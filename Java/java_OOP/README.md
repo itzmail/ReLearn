@@ -89,3 +89,11 @@ contoh lihat di file `./Person.java`
 ## Super keyword
 * Super keyword digunakan saat kita mengakses field (object, method) pada parent class
 lihat di file `./Shape.java`
+
+### Super Constructor
+* Kata kunci Constructor juga bisa untuk mengakses constructor pada parent
+* Jika sebuah class parent tidak memiliki constructor yang tidak ada parameter-nya (tidak memiliki default constructor), maka class child wajib mengakses constructor class parent tersebut
+  * Contoh bisa di lihat:
+  * Parent `./Manager.java`
+  * Child `./VicePresident.java`
+  * Penerapan `./ManagerApp.java`
