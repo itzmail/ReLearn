@@ -64,3 +64,8 @@ contoh lihat di file `./Person.java`
 * Constructor bisa memanggil constructor lain
 * Hal ini memudahkan saat kita butuh menginisialisasi data dengan berbagai kemungkinan
 * Cara untuk memanggil constructor lain, kita hanya perlu memanggilnya seperti memanggil method, namun dengan kata kunci `this`
+
+## Variable Shadowing
+* Variable shadowing adalah kejadian ketika kita membuat nama variable dengan nama yang sama di scope yang menutupi variable dnegan nama yang sama di scope diatasnya
+* Ini bisa terjadi seperti kita membuat nama parameter di method sama dengan nama field di class
+* Saat terjadi kejadian ini, maka secara otomatis variable di scope diatasnya tidak bisa diakses
