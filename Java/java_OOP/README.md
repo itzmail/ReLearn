@@ -97,3 +97,18 @@ lihat di file `./Shape.java`
   * Parent `./Manager.java`
   * Child `./VicePresident.java`
   * Penerapan `./ManagerApp.java`
+
+## Object Class
+* Di java, setiap class yang kita buat secara otomatis adalah turunan dari class Object,
+* Walaupun tidak secara langsung kita eksplisit menyebutkan extends Object, tapi secara otomatis Java akan membuat class kita extends Object
+* Bisa dikatakan class Object adalah superclass atau *root* untuk semua class yang ada di Java
+* Bisa lihat di doc tentang method-method di Object Java
+
+## Polymorphism
+* Polymorphism berasal dari bahasa Yunani yang berarti banyak bentuk
+* Dalam OOP, Polymorphism adalah kemampuan sebuah object berubah bentuk menjadi bentuk lain
+* Polymorphism erat hubungannya dengan Inheritance (pewarisan)
+  * Parent `./Employee.java`
+  * Parent2 `./Manager.java`
+  * Parent3 `./VicePresident.java`
+  * applikasi `./Polymorphism.java`
