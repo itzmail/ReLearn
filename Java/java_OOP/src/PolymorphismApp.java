@@ -9,5 +9,6 @@ public class PolymorphismApp {
         employee = new VicePresident("Ismail"); // yang semulanya beritpe data Employe dan deklarasi class Manager berubah menjadi VicePresident
         employee.sayHello("Budi");
 
+        // maka dari itu hal ini berkaitan dengan pewarisan
     }
 }
