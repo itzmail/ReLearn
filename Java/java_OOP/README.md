@@ -112,3 +112,10 @@ lihat di file `./Shape.java`
   * Parent2 `./Manager.java`
   * Parent3 `./VicePresident.java`
   * applikasi `./Polymorphism.java`
+
+## Type Check & Casts (Konfersi)
+* Sebelumnya kita sudah tahu cara konversi tipe data (_casts_) di materi 'tipe data primitif'
+* Casts juga bisa digunakan untuk tipe data buka primitif
+* Namun agar aman, sebelum melakukan casts, pastikan kita melakukan type check (pengecekan tipe data), dengan menggunakan kata kunci instanceof
+* Hasil operator instanceof adalah boolean, true jika tipe data sesuai, false jika tidak sesuai
+  * Applikasi Casts lihat di `./Polymorphism.java` di method sayHello()

@@ -10,5 +10,18 @@ public class PolymorphismApp {
         employee.sayHello("Budi");
 
         // maka dari itu hal ini berkaitan dengan pewarisan
+
+    }
+    static void sayHello(Employee employee) {
+        // instanceof digunakan untuk spesifikasi turunan class dari suatu parent
+        if(employee instanceof VicePresident){
+            VicePresident vicePresident = (VicePresident) employee; // kita lakukan konversi
+            System.out.println("Hello VP" + vicePresident.name);
+        } else if(employee instanceof Manager){
+            Manager manager = (Manager) employee;
+            System.out.println("Hello manager" + manager.name);
+        } else {
+            System.out.println("Hello " + employee.name);
+        }
     }
 }
