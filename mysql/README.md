@@ -115,10 +115,20 @@ CREATE TABLE barang(
 ) ENGINE = InnoDB;
 ```
 
-* Melihar struktur table
+* Melihat struktur table
 
 `DESCRIBE atau DESC nama_table;`
 
   ~ Kalau melihat struktur bagaimana cara kita buat table bisa gunakan perintah
 
   `show create table nama_table;`
+
+* Mengubah Table (CRUD);
+```mysql
+ALTER TABLE nama_database
+  ADD COLUMN deskripsi TEXT; // Untuk menambah kolom
+  DROP COLUMN salah; // Menghapus kolom
+  MODIFY nama VARCHAR(200) AFTER deskripsi; // Edit Kolom, AFTER itu perintah tata letak column
+  MODIFY nama VARCHAR(200) FIRST;
+  CHANGE old_name new_name TIPE_DATANYA; // untuk rename column
+```
