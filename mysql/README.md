@@ -154,3 +154,15 @@ ALTER TABLE nama_database
   ALTER TABLE barang
     ADD waktu dibuat TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
   ```
+
+## Membuat Ulang table
+
+```mysql
+ TRUNCATE nama_table;
+```
+
+## Menghapus Table
+
+```mysql
+ DROP TABLE nama_table;
+```
