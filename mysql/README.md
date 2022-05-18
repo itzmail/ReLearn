@@ -146,3 +146,11 @@ ALTER TABLE nama_database
 * Saat ktia menyimpan data ke dalam tabel, lalu ktia hanya menyimpan beberapa kolom (tidak semuanya), kolom yang tidak ktia beri nilai secara default nilainya dalah NULL
 * Jika kita ingin mengubah default value nya, kita bisa menambhakan perintan `DEFAULT nilai`
 * Khusus tipe data DATETIME atau TIMESTAMP. Jika ktia ingin menggunakan default value dengan nilai waktu saat ini, kita bisa gunakan kata kunci `CURRENT_TIMESTAMP`
+  * contoh
+  ```mysql
+  ALTER TABLE barang
+    MODIFY jumlah INT NOT NULL DEFAULT 0;
+
+  ALTER TABLE barang
+    ADD waktu dibuat TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+  ```
