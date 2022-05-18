@@ -132,3 +132,12 @@ ALTER TABLE nama_database
   MODIFY nama VARCHAR(200) FIRST;
   CHANGE old_name new_name TIPE_DATANYA; // untuk rename column
 ```
+
+## Null Value
+* Null adalah nilai ketika kita tidak mengisi data ke dalam kolom
+* Jika ktia tidak ingin menerima nilai NULL, Kita bisa menambahkan NOT NULL ketika pembuatan kolom
+  * contoh
+  ```mysql
+  ALTER TABLE nama_table
+    MODIFY nama_kolom tipe_kolom NOT NULL; bila kita ingin membuat kolom tersebut tidak boleh null
+  ```
