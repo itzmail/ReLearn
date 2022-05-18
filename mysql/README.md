@@ -141,3 +141,8 @@ ALTER TABLE nama_database
   ALTER TABLE nama_table
     MODIFY nama_kolom tipe_kolom NOT NULL; bila kita ingin membuat kolom tersebut tidak boleh null
   ```
+
+## Default Value
+* Saat ktia menyimpan data ke dalam tabel, lalu ktia hanya menyimpan beberapa kolom (tidak semuanya), kolom yang tidak ktia beri nilai secara default nilainya dalah NULL
+* Jika kita ingin mengubah default value nya, kita bisa menambhakan perintan `DEFAULT nilai`
+* Khusus tipe data DATETIME atau TIMESTAMP. Jika ktia ingin menggunakan default value dengan nilai waktu saat ini, kita bisa gunakan kata kunci `CURRENT_TIMESTAMP`
