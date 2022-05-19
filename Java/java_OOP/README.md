@@ -119,3 +119,8 @@ lihat di file `./Shape.java`
 * Namun agar aman, sebelum melakukan casts, pastikan kita melakukan type check (pengecekan tipe data), dengan menggunakan kata kunci instanceof
 * Hasil operator instanceof adalah boolean, true jika tipe data sesuai, false jika tidak sesuai
   * Applikasi Casts lihat di `./Polymorphism.java` di method sayHello()
+
+## Variable Hiding
+* Variable hiding merupakan masalah yang terjadi ketika kita membuat nama field sama di class child dengan nama field di class parent,
+  * Semisal ktia buat field name di parent dan field name di child maka di class child terjadi _variable hiding_
+* Tidak ada yang namanya field overriding, ketika kita buat ulang nama field di class class
