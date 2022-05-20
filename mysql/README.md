@@ -174,3 +174,61 @@ ALTER TABLE nama_database
 
   * Memasukkan beberapa data
   INSERT INTO products(id, name, price, quantity) VALUES ('diisi sesuai parameternya'), ('product nya mau apa'), ('mantap jiwa')
+
+## Select data
+* Syntax :
+  * Ambil semuanya => `SELECT * FROM nama_table;`
+  * Ambil tiap kolom => `SELECT id, name, price, quantity FROM nama_table;`
+
+## Primary Key
+  * Saat kita membuat table, idealnya tiap table memiliki Primary Key
+  * Primary key adalah sebuah kolom yang kita tunjuk sebagai id dari tabel tersebut
+  * Primary Key adalah identitas untuk tiap baris data di dalam tabel
+  * Primary Key harus unik, **tidak boleh ada data dengan primary key yang sama**
+  * Kita bisa menunjuk kolom yang akan kita jadikan primary key
+
+    ### Primary Key di Multiple Column
+    * Kita bisa membuat primary key dengan kombinasi beberapa kolom
+    * Namun disarankan untuk tetap menggunakan satu kolom ketika membuat primary key
+    * Kecuali ada kasus khusus, seperti membuat table yang berelasi `MANY TO MANY` 
+
+      #### Cara membuat Primary Key
+      ```mysql
+      CREATE TABLE products (
+        id VARCHAR(10) NOT NULL,
+        name VARCHAR(100) NOT NULL,
+        description TEXT,
+        price INT UNSIGNED NOT NULL,
+        quantity INT UNSIGNED NOT NULL DEFAULT 0,
+        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (id) /
+      );
+
+      artinya kita buat id sebagai primary key
+      ```
+      #### Kasus kalau table sudah diubah pakai 
+      ```mysql
+        ALTER TABLE products ADD PRIMARY KEY (id);
+      ```
+
+  Karena kita menjadikan id sebagai Primary Key artinya ktia tidak bisa menduplikat data yang sama
+
+## Where Clause
+  WHERE ini digunakan untuk mengambil data secara spesifik
+
+  * Syntax
+    ```mysql
+      SELECT id, name, price, quantity
+      FROM products
+      WHERE quantity = 0;
+    ```
+## Update Data
+* Untuk mengupdate data gunakan perintah `UPDATE`
+* Kita harus memberi tahu data mana yang akan di update dengan WHERE Clause
+* Hati-hati ketika meng-update data di table, jika sampai WHERE clause nya salah, bisa-bisa kita mala meng-update seluruh data di table 
+* Untuk update, kita harus beritahu, kolom mana yang akan di update
+  * ```mysql
+     UPDATE nama_table
+     SET category = 'Makanan'
+     WHERE id = 'P0001';
+  ```
