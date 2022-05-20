@@ -166,3 +166,11 @@ ALTER TABLE nama_database
 ```mysql
  DROP TABLE nama_table;
 ```
+
+## Insert Data 
+* Pertama kita buat table dulu
+* Kita bisa menyebutkan mana yang ingin kita isi, jika kita tidak menyebutkan kolomnya artinya kolom tersebut tidak akan kita isi, dan secara otomatis kolom yang tidak kit aisi, nilainya kecuali memiliki **DEFAULT VALUE**
+* Perintah untuk memasukkan data ke table => `INSERT INTO nama tables`
+
+  * Memasukkan beberapa data
+  INSERT INTO products(id, name, price, quantity) VALUES ('diisi sesuai parameternya'), ('product nya mau apa'), ('mantap jiwa')
