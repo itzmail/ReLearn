@@ -122,5 +122,8 @@ lihat di file `./Shape.java`
 
 ## Variable Hiding
 * Variable hiding merupakan masalah yang terjadi ketika kita membuat nama field sama di class child dengan nama field di class parent,
-  * Semisal ktia buat field name di parent dan field name di child maka di class child terjadi _variable hiding_
-* Tidak ada yang namanya field overriding, ketika kita buat ulang nama field di class class
+  * Semisal ktia buat field name di parent dan field name di child dengan nama field yang sama maka di class child terjadi _variable hiding_
+* Tidak ada yang namanya field overriding, ketika kita buat ulang nama field di class class, itu berari variable hiding
+* Untuk mengatasi variable hiding dan method overriding adalah ketika sebuah **object di casts**
+* Saat object di casts, method akan tetap mengakses method overriding, namun variable akan mengakses variable yang ada di class nya
+  * Aplikasi ada di file `Parent.java` dan `ParentApp.java`
