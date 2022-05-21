@@ -127,3 +127,10 @@ lihat di file `./Shape.java`
 * Untuk mengatasi variable hiding dan method overriding adalah ketika sebuah **object di casts**
 * Saat object di casts, method akan tetap mengakses method overriding, namun variable akan mengakses variable yang ada di class nya
   * Aplikasi ada di file `Parent.java` dan `ParentApp.java`
+
+## Package
+* Saat kita membuat aplikasi, bisa dipastikan kita akan banyak sekali membuat class
+* Jika class terlalau banyak, kadang akan menylitkan kita untuk mencari atau mengklasifikasikan jenis-jenis class
+* Java memiliki fitur package, yaitu fitur mirip folder/direktori, dimana kita bisa menyimpan class-class kita di dalam package dan ini bisa _nested_
+* Ketika kita menyimpan class di dalam package, maka diatas file Java nya, kita wajib menyebutkan nama package nya
+  * Contoh-nya ada di pacage `programmer.zaman.now`
