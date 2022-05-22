@@ -225,10 +225,20 @@ ALTER TABLE nama_database
 ## Update Data
 * Untuk mengupdate data gunakan perintah `UPDATE`
 * Kita harus memberi tahu data mana yang akan di update dengan WHERE Clause
-* Hati-hati ketika meng-update data di table, jika sampai WHERE clause nya salah, bisa-bisa kita mala meng-update seluruh data di table 
+* Hati-hati ketika meng-update data di table, jika sampai WHERE clause nya salah, bisa-bisa kita malah meng-update seluruh data di table 
 * Untuk update, kita harus beritahu, kolom mana yang akan di update
   * ```mysql
      UPDATE nama_table
-     SET category = 'Makanan'
+     SET category = 'Makanan',
+         description = 'Mie Ayam Original + Mantap Jiwa'
      WHERE id = 'P0001';
   ```
+  * Mengubah Dengan value di Kolom
+    UPDATE products
+    SET price = price + 5000
+    WHERE id = 'p004'
+
+## Menghapus Data
+DELETE 
+FROM products
+WHERE id = "p009";
