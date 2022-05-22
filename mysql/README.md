@@ -242,3 +242,14 @@ ALTER TABLE nama_database
 DELETE 
 FROM products
 WHERE id = "p009";
+
+## Alias
+* MySQL memiliki fitur untuk melakukan alias untuk kolom dan tabel, jadi kita bisa menuliskan script SQL secara singkat
+* Materi ini akan dipakai ketikas sudah mempelajari tentang JOIN, maka fitur alis untuk tabel sangat berguna sekali
+* Judul kolomnya akan berubah
+
+```mysql
+SELECT id as 'Kode',
+       name as 'Nama'
+FROM products;
+```
