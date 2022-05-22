@@ -253,3 +253,9 @@ SELECT id as 'Kode',
        name as 'Nama'
 FROM products;
 ```
+  * Alias untuk table
+  ```mysql
+  SELECT p.id as 'Kode',
+         p. name as 'Nama'
+  FROM products AS p;
+  ```
