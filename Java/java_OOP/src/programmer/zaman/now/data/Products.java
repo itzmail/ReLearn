@@ -1,8 +1,8 @@
 package programmer.zaman.now.data;
 
-class Products {
-    String name;
-    int price;
+public class Products {
+    protected String name; // protected => hanya bisa diakses maksimal hanya sampai sesama package, diluar package tidak bisa
+    protected int price;
 
     Products(String name, int price){
         this.name = name;

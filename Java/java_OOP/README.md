@@ -134,3 +134,15 @@ lihat di file `./Shape.java`
 * Java memiliki fitur package, yaitu fitur mirip folder/direktori, dimana kita bisa menyimpan class-class kita di dalam package dan ini bisa _nested_
 * Ketika kita menyimpan class di dalam package, maka diatas file Java nya, kita wajib menyebutkan nama package nya
   * Contoh-nya ada di pacage `programmer.zaman.now`
+
+## Access Modifier
+* Acces modifier adalah kemampuan membuat class, field, method dan constructor dapat diakses dari mana saja
+* Sebelumny kita sudah pakai ini yaitu _public_ dan _default_ atau _no modifier_
+* Untuk tabel access level bisa dilihat divideo PZN Java OOP materi menit ke 20
+
+### Public Class
+* Saat kita membuat public class, kita hanya bisa membuat 1 public class di 1 file java
+* Selain itu, nama public class harus sama dengan nama file
+  * Contoh bisa dilihat di 
+    * package programmer.zaman.now.data file `Products.java`
+    * package programmer.zaman.now.data file `ProductsApp.java`
