@@ -161,3 +161,10 @@ lihat di file `./Shape.java`
   * Contoh Penerapan => 1. abstractClass `package programmer.zaman.now.data.Location;`
                         2. Child Class `package programmer.zaman.now.data.City`
                         3. Application `package programmer.zaman.now.application.LocationApp`
+
+## Abstract Method
+* Saat kita membuat class yang abstract, kitabisa membuat abstract method juga di dalam class abstract tersebut
+* Saat kita membuat sebuah abstract method, kita tidak boleh membuat block method untuk method tersebut
+* Artinya, abstract method wajib di override di class child
+* Abstract method tidak boleh meiliki access modifier private;
+* Jadi bila kita ingin membuat class child menerapakan method yang kita buah, maka kita bisa buat method tersebut jadi abstract 
