@@ -153,3 +153,11 @@ lihat di file `./Shape.java`
   * Default Import 
     * Semua class yang ada di pacakge java.lang sudah auto import, jadi kita tidak perlu melakukan import secara manual
     * Contoh class String, Integer, dll terdapat di pacakage java.lang. Oleh karena itu, kita tidak perlu meng-import nya secara manual
+
+## Abstract Class
+* Saat kita membuat class, kita bisa menjadikan sebuah class sebagai abstract class.
+* Abstract class artinya, class tersebut tidak bisa dibuat sebagai object secara langsung, **hanya bisa diturunkan**
+* Untuk membuat sebuah class menjadi abstract, kita bisa menggunakan kata kunci abstract sebelum kata kunci class
+  * Contoh Penerapan => 1. abstractClass `package programmer.zaman.now.data.Location;`
+                        2. Child Class `package programmer.zaman.now.data.City`
+                        3. Application `package programmer.zaman.now.application.LocationApp`
