@@ -146,3 +146,10 @@ lihat di file `./Shape.java`
   * Contoh bisa dilihat di 
     * package programmer.zaman.now.data file `Products.java`
     * package programmer.zaman.now.data file `ProductsApp.java`
+
+## Import 
+* Import adalah kemampuan untuk menggunakan calass yang berada di package yang berbeda
+* Syarat class yang bisa digunakan jika package nya berbeda adalah class yang harus public
+  * Default Import 
+    * Semua class yang ada di pacakge java.lang sudah auto import, jadi kita tidak perlu melakukan import secara manual
+    * Contoh class String, Integer, dll terdapat di pacakage java.lang. Oleh karena itu, kita tidak perlu meng-import nya secara manual
