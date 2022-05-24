@@ -259,3 +259,32 @@ FROM products;
          p. name as 'Nama'
   FROM products AS p;
   ```
+
+## Where Operator
+* Seperti dibahasa pemrogramman
+* Operator Perbandingan
+
+## Operator AND dan OR 
+* AND dan OR digunakan untuk menggabungkan beberapa dua operator
+* Sama seperti di bahasa pemrogramman
+* Kalau kita ingin membuat kondisi dimana AND dan OR ditulis dalam satu kalimat, maka yang akan di dahulukan biasanya AND dulu baru OR, tetapi kalau mau OR yang didahulukan maka beri kurung pada kondisi tersebut
+
+## LIKE Operator
+* LIKE operator adalah operator yang bisa kita gunakan untuk mencari sebagian data dalam string
+* Ini cocok sekali kita hanya ingin mencari sebagian kata dalam Stirng
+* Namun perlu diingat, operasi LIKE itu sangat lambat, oleh karena itu, tidak disarankan jika datanya sudah terlalu besar di tabel,
+* Opearasi LIKE tidak case sensitive, jadi huruf besar dan kecil tidak akan berpaengaruh
+  * Hasil Opator LIKE
+  ~ LIKE "b%" => String dengan awalan b,
+  ~ LIKE "%a" => String dengan akhiran a,
+  ~ LIKE "%eko%" => String berisi eko
+  ~ NOT LIKE => Tidak LIKE
+
+## NULL Operator
+* IS NULL mencari apakah ada data yang berisi NULL
+* IS NOT NULL mencari data, apakah ada data yang berisi tidak NULL
+
+## BETWEEN Opeartor 
+* BETWEEN Operator adalah opartor interval dimana kita biasbuat interval dari awal hingga akhiran
+* NOT BETWEEN Operator adalah kebalikannya atau diluar interval
+* Contoh syntax => ```mysql SELECT * FROM products WHERE price BETWEEN 100 AND 200```;
