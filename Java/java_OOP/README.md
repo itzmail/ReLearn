@@ -168,3 +168,14 @@ lihat di file `./Shape.java`
 * Artinya, abstract method wajib di override di class child
 * Abstract method tidak boleh meiliki access modifier private;
 * Jadi bila kita ingin membuat class child menerapakan method yang kita buah, maka kita bisa buat method tersebut jadi abstract 
+
+##  Encapsulation
+* Encapsulation artinya memastikan data sensitif sebuah object tersembunyi dari akses luar
+* Hal ini bertujuan agar ktia bisa menjaga agar data sebuah object tetap baik dan valid
+* Untuk mencapai ini, biasanya kita akan membuat semua field menggunakan accesss modifier private, sehingga tidak bisa diakses atau diubah dari luar
+* AGar bisa diubah, ktia akan menyyediakan method untuk mengubah dan mendapatkan field tersebut
+
+  ### Getter dan Setter => Sama seperti di bahasa PHP
+  * DI Java, proses encapsulation sudah dibuat standarisasynya
+  * Getter adalah function yang dibuat untuk mengambil data field
+  * Setter adalah function untuk mengubah data field
