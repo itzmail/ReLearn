@@ -13,3 +13,4 @@ let IdCard = (user : ObjectWithUni) => {
 let CardFake = (ok: StringOrNum) => {
   console.log(ok);
 }
+
