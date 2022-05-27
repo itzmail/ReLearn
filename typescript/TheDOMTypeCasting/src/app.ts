@@ -27,6 +27,6 @@ form.addEventListener('submit', (e: Event) => {
     type.value,
     tofrom.value,
     details.value,
-    amount.value
+    amount.valueAsNumber // kita set value ini bertipe number => Salah satu function dari typescript
   );
 })
