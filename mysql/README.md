@@ -311,3 +311,11 @@ FROM products;
     SELECT * FROM products WHERE price > 0 ORDER BY price LIMIT 2, 2;
     ```
     * Limit diatas memiliki 2 parameter, parameter satu untuk mengambil 2 data sedangkan param dua untuk menskip 2 data atau sebagai paging nya, jadi kita menampilkan itu di halaman selanjutanya
+
+## Distinct
+* Digunakan untuk mengambil data dan di filter data yang duplikat tidak ikut di Ambil
+* Syntax ```mysql SELECT DISTINCT category FROM products;```
+
+## Aritamtika
+* Kita bisa melakukan aritmatika ketika melakukan pengambilan data
+* syntax => ```mysql SELECT price % 2 as "Hasil Sisa Bagi" from products;```
