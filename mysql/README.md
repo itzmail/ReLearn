@@ -288,3 +288,26 @@ FROM products;
 * BETWEEN Operator adalah opartor interval dimana kita biasbuat interval dari awal hingga akhiran
 * NOT BETWEEN Operator adalah kebalikannya atau diluar interval
 * Contoh syntax => ```mysql SELECT * FROM products WHERE price BETWEEN 100 AND 200```;
+
+## IN Operator
+* Operator IN adalah operator untuk melakukan pencarian sebuah kolom dengan beberapa nilai.
+* Misal kita ingin mencari products dengan category Makanan atau Minuman, maka kita bisa menggunakan IN
+  * Contoh Syntax "SELECT * FROM products WHERE category IN ('Makanan', 'Minuman');"
+
+## Order By Clause
+* Untuk mengurutkan data ketika kita menggunakan perintah SQL SELECT, ktia bisa menambahkan ORDER BY caluse
+* ORDER BY clause digunakan untuk mengurutkan data berdasarkan kolom yang dipilih dan jeis urutan (ASCending atau DESCending)
+* Kita juga bisa mengurutkan tidak hanya terhadap satu kolom, tapi beberapa kolom
+  * Syntax "SELECT * FROM products ORDER BY price ASC, id DESC;"
+  * default nya bila kita tidak kasih asc atau desc, itu defaultnya desc
+
+## Limit Clause
+* Mengambil seluruh data di tabel bukanlah pilihan bijak, apalafi jika datanya sudah banyak sekali
+* Kita bisa membatasi jumlah data yang diambil dalam 'SQL SELECT' dengan LIMIT caluse
+* Selain membatasi jumlah data, kita juga bisa mengs-skip sejumlah data yang tidak ingin kita lihat
+* LIMIT biasanya diguanakan saat melakukan paging di aplikasi kita
+  * Syntax 
+    ```mysql
+    SELECT * FROM products WHERE price > 0 ORDER BY price LIMIT 2, 2;
+    ```
+    * Limit diatas memiliki 2 parameter, parameter satu untuk mengambil 2 data sedangkan param dua untuk menskip 2 data atau sebagai paging nya, jadi kita menampilkan itu di halaman selanjutanya
