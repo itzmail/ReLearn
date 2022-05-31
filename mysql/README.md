@@ -319,3 +319,18 @@ FROM products;
 ## Aritamtika
 * Kita bisa melakukan aritmatika ketika melakukan pengambilan data
 * syntax => ```mysql SELECT price % 2 as "Hasil Sisa Bagi" from products;```
+
+## Auto Increment 
+* Merupakan salah satu fungsi yang disediakan oleh MySQL untuk menambahkan sebanyak 1 pada data *KHUSUS PRIMARY KEY*
+
+  * syntax saat kita buat table 
+    ```mysql
+       create table admin
+       (
+         id INT NOT NULL AUTO_INCREMENT,
+         first_name VARCHAR(100) NOT NULL,
+         last_name VARCHAR(100) NOT NULL,
+         PRIMARY KEY(id)
+       ) Engine = InnoDB;
+    ```
+* Kalau kita hapus data table di tengah-tengah, auto increment tersebut akan lanjut meskipun data tersebut terhapus
