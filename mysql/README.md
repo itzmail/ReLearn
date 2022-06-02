@@ -334,3 +334,33 @@ FROM products;
        ) Engine = InnoDB;
     ```
 * Kalau kita hapus data table di tengah-tengah, auto increment tersebut akan lanjut meskipun data tersebut terhapus
+
+## String Function
+* Lihat di website string documentation mysql
+
+## Date and Time Function
+* Ini juga lihat di documentation mysql
+
+## Flow Control Function
+* Fitur ini mirip dengan IF Else atau switch case di bahasa Pemrograman
+* Syntax switch case=> ```mysql
+  SELECT id,
+    CASE cateogory
+      WHEN 'Makanan' THEN 'Enak'
+      WHEN 'Minuman' THEN 'Segar'
+      ELSE 'Apa itu?'
+      END AS 'Category'
+  FROM products;
+```
+* Syntax If Else => ```mysql
+  SELECT id,
+    IF(price <= 15000, 'Mahal', 
+    IF(price >= 20000, 'Sangat Mahal', 'Mahal Banget') FROM products;
+```
+
+* Syntax ifnull => ```mysql
+  SELECT id, name, IFNULL(description, 'Kosong') FROM products;
+```
+
+## Aggregate Function
+* Misal kita ingin melihat harga paling mahal di tabel product, atau harga termurah atau rata-rata harga product, atau total jumlah data di table, dan lain-lain itu semua merupakan `Aggregate Function`
