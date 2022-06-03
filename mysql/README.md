@@ -364,3 +364,37 @@ FROM products;
 
 ## Aggregate Function
 * Misal kita ingin melihat harga paling mahal di tabel product, atau harga termurah atau rata-rata harga product, atau total jumlah data di table, dan lain-lain itu semua merupakan `Aggregate Function`
+
+## Groub by
+* Kita ingin mengumpulkan data dan data tersebut dikumpulkan berdasarkan kelompok tertentu maka kita pakai fitur ini dari mysql
+* Groub By clause bisa digunakan saat kita menggunakan Aggregate function
+  * Syntax ```mysql
+  SELECT AVG(price) as 'rata-rata harga', category from products group by category;
+  ```
+
+## HAVING clause
+* Kadang kita ingin melakukan filter terhadap data yang sudah kita grouping
+* Misal kita ingin menampilkan rata-rata harga per kategori, tetapi yang digrouping harganya diatas 10.0000
+* Jika menggunakan WHERE di SELECT, hal ini tidak bisa dilakukan 
+* Untuk memfilter hasil aggregate function ktia harus menggunakan HAVING clause
+* Kita bisa membuat kondisi dengan memanfaat aliases
+
+## Constarint
+* DI MySQL, kita bisa menambahkan constraint untuk menjaga data di tabel tetap baik
+* Constraint sangat bagus ditambahkan untuk menjaga terjadi validasi yang salah di program kita, sehingga data yang masuk ke database tetap akan terjaga
+
+### Unique Constarint
+* Unique constarint adalah constarint yang memastikan bahwa data kita tetap _unique_
+* Jika kita mencoba memasukkan data yang duplikat, maka MySQL akan menolak data tersebut
+
+```mysql
+CREATE TABLE cutomers
+(
+  id INT NOT NULL AUTO_INCREMENT,
+  email VARCHAR(100) NOT NULL,
+  first_name VARCHAR(100) NOT NULL,
+  last_name VARCHAR(100),
+  PRIMARY KEY(id),
+  UNIQUE KEY email_unique (email) // email_unique itu merupakan nama constraint
+) engine = InnoDB;
+```
