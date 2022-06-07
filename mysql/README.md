@@ -398,3 +398,68 @@ CREATE TABLE cutomers
   UNIQUE KEY email_unique (email) // email_unique itu merupakan nama constraint
 ) engine = InnoDB;
 ```
+
+  * Menambah/Menghapus Unique Constraint
+  ```mysql
+  // Menambah UNI
+    ALTER TABLE customers
+      ADD CONSTRAINT email_unique UNIQUE (email);
+
+  // Menghapus UNI
+    ALTER TABLE customers
+      DROP CONSTRAINT email_uniqu
+  ```
+
+## Check Constraint
+* constraint yang bisa ktia tabhakan kondisi pengecekannya
+* Ini cocok untuk mengecek data sebelum dimasukan ke dalam database
+* Misal ktia ingin mematikan bahwa harga harus diatas 1000 Misal
+* Maka kita bisa menggunakan check constarint
+
+  * Menambah/Menghapus Check Constraint
+  ```mysql
+  // Menambah
+  ALTER TABLE products
+    ADD CONSTRAINT price_check CHECK (prize >= 1000);
+
+  // Menghapus sama seperti di Menghapus UNI KEY
+  ```
+## Index
+* Secara default, MySQL akan menyimpan data di dalam disk seperti table biasanya
+* Hal ini menyebabkan, ketika ktia mencari data, maka MySQL akan melakukan pencarian dari baris pertama sampai terakhir, yang artinya semakin banyak datanya, maka akan semakin lambat proses pencarian datanya
+* Saat kita membuat index, MySQL akan menyimpan data dalam struktur data B-Tree
+* Tidak hanya akan mempermudak kita saat melakukan pencarian, index juga akan mempermudak ktia ketika melakukan pengurutan menggunakan ORDER BY
+
+### Cara Kerja Index
+* Kita bisa membuat lebih dari satu index di  table dan setiap kita membuat index, kita bisa membuat index untuk beberapa kolom sekaligus
+* Misal kita membuat index (col1, col2, col3)
+* Aritnya kita punya kemampuan untuk mencari lebih mengguanakan index untuk kominasi query di (col1), (col1, col2,), dan (col1, col2, col3);
+
+### Efek Samping Membuat Index
+* Index mungkin akan mempercepat untuk proses pencarian dan query data
+* Namun, saat kita membuat index, aritnya MySQL akan melakukan proses update data di index tiap kali kita menambah, mengubah atau menghapus data di table. JADI MALAH MAKIN LAMBAT SAAT KITA MELAKUKAN MANIPULASI DATA
+
+#### Tidak Perlu Index 
+* Saat kita membuat PRIMARY KEY dan UNIQUE constraint, kita tidak perlu menambahkan lagi index
+* Hal ini dikarenakan MySQL secara otomatis akan menambahkan index pada kolom PRIMARY KEY dan UNIQUE constraint
+
+```mysql
+CREATE TABLE sellers
+(
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100),
+  email VARCHAR(100),
+  PRIMARY KEY (id),
+  UNIQUE KEY email_unique (email),
+  INDEX name_index (index)
+) ENGINE = InnoDB
+```
+
+### Menambah/Menghapus Index
+```MySQl
+ALTER TABLE sellers
+ADD INDEX name_index(name);
+
+ALTER TABLE sellers
+DROP INDEX name_index;
+```
