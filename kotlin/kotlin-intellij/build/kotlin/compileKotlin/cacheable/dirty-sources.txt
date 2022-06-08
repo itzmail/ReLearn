@@ -1,0 +1,10 @@
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\App.kt
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\controlFlow\whenExpression.kt
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\Function.kt
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\String.kt
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\controlFlow\enumeration.kt
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\Array.kt
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\NullType.kt
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\StringTemplate.kt
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\SafeCalls&ElvisOpertor.kt
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\Number.kt
