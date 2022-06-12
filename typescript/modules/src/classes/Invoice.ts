@@ -1,3 +1,5 @@
+import { formater } from '../interfaces/HasFormater';
+
 export class invoice {
   constructor(
     readonly client: string,
