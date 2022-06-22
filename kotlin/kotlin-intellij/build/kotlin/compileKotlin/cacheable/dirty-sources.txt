@@ -6,5 +6,6 @@ C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\ma
 C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\Array.kt
 C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\NullType.kt
 C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\StringTemplate.kt
+C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\controlFlow\range.kt
 C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\SafeCalls&ElvisOpertor.kt
 C:\Users\ismail\Documents\Master_Plan\MyEdu_Center\kotlin\kotlin-intellij\src\main\kotlin\kotlin\fundamental\Number.kt
