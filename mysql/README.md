@@ -320,6 +320,9 @@ FROM products;
 * Kita bisa melakukan aritmatika ketika melakukan pengambilan data
 * syntax => ```mysql SELECT price % 2 as "Hasil Sisa Bagi" from products;```
 
+## Matemathical Function
+* Lihat di dokumentasi MYSQL aja
+
 ## Auto Increment 
 * Merupakan salah satu fungsi yang disediakan oleh MySQL untuk menambahkan sebanyak 1 pada data *KHUSUS PRIMARY KEY*
 
@@ -463,3 +466,40 @@ ADD INDEX name_index(name);
 ALTER TABLE sellers
 DROP INDEX name_index;
 ```
+
+## Full-Text Search
+* Full-Text Search memungkinkan kita bisa mencari sebagian kata di kolom dengan tipe data String
+* Ini sangat cocok ketika pada kasus kita memang membutuhkan pencarian yang tidak hanya sekedar operasi = (equals, sama dengan)
+
+
+#### Masalah dengan LIKE operator
+* Kadang kita mencari sebuah kata dalam tabel, dan biasanya kita akan menggunakan LIKE operator
+* Operasi yang dilakukan LIKE operator adalah dengan cara mencari seluruh data di tabel dari baris pertama sampai terakhir, hal ini membuat opearsi LIKE sangat lambat
+* Menambah index di tabel juga tidak akan membantu, karena LIKE operator tidak menggunakan index
+* MySQL menyediakan fitur Full Text Search jika ada kasus kita ingin melakukan hal ini
+
+```mysql
+CREATE TABLE products
+(
+  id VARCHAR(10) NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  description TEXT,
+  price INT UNSIGNED NOT NULL,
+  quantity INT UNSIGNED NOT NULL DEFAULT 0,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FULLTEXT product_search (name, description)
+) ENGINE=InnoDB;
+
+// sudah dibuat
+ALTER TABLE products
+  ADD FULLTEXT product_search(name, description);
+
+ALTER TABLE products
+  DROP FULLTEXT product_search;
+```
+
+### Mode Full-Text Search
+1. Natural Language, yaitu mencari seperti bahasa natural (per kata);
+2. Boolean, yaitu mencari dngan kemampuan mengandung kata (+) atau tidak mengandung kata (-);
+3. Query Expansion, yaitu mencari sperti natural languange, namun melakukan dua kali pencarian, pencarian pertama menggunakan natural language, pencarian kedua melakukan pencarian dari kedekatan hasil pertama, misal kita mencari kata "bakse", lalu ternyata di dalam "bakso" ada kata "mie", maka kemungkinakn query kedua akan mencari kata "mie" Juga:
