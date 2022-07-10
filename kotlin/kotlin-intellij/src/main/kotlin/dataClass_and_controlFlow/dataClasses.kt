@@ -37,7 +37,7 @@ fun main() {
     val dataUser1 = DataUser("Ismail", 17);
     val dataUser2 = DataUser("Ismail", 17);
     val dataUser3 = DataUser("Alam", 17);
-    println(dataUser1.equals(dataUser2));
+    println(dataUser1.equals(dataUser2)); // Output: true
 
     // Jika kita membandingkan dengan Class biasa meskipun kita isinya sama sesuai pengisian yang diata
     // Hasilnya akan tetap false karena Class membandingkan letak memory bukan value
