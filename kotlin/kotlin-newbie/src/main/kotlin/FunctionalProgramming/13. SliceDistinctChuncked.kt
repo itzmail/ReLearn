@@ -1,7 +1,5 @@
 package FunctionalProgramming
 
-import java.util.Objects
-
 data class Item(val key: String, val value: Any)
 
 fun main(args: Array<String>) {
