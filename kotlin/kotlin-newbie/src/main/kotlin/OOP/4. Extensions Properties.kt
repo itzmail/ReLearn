@@ -11,5 +11,5 @@ val Animal.getAnimalInfo : String
 
 fun main(args : Array<String>) {
     val dicodingCat = AnimalExtProps("Dicoding Miaw", 5.0, 2, true)
-    println(dicodingCat.getAnimalInfo) // Nama: Dicoding Miaw, Berat: 5.0, Umur: 2 Mammalia: true
+//    println(dicodingCat.getAnimalInfo) // Nama: Dicoding Miaw, Berat: 5.0, Umur: 2 Mammalia: true
 }
