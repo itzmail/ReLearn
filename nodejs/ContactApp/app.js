@@ -1,5 +1,5 @@
 const yargs = module.require("yargs");
-const { saveContact } = module.require('./contact');
+const { saveContact, listContacts, detilContact, deleteContact } = module.require('./contact');
 
 yargs.command({
   command: 'add',
@@ -24,19 +24,50 @@ yargs.command({
   handler(argv) {
     saveContact({nama: argv.nama, email: argv.email, noHP: argv.noHP,})
   }
+}).demandCommand();
+
+// Menampilkan list kontak
+
+yargs.command({
+  command: 'list',
+  describe: 'Menampilkan semua nama & no HP contact',
+  handler() {
+    listContacts();
+  }
+});
+
+// Menampilkan detil sebuah kontak
+
+yargs.command({
+  command: 'detil',
+  describe: 'Menampilkan detil kontak berdasarkan nama',
+  builder: {
+    nama: {
+      describe: 'Nama Lengkap',
+      demandOption: true,
+      type: 'string'
+    },
+  },
+  handler(argv) {
+    detilContact(argv.nama)
+  }
+});
+
+// Menghapus sebuah kontak berdasarkan nama
+
+yargs.command({
+  command: 'delete',
+  describe: 'Menghapuskan kontak berdasarkan nama',
+  builder: {
+    nama: {
+      describe: 'Nama Lengkap',
+      demandOption: true,
+      type: 'string'
+    },
+  },
+  handler(argv) {
+    deleteContact(argv.nama)
+  }
 });
 
 yargs.parse();
-
-
-/* 
-
-const main = async () => {
-  const nama = await questionContact("Masukkan nama anda : ");
-  const email = await questionContact("Masukkan email anda : ");
-  const noHP = await questionContact("Masukkan noHP anda : ");
-
-  saveContact({nama: nama, email: email, noHP: noHP});
-}
-
-main(); */
