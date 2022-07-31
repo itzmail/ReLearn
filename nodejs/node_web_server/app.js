@@ -30,6 +30,9 @@ http
       case "/contact":
         routeScreen("./contact.html", res);
         break;
+      case "/text":
+        res.write('<h1>Ini coba belajar node web server</h1>');
+        break;
       default:
         routeScreen("./index.html", res);
     }
