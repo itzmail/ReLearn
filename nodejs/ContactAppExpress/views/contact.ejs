@@ -12,24 +12,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+          <% contacts.forEach((contact, index) => { %>
+            <tr>
+              <th scope="row"><%= ++index %> </th>
+              <td><%= contact.nama %> </td>
+              <td><%= contact.noHP %> </td>
+              <td>
+                <a href="/contact/<%= contact.nama %> " class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> detail</a>
+              </td>
+            </tr>
+          <% }) %>  
         </tbody>
       </table>
     </div>

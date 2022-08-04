@@ -1,7 +1,9 @@
 const express = require('express');
-const app = express();
 const expressLayouts = require('express-ejs-layouts');
-const port = 3000;
+const { loadContact } = require('./utils/contact')
+
+const app = express();
+const port = process.env.PORT || 3000;
 
 
 // menggunakan Templeting View EJS
@@ -24,20 +26,38 @@ app.get('/', (req, res) => {
       email: 'okejadi@imaco.com'
     },
   ]
-  res.render('index', { layout: 'layouts/main-layouts', nama: 'Ismail', title: 'Home', mahasiswa }); // nanti ini akan mencari file bernama index
+  res.render('index', { 
+    layout: 'layouts/main-layouts', 
+    nama: 'Ismail', 
+    title: 'Home', 
+    mahasiswa 
+  }); // nanti ini akan mencari file bernama index
 });
 
 app.get('/about', (req, res) => {
-  res.render('about', { layout: 'layouts/main-layouts', title: 'About' });
+  res.render('about', { 
+    layout: 'layouts/main-layouts', 
+    title: 'About' 
+  });
 });
 
 app.get('/contact', (req, res) => {
-  res.render('contact', { layout: 'layouts/main-layouts', title: 'Contact' });
+  const contacts = loadContact();
+  res.render('contact', { 
+    layout: 'layouts/main-layouts', 
+    title: 'Contact', 
+    contacts
+  });
 });
 
-// with params
-app.get('/product/:id', (req, res) => {
-  res.send(`Produk id : ${req.params.id} <br> Category : ${req.query.category} `); // query category dibuat untuk memanggil params langsung dari link yang kita ketik
+app.get('/contact/:nama', (req, res) => {
+  const contacts = findContact(req.params.nama);
+
+  res.render('detil', { 
+    layout: 'layouts/main-layouts', 
+    title: 'Detail', 
+    contacts
+  });
 });
 
 // method use akan dijalankan di setiap route tidak ditemukkan
