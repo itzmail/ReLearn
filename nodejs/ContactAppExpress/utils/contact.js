@@ -14,6 +14,7 @@ if(!fs.existsSync(dataPath)) {
   fs.writeFileSync(dataPath, '[]', 'utf-8');
 }
 
+/* Get all contact.json */
 const loadContact = () => {
   const fileBuffer = fs.readFileSync('data/contact.json', 'utf-8');
   const contacts = JSON.parse(fileBuffer);
@@ -21,4 +22,12 @@ const loadContact = () => {
   return contacts;
 }
 
-module.exports = { loadContact }
+/* Find contact by name */
+const findContact = (nama) => {
+  const contacts = loadContact();
+  const contact = contacts.find(contact => contact.nama.toLowerCase() == nama.toLowerCase());
+
+  return contact;
+}
+
+module.exports = { loadContact, findContact }
