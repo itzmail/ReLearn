@@ -1,14 +1,17 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
-const { loadContact, findContact } = require('./utils/contact')
+const { loadContact, findContact, addContact } = require('./utils/contact')
+const { body, validationResult, check } = require('express-validator')
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 
-// menggunakan Templeting View EJS
+// Middleware
 app.set('view engine', 'ejs');
-app.use(expressLayouts);
+app.use(expressLayouts); // third party middleware
+app.use(express.static('public')) // built in middleware
+app.use(express.urlencoded({extended: true}));
 
 app.get('/', (req, res) => {
   // res.sendFile('./index.html', { root: __dirname });
@@ -50,9 +53,29 @@ app.get('/contact', (req, res) => {
   });
 });
 
+// Screen Form Contact
+app.get('/contact/add', (req, res) => {
+  res.render('add-contact', {
+    title: 'Form Add Contact',
+    layout: 'layouts/main-layouts'
+  })
+})
+
+// Procees Data Contact
+app.post('/contact', [
+  check('email', 'Email tidak valid!').isEmail(), 
+  check('noHP', 'Nomor HP tidak valid!').isMobilePhone('id-ID')
+] ,(req, res) => {
+  const errors = validationResult(req);
+  if(!errors.isEmpty()) {
+    return res.status(400).json({errors: errors.array()})
+  }
+  // addContact(req.body);
+  // res.redirect('/contact')
+})
+
 app.get('/contact/:nama', (req, res) => {
   const contact = findContact(req.params.nama);
-
   res.render('detail', { 
     layout: 'layouts/main-layouts', 
     title: 'Detail', 

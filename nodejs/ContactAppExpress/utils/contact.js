@@ -30,4 +30,16 @@ const findContact = (nama) => {
   return contact;
 }
 
-module.exports = { loadContact, findContact }
+/* Untuk save atau menimpa file contacts.json */
+const saveContact = (contact) => {
+  fs.writeFileSync('data/contact.json', JSON.stringify(contact))
+}
+
+/* Add Contact */
+const addContact = (contact) => {
+  const contacts = loadContact();
+  contacts.push(contact);
+  saveContact(contacts);
+}
+
+module.exports = { loadContact, findContact, addContact }
