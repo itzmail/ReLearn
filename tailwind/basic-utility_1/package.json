@@ -1,0 +1,15 @@
+{
+  "name": "basic_utility",
+  "version": "1.0.0",
+  "description": "Belajar utility di tailwind",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tailwindcss -i ./tailwind.css -o ./style.css --watch"
+  },
+  "author": "ismail",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}
