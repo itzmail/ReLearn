@@ -18,10 +18,7 @@ package com.dicoding.exam.latihan1
  *  merupakan angka genap
  */
 fun isEvenNumber(number: Int): Boolean {
-    if ((number % 2) === 0) {
-        return true
-    }
-    return false;
+    return if (number % 2 == 0) true else false
 }
 
 
@@ -31,10 +28,7 @@ fun isEvenNumber(number: Int): Boolean {
  *  lebih dari 5
  */
 fun moreThanFive(number: Int):Boolean {
-    if(number > 5) {
-        return true
-    }
-    return false
+    return if(number > 5)  true else false
 }
 
 /**
@@ -45,7 +39,7 @@ fun moreThanFive(number: Int):Boolean {
  *      param * ( param + 10 )
  */
 fun result(number: Int): Int {
-    return number
+    return number * (number + 10);
 }
 
 fun main() {
