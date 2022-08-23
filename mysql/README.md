@@ -310,7 +310,7 @@ FROM products;
     ```mysql
     SELECT * FROM products WHERE price > 0 ORDER BY price LIMIT 2, 2;
     ```
-    * Limit diatas memiliki 2 parameter, parameter satu untuk mengambil 2 data sedangkan param dua untuk menskip 2 data atau sebagai paging nya, jadi kita menampilkan itu di halaman selanjutanya
+    * Limit diatas memiliki 2 parameter, parameter dua untuk mengambil 2 data sedangkan param satu untuk menskip 2 data atau sebagai paging nya, jadi kita menampilkan itu di halaman selanjutanya
 
 ## Distinct
 * Digunakan untuk mengambil data dan di filter data yang duplikat tidak ikut di Ambil
@@ -322,6 +322,14 @@ FROM products;
 
 ## Matemathical Function
 * Lihat di dokumentasi MYSQL aja
+```mysql
+SELECT PI(); // Mengambil nilai PI 
+SELECT POWER(10, 2);
+
+SELECT COS(10);
+SELECT TAN(10);
+SELECT SIN(10);
+```
 
 ## Auto Increment 
 * Merupakan salah satu fungsi yang disediakan oleh MySQL untuk menambahkan sebanyak 1 pada data *KHUSUS PRIMARY KEY*
@@ -337,9 +345,10 @@ FROM products;
        ) Engine = InnoDB;
     ```
 * Kalau kita hapus data table di tengah-tengah, auto increment tersebut akan lanjut meskipun data tersebut terhapus
+* untuk melihat id terakhir `SELECT LAST_INSERT_ID();`
 
 ## String Function
-* Lihat di website string documentation mysql
+* Lihat di website string documentation mysql karena banyak sekali function
 
 ## Date and Time Function
 * Ini juga lihat di documentation mysql
@@ -370,23 +379,32 @@ FROM products;
 
 ## Groub by
 * Kita ingin mengumpulkan data dan data tersebut dikumpulkan berdasarkan kelompok tertentu maka kita pakai fitur ini dari mysql
-* Groub By clause bisa digunakan saat kita menggunakan Aggregate function
+* Groub By clause **HANYA** bisa digunakan saat kita menggunakan Aggregate function
+* Kalau semisal ada field sama maka akan di _grouping_
   * Syntax ```mysql
   SELECT AVG(price) as 'rata-rata harga', category from products group by category;
   ```
 
 ## HAVING clause
-* Kadang kita ingin melakukan filter terhadap data yang sudah kita grouping
+* Kadang kita ingin melakukan *filter terhadap data yang sudah kita _grouping_*
 * Misal kita ingin menampilkan rata-rata harga per kategori, tetapi yang digrouping harganya diatas 10.0000
 * Jika menggunakan WHERE di SELECT, hal ini tidak bisa dilakukan 
 * Untuk memfilter hasil aggregate function ktia harus menggunakan HAVING clause
 * Kita bisa membuat kondisi dengan memanfaat aliases
 
-## Constarint
+```mysql
+SELECT category,
+       COUNT(id) as total
+FROM products
+GROUP BY category
+HAVING total > 1;
+```
+
+## Constraint
 * DI MySQL, kita bisa menambahkan constraint untuk menjaga data di tabel tetap baik
 * Constraint sangat bagus ditambahkan untuk menjaga terjadi validasi yang salah di program kita, sehingga data yang masuk ke database tetap akan terjaga
 
-### Unique Constarint
+### Unique Constraint
 * Unique constarint adalah constarint yang memastikan bahwa data kita tetap _unique_
 * Jika kita mencoba memasukkan data yang duplikat, maka MySQL akan menolak data tersebut
 
@@ -410,7 +428,7 @@ CREATE TABLE cutomers
 
   // Menghapus UNI
     ALTER TABLE customers
-      DROP CONSTRAINT email_uniqu
+      DROP CONSTRAINT email_unique
   ```
 
 ## Check Constraint
@@ -427,6 +445,7 @@ CREATE TABLE cutomers
 
   // Menghapus sama seperti di Menghapus UNI KEY
   ```
+
 ## Index
 * Secara default, MySQL akan menyimpan data di dalam disk seperti table biasanya
 * Hal ini menyebabkan, ketika ktia mencari data, maka MySQL akan melakukan pencarian dari baris pertama sampai terakhir, yang artinya semakin banyak datanya, maka akan semakin lambat proses pencarian datanya
