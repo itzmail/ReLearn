@@ -522,3 +522,47 @@ ALTER TABLE products
 1. Natural Language, yaitu mencari seperti bahasa natural (per kata);
 2. Boolean, yaitu mencari dngan kemampuan mengandung kata (+) atau tidak mengandung kata (-);
 3. Query Expansion, yaitu mencari sperti natural languange, namun melakukan dua kali pencarian, pencarian pertama menggunakan natural language, pencarian kedua melakukan pencarian dari kedekatan hasil pertama, misal kita mencari kata "bakse", lalu ternyata di dalam "bakso" ada kata "mie", maka kemungkinakn query kedua akan mencari kata "mie" Juga:
+
+```SQL
+-- Natural language mode
+select * 
+from products 
+where match(name, description) 
+		against ("ayam" in natural language mode);
+        
+-- Boolean mode
+select * 
+from products
+where match(name, description)
+		against('+mie - bakso' in boolean mode);
+        
+-- Expansion Mode
+select * 
+from products
+where match(name, description)
+		against('bakso' with query expansion);
+```
+
+### Table Relationship
+ * Dalam kehidupan sehari" Kita disuguhkan dengan fenomena Relationship
+ * Misal saat kita buat app penjualan, di laporan penjualan past ada data batang. Jika di table artinya table penjualan akan berelasi dengan tabel barang
+
+#### Foreign Key
+* Saat membuat relasi tabel, biasanya kita akan membuat sebuah kolom sebagai referensi ke table lainnya
+* Misal saat kita membuat tabel penjualan, di dalam tabel penjualan, kita akan menambahkan kolom id_produk sebagai referensi ke table produk, yang berisi primary key di table produk
+* Kolom referensi ini di MySQL dinamakan _Foreign Key_
+* Kita bisa menambah satu atau lebih Foreign Key ke dalam sebuah tabel
+* Membuat Foreign Key sama seperti membuat kolom biasanya, hanya saja kita perlu memberi tahu MySQL bahwa itu adalah foreign key ke tabel lain
+
+```SQL
+create table wishlist
+(
+id int not null auto_increment,
+id_product varchar(10) not null,
+description text,
+primary key (id),
+constraint fk_wishlist_product
+	foreign key (id_product) references products (id)
+) engine = InnoDB;
+```
+Isi dari kolom **id_product** reference ke id table products
