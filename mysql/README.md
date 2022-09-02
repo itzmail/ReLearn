@@ -565,4 +565,30 @@ constraint fk_wishlist_product
 	foreign key (id_product) references products (id)
 ) engine = InnoDB;
 ```
-Isi dari kolom **id_product** reference ke id table products
+
+Isi dari kolom **id_product** reference ke id table products dan typenya harus sama dengan yang di reference
+
+### Keuntungan Menggunakan Foreign Key
+* Foreign key memastikan bahwa data yang kita masukkan ke kolom tersebut harus tersedia di table reference nya
+* Selain itu saat kita menghapus data di table reference, MySQL akan mengecek apakah id nya digunakan di foreign key di table lain, jika digunakan, maka secara otomatis MySQL akan menolak proses delete data di tabel reference tersebut
+
+### Ketika Menghapus Data berelasi
+* Seperti sebelumnya dibahas, ketika kita menghapus data yang berelasi, maka secara otomatis MySQL akan menolak operasi delete tersebut
+* Kita bisa mengubah fitur ini jika kita mau, ada banyak hal yang bisa dilakukan ketika data berelasi di hapus, defaultnya memang akan ditolak (RESTRICT) agar tidak rusak di table lain
+
+### Behavior Foreign Key
+| Behavior  | ON DELETE         | ON UPDATE             |
+|-----------|-------------------|-----------------------|
+| RESTRICT  | Ditolak           | Ditolak               |
+| CASCASE   | Data akan dihapus | Data akan ikut diubah |
+| NO ACTION | Data dibiarkan    | Data dibiarkan        |
+| SET NULL  | Diubah jadi NULL  | Diubah jadi NULL      |
+
+
+```SQL
+-- Mengubah Behavior Menghapus Relasi
+	alter table wishlist 
+		add constraint fk_wishlist_product
+			foreign key (id_product) references products (id)
+				on delete cascade on update cascade;
+```
