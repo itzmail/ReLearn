@@ -9,7 +9,7 @@ void main() {
   }
 
   double largeCircle(int jarijari) {
-    var result = pi * jarijari;
+    var result = pi * jarijari * jarijari;
 
     return result;
   }
