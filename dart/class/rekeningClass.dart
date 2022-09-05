@@ -7,6 +7,11 @@ void main() {
   rekeningBank.cekSaldo();
   rekeningBank.transfer();
   rekeningBank.ambilSaldo();
+
+  RekeningBank rekeningIbu =
+      new RekeningBank(bankName: "Nadin Bank", owner: "Ibu", saldo: 99999999);
+  rekeningIbu.setSaldo = 90909090909; // Setter
+  print(rekeningIbu.getSaldo); // Getter
 }
 
 class RekeningBank {
@@ -18,8 +23,33 @@ class RekeningBank {
   // Constructor
   RekeningBank(
       {this.saldo = 0,
-      this.owner = "Ismail Nur Alam",
-      this.bankName = "Swiss Bank"});
+      this.owner = "noSetOwner",
+      this.bankName = "noSetBankName"});
+
+  // Getter and Setter
+  set setSaldo(int newSaldo) {
+    this.saldo = newSaldo;
+  }
+
+  int get getSaldo {
+    return saldo;
+  }
+
+  set setOwner(String newOwner) {
+    this.owner = newOwner;
+  }
+
+  String get getOwner {
+    return owner;
+  }
+
+  set setBankName(String newBankName) {
+    this.bankName = newBankName;
+  }
+
+  String get getBankName {
+    return bankName;
+  }
 
   // Methods
   cekSaldo() {
