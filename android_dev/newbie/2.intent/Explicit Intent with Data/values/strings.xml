@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name" translatable="false">MathFormula</string>
-    <string name="move_activity" translatable="false">Pindah Activity</string>
-    <string name="move_with_data" translatable="false">Pindah Activity dengan Data</string>
-    <string name="dial_number" translatable="false">Dial a Number</string>
-    <string name="data_received" translatable="false">Data Diterima</string>
-    <string name="this_is_moveactivity" translatable="false">Ini MoveActivity</string>
-</resources>

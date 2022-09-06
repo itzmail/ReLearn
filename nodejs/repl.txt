@@ -1,6 +1,0 @@
-ini dibuat txt karena untuk mengakses REPL punya node itu harus di terminal dengan cara mengetikan "node"
-
-R => Read
-E => Eval
-P => Print
-L => Loop
