@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--LinearLayout : Komponen view bertipe viewgroup yang menjadi parent dari semua sub komponen view (sub view) di dalamnya. Komponen ini bersifat sebagai kontainer untuk komponen lain dengan orientasi secara vertikal atau horizontal.-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+<!-- TextView : Komponen view untuk menampilkan teks ke layar -->
+<!--  Attribute | Value  -->
+<!--match_parent: Ini berarti bahwa ukuran dimensi sebuah View disesuaikan dengan ukuran layar secara horizontal jika pada layout_width dan vertikal jika pada layout_height.-->
+<!--wrap_content : Ini berarti bahwa ukuran dimensi sebuah View disesuaikan dengan ukuran konten di dalamnya baik secara horizontal pada layout_width dan vertikal jika pada layout_height.-->
+<!--@string/calculate: value calculate berasal dari berkas-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/panjang" />
+
+<!-- EditText : Komponen view untuk memberikan input teks -->
+    <EditText
+        android:id="@+id/edt_length"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:lines="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lebar" />
+
+    <EditText
+        android:id="@+id/edt_width"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:lines="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tinggi" />
+
+    <EditText
+        android:id="@+id/edt_height"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:lines="1" />
+
+<!--Button : Komponen view untuk melakukan sebuah aksi klik-->
+    <Button
+        android:id="@+id/btn_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/hasil"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+</LinearLayout>
+
+<!---->
