@@ -15,19 +15,11 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red[600],
       ),
-      // body: Center(
-      //     child: Image.asset('assets/ViewBeach.jpg'),
-      //   ),
-      body: Center(
-        child: ElevatedButton.icon(
-          onPressed: () {
-            print("you clicked me");
-          },
-          icon: Icon(
-            Icons.mail
-          ),
-          label: Text("mail me"),
-        ),
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
+        margin: EdgeInsets.all(10.0),
+        color: Colors.grey[400],
+        child: Text('hello'),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {  },
