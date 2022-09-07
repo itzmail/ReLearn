@@ -6,7 +6,7 @@ void main() {
   xpander.totalWheel(4);
 }
 
-class Transportation {
+abstract class Transportation {
   String soundHorn = "Telolet!";
 
   void horn() {
@@ -40,4 +40,9 @@ class Motor extends Transportation {
 
     super.totalWheel(wheel); // untuk tetap memanggila method yang ada di parent
   }
+}
+
+class SuperMobil extends Mobil {
+  late int roda;
+  SuperMobil(this.roda) : super(roda);
 }
