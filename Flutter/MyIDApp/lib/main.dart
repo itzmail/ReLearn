@@ -1,9 +1,19 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(home: MyID()));
 
-class MyID extends StatelessWidget {
+class MyID extends StatefulWidget {
   const MyID({Key? key}) : super(key: key);
+
+  @override
+  State<MyID> createState() => _MyIDState();
+}
+
+class _MyIDState extends State<MyID> {
+
+  int idLevel = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +24,15 @@ class MyID extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            idLevel += 1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -57,7 +76,7 @@ class MyID extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             Text(
-              "8",
+              "$idLevel",
               style: TextStyle(
                 color: Colors.amberAccent[200],
                 letterSpacing: 2.0,
@@ -89,3 +108,4 @@ class MyID extends StatelessWidget {
     );
   }
 }
+
