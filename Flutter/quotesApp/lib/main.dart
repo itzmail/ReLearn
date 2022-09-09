@@ -17,7 +17,7 @@ class QuotesList extends StatefulWidget {
 class _QuotesListState extends State<QuotesList> {
 
   List<Quote> quotes = [
-    Quote(author: "anonym", text: 'Be yourself! everyone else is already taken'),
+    Quote(author: "anonym", text: 'Be yourself! everyone else is already  taken'),
     Quote(author: "anonym", text: 'I have nothing to declare except my genius'),
     Quote(author: "anonym", text: 'The truth is rarely pure an never simple'),
   ];
