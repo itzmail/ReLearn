@@ -29,7 +29,8 @@ class WorldTime {
       time = now.toString();
 
     } catch (e) {
-      print("error : $e");
+      print("caught error : $e");
+      time = "Couldn't get data";
     }
   }
 
