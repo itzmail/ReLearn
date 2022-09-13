@@ -15,8 +15,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void setupWorldTime() async {
     WorldTime instance = WorldTime(location: "Jakarta", flag: "Indonesian", url: "Asia/Jakarta");
     await instance.getTime();
-    setState(() {
-      time = instance.time;
+    Navigator.pushReplacementNamed(context, "/home", arguments: {
+      'location': instance.location,
+      'time': instance.time,
+      'flag': instance.flag
     });
   }
 
@@ -31,7 +33,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Scaffold(
       body: Padding(
         padding: EdgeInsets.all(50.0),
-        child: Text(time),
+        child: Text("Loading"),
       ),
     );
   }
