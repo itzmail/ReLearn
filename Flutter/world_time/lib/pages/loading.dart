@@ -14,12 +14,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
   String time = "Loading";
 
   void setupWorldTime() async {
+    print("Setup World Time");
     WorldTime instance = WorldTime(location: "Jakarta", flag: "Indonesian", url: "Asia/Jakarta");
     await instance.getTime();
-    Navigator.pushReplacementNamed(context, "/home", arguments: {
+    Navigator.of(context).pushReplacementNamed("/home", arguments: {
       'location': instance.location,
       'time': instance.time,
-      'flag': instance.flag
+      'flag': instance.flag,
+      'isDayTime': instance.isDayTime,
     });
   }
 
@@ -34,7 +36,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return Scaffold(
       backgroundColor: Colors.blue[900],
       body: Center(
-        child: SpinKitChasingDots(
+        child: SpinKitFadingCube(
           color: Colors.white,
           size: 80.0,
         ),
