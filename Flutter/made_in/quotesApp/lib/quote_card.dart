@@ -10,7 +10,7 @@ class QuoteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-        margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
+        margin: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0.0),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
           child: Column(
@@ -20,15 +20,15 @@ class QuoteCard extends StatelessWidget {
                 quote.text,
                 style: TextStyle(fontSize: 18.0, color: Colors.grey[600]),
               ),
-              SizedBox(height: 6.0),
+              const SizedBox(height: 6.0),
               Text(
                 quote.author,
                 style: TextStyle(fontSize: 14.0, color: Colors.grey[800]),
               ),
               TextButton.icon(
                 onPressed: () => delete(),
-                icon: Icon(Icons.delete, color: Colors.redAccent),
-                label: Text(
+                icon: const Icon(Icons.delete, color: Colors.redAccent),
+                label: const Text(
                   "Delete Quote",
                   style: TextStyle(color: Colors.redAccent),
                 ),
