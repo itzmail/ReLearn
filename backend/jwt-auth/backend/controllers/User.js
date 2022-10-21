@@ -2,20 +2,20 @@ import Users from "../models/userModel.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-export const getUsers = async(req, res) => {
-    try{
+export const getUsers = async (req, res) => {
+    try {
         const users = await Users.findAll({
             attributes: ["id", "name", "email"]
         });
-        res.json({data: users});
-    } catch(e) {
+        res.json({ data: users });
+    } catch (e) {
         console.log(`error get users: ${e}`);
     }
 }
 
-export const Register = async(req, res) => {
-    const {name, email, password, confPassword} = req.body;
-    if(password !== confPassword) return res.status(400).json({
+export const Register = async (req, res) => {
+    const { name, email, password, confPassword } = req.body;
+    if (password !== confPassword) return res.status(400).json({
         status: "failed",
         message: "Password dan Confirm Password tidak cocok"
     })
@@ -33,13 +33,13 @@ export const Register = async(req, res) => {
             status: "success",
             message: "Register Berhasil"
         })
-    } catch(e) {
+    } catch (e) {
         console.log(`Error Create Users ${e}`);
     }
 }
 
-export const Login = async(req, res) => {
-    try{
+export const Login = async (req, res) => {
+    try {
         const user = await Users.findAll({
             where: {
                 email: req.body.email
@@ -47,7 +47,7 @@ export const Login = async(req, res) => {
         });
         const match = await bcrypt.compare(req.body.password, user[0].password)
         // Jika password ngga cocok dengan yang ada di database
-        if(!match) return res.status(400).json({
+        if (!match) return res.status(400).json({
             status: "failed",
             message: "Password salah!"
         });
@@ -55,13 +55,13 @@ export const Login = async(req, res) => {
         const userId = user[0].id;
         const name = user[0].name;
         const email = user[0].email;
-        const accessToken = jwt.sign({userId, name, email}, process.env.ACCESS_TOKEN_SECRET, {
+        const accessToken = jwt.sign({ userId, name, email }, process.env.ACCESS_TOKEN_SECRET, {
             expiresIn: '20s'
         });
-        const refreshToken = jwt.sign({userId, name, email}, process.env.REFRESH_TOKEN_SECRET, {
+        const refreshToken = jwt.sign({ userId, name, email }, process.env.REFRESH_TOKEN_SECRET, {
             expiresIn: '1d'
         });
-        await Users.update({refresh_token: refreshToken}, {
+        await Users.update({ refresh_token: refreshToken }, {
             where: {
                 id: userId
             }
@@ -75,10 +75,49 @@ export const Login = async(req, res) => {
             status: "success",
             accessToken
         })
-    }catch(e) {
+    } catch (e) {
         res.status(404).json({
             status: 'failed',
             message: "Email tidak ditemukan!"
         })
     }
-} 
+}
+
+export const Logout = async (req, res) => {
+    try{
+
+        const refreshToken = req.cookies.refreshToken;
+        if (!refreshToken) return res.status(204).json({
+            status: "failed",
+            message: res
+        }); // Status : NO CONTENT
+    
+        const user = await Users.findAll({
+            where: {
+                refresh_token: refreshToken
+            }
+        });
+        if (!user[0]) return res.status(204).json({
+            status: "failed",
+            message: res
+        }); // Jika tidak cocok yang ada di database dengan yang ada di cookie
+    
+        const userId = user[0].id;
+        await Users.update({refresh_token: null}, {
+            where: {
+                id: userId
+            }
+        });
+        res.clearCookie('refreshToken');
+        return res.sendStatus(200);
+    } catch(err) {
+        res.status(500).json({
+            status: "failed",
+            message: err.message
+        })
+    }
+    // return res.status(200).json({
+    //     status: "Success",
+    //     message: "Berhasil logout"
+    // });
+}
