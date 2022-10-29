@@ -1,11 +1,23 @@
-import { BrowserRouter, Route } from 'react-router-dom';
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navbar';
+import Login from "./pages/auth/Login";
+import Register from './pages/auth/Register';
+
+import Dashboard from './pages/home/Dashboard';
 
 function App() {
   return (
     <BrowserRouter>
-      <Register />
+      <Routes>
+        <Route path='/' element={
+          <>
+            <Navbar />
+            <Dashboard />
+          </>
+        } />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+      </Routes>
     </BrowserRouter>
   );
 }
