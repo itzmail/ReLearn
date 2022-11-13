@@ -3,8 +3,8 @@ import HealthRouter from './health';
 import ProductRouter from './product';
 
 const _routes: Array<[string, Router]> = [
-    ['/health', HealthRouter],
-    ['/product', ProductRouter],
+  ['/health', HealthRouter],
+  ['/product', ProductRouter]
 ];
 
 export const routes = (app: Application) => {

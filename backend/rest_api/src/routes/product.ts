@@ -9,16 +9,16 @@ ProductRouter.get('/', (req: Request, res: Response) => {
     status: 'success',
     message: 'success get data product',
     data: 'empty'
-});
+  });
 });
 
 ProductRouter.post('/', (req: Request, res: Response) => {
-    logger.info('Success add new product');
-    res.status(200).send({
-        status: 'success',
-        message: 'success add new product',
-        data: req.body
-    })
-})
+  logger.info('Success add new product');
+  res.status(200).send({
+    status: 'success',
+    message: 'success add new product',
+    data: req.body
+  });
+});
 
 export default ProductRouter;
