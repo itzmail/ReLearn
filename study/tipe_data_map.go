@@ -11,13 +11,24 @@ func main() {
     1: "Mantap jiwa",
     2: "Jos tenan",
   }
-
   fmt.Println(person)
 
   child := map[string]string{
     "mantap": "jos",
   }
 
+  child["message"] = string(128);
+  fmt.Println(child)
 
-  fmt.Println(child["mantap"])
+  // Membuat Map
+  MakeMap := make(map[string]string);
+
+  MakeMap["status"] = "success"
+  MakeMap["message"] = "Berhasil membuat Map"
+  MakeMap["ups"] = "Ini salah harus dihapus"
+
+  // Menghapus data yang ada di Map
+  delete(MakeMap, "ups")
+
+  fmt.Println(MakeMap)
 }
