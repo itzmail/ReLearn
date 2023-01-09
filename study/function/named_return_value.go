@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func getCompleteName() (first, second, last string) {
+func getCompleteName() (first, second, last string) { // return first, second, and last
 	first = "Ismail"
 	second = "Nur"
 	last = "Alam"
