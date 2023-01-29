@@ -18,10 +18,10 @@ func runApp(error bool) {
 	}
 
 	// Kode di bawah tidak dieksekusi
-	// untuk mau recover ada di defer
+	// kalau mau tetap jalan, bisa menggunakan function recover ada di defer untuk mengetahui spesifik errornya apa
 }
 
 func main() {
 	runApp(true)
-  fmt.Println("Code ini tetap jalan dengan message error")
+	fmt.Println("Code ini tetap jalan dengan message error")
 }
