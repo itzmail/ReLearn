@@ -8,8 +8,6 @@ import (
 func main() {
 	name := "Isma"
 
-	fmt.Print
-
 	if name == "Ismail" {
 		fmt.Println("Hello Ismail")
 	} else if name == "Budi" {
