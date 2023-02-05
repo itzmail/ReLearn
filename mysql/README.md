@@ -450,7 +450,7 @@ CREATE TABLE cutomers
 * Secara default, MySQL akan menyimpan data di dalam disk seperti table biasanya
 * Hal ini menyebabkan, ketika ktia mencari data, maka MySQL akan melakukan pencarian dari baris pertama sampai terakhir, yang artinya semakin banyak datanya, maka akan semakin lambat proses pencarian datanya
 * Saat kita membuat index, MySQL akan menyimpan data dalam struktur data B-Tree
-* Tidak hanya akan mempermudak kita saat melakukan pencarian, index juga akan mempermudak ktia ketika melakukan pengurutan menggunakan ORDER BY
+* Tidak hanya akan mempermudah kita saat melakukan pencarian, index juga akan mempermudah ktia ketika melakukan pengurutan menggunakan ORDER BY
 
 ### Cara Kerja Index
 * Kita bisa membuat lebih dari satu index di  table dan setiap kita membuat index, kita bisa membuat index untuk beberapa kolom sekaligus
