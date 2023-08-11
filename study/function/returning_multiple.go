@@ -14,7 +14,7 @@ func main() {
 
 	fmt.Println(first, second)
 
-	// Kalau kita hanya butuh return pertama, kita bisa beri _
+	// Kalau kita hanya butuh return pertama, kita bisa beri _ untuk mengabaikan return 2
 	data, _ := getFullName()
 
 	fmt.Println(data)
