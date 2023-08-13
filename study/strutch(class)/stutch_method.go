@@ -19,6 +19,7 @@ func sayHi(person Subscriber, name string) {
 }
 
 // Kalau dilihat di bawah ini, Struct Method ini berada di luar blok pendefinisian structh itu sendiri
+// Function di bawah ini terikat dengan struct Subscriber
 func (person Subscriber) sayHello() {
 	fmt.Println("Hello, My Name is", person.name)
 }
