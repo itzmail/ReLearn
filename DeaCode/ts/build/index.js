@@ -38,6 +38,7 @@ function onCreateProcessor(procesor) {
         Model : ${procesor.baseModel}
         Model Name : ${procesor.modelName || "KOSONG"}
         Clock Speed : ${procesor.clockSpeed} GHz
+        Turbo Boost : ${procesor.turboBoost || false}
     `);
 }
 const coreI5 = {

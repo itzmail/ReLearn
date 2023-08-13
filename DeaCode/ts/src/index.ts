@@ -70,7 +70,15 @@ interface IProcessor {
     clockSpeed: number;
 }
 
-function onCreateProcessor(procesor: IProcessor): void {
+interface Intel extends IProcessor {
+    turboBoost?: boolean;
+}
+
+interface Amd extends IProcessor {
+    precisisionBoost: boolean;
+}
+
+function onCreateProcessor(procesor: Intel): void {
     console.log(`
         --------------
         Terima Kasih ${procesor.brand}
@@ -79,10 +87,11 @@ function onCreateProcessor(procesor: IProcessor): void {
         Model : ${procesor.baseModel}
         Model Name : ${procesor.modelName || "KOSONG"}
         Clock Speed : ${procesor.clockSpeed} GHz
+        Turbo Boost : ${procesor.turboBoost || false}
     `)
 }
 
-const coreI5: IProcessor = {
+const coreI5: Intel = {
     brand: "Intel Core i5",
     baseModel: "core i5",
     clockSpeed: 4
