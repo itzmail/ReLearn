@@ -63,6 +63,9 @@ function addCalculate(x: number, y: number): number {
  * * sedangkan tipe digunakan untuk mendefinisikan jenis tipe data. Tipe dapat memperkenalkan nama untuk semua jenis tipe data, termasuk tipe primitif, gabungan, dan persimpangan
  */
 
+type StrCore = "APA CORE" | "DUAL CORE" | "QUAD CORE"
+type NumCore = 2 | 4 | 6 | 8
+type Core = StrCore | NumCore
 interface IProcessor {
     brand: String; 
     baseModel: String;
@@ -72,6 +75,7 @@ interface IProcessor {
 
 interface Intel extends IProcessor {
     turboBoost?: boolean;
+    core: Core;
 }
 
 interface Amd extends IProcessor {
@@ -88,13 +92,15 @@ function onCreateProcessor(procesor: Intel): void {
         Model Name : ${procesor.modelName || "KOSONG"}
         Clock Speed : ${procesor.clockSpeed} GHz
         Turbo Boost : ${procesor.turboBoost || false}
+        Core : ${procesor.core}
     `)
 }
 
 const coreI5: Intel = {
     brand: "Intel Core i5",
     baseModel: "core i5",
-    clockSpeed: 4
+    clockSpeed: 4,
+    core: 4
 }
 
 onCreateProcessor(coreI5);

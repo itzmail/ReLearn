@@ -39,11 +39,13 @@ function onCreateProcessor(procesor) {
         Model Name : ${procesor.modelName || "KOSONG"}
         Clock Speed : ${procesor.clockSpeed} GHz
         Turbo Boost : ${procesor.turboBoost || false}
+        Core : ${procesor.core}
     `);
 }
 const coreI5 = {
     brand: "Intel Core i5",
     baseModel: "core i5",
-    clockSpeed: 4
+    clockSpeed: 4,
+    core: 'DUAL CORE'
 };
 onCreateProcessor(coreI5);
