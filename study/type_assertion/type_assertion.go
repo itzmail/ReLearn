@@ -15,6 +15,7 @@ func ownName() interface{} {
 
 func main() {
 	result := ownName()
+	// fmt.Println(result.(type))
 	// resultToString := result.(string)
 	// resultToString := result.(int) kalau salah conversi dari interface {} maka akan terjadi PANIC
 	// fmt.Print(`Result `, resultToString)
@@ -29,6 +30,6 @@ func main() {
 		fmt.Print("This value is Integer ", resultRandom)
 		break
 	default:
-		fmt.Print("Value is unknow ", resultRandom)
+		fmt.Print("Value is unknow, the type is ", resultRandom)
 	}
 }
