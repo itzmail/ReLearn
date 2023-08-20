@@ -8,18 +8,22 @@ import "fmt"
 */
 
 type HasName interface {
-	GetName() string
+	GetName() string // returnnya string
 }
+
+/* Ketika kita mau kontrak interface (istilah di golang) maka kita harus implementasikan function GetName() */
 
 /*
   Implementasi pada interface
   agar kita bisa memakai function getName maka kita harus buat func lagi seperti dibawah ini
 */
+
 type Person struct {
 	Name string
 }
 
-func (person Person) GetName() string {
+// Structh Funtion
+func (person Person) GetName() string { // function getname() yang otomatis dapat kontrak dari interface HasName
 	return person.Name
 }
 
