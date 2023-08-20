@@ -13,42 +13,28 @@ type HasName interface {
 
 /* Ketika kita mau kontrak interface (istilah di golang) maka kita harus implementasikan function GetName() */
 
-/*
-  Implementasi pada interface
-  agar kita bisa memakai function getName maka kita harus buat func lagi seperti dibawah ini
-*/
-
 type Person struct {
 	Name string
 }
 
-// Structh Funtion
-func (person Person) GetName() string { // function getname() yang otomatis dapat kontrak dari interface HasName
+func sayHai(hasName HasName) {
+	fmt.Println("Hai", hasName.GetName()) // Method GetName ini dari interface HasName
+}
+
+func (person Person) GetName() string {
 	return person.Name
-}
-
-// Contoh implementasi interface 2
-type Animal struct {
-	Name string
-}
-
-func (animal Animal) GetName() string {
-	return animal.Name
-}
-
-func sayHello(hasName HasName) {
-	fmt.Println("Hi", hasName.GetName())
 }
 
 func main() {
 	var ismail Person
 	ismail.Name = "Ismail"
+	sayHai(ismail)
 
-	sayHello(ismail)
+	pet := Person{Name: "Katty"}
+	sayHai(pet)
+	// cat := Animal{
+	// 	Name: "Puss",
+	// }
 
-	cat := Animal{
-		Name: "Puss",
-	}
-
-	sayHello(cat)
+	// sayWhatEver(cat)
 }

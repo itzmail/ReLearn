@@ -30,6 +30,7 @@ func main() {
 	// fmt.Println("Length : ", len(slice))
 	// fmt.Println("Capacity : ", cap(slice))
 
+	// ketika kita mengubah data pada slice maka array asal juga berubah
 	months[5] = "Diubah"
 	slice[0] = "Meikarta"
 
@@ -49,6 +50,13 @@ func main() {
 	fmt.Println("Setelah diubah : ", days)
 
 	daySlice2 := append(daySlice1, "Libur Baru") // menambah data setelah data terakhir
+	/*
+		maka daySLice2 itu sendiri akan membuat array baru
+		jadi punya 2 array, array asal dan array baru.
+		sehingga ketika kita mengubah daySlice2 tidak akan mengubah data di array asal
+		hal di atas terjadi dengan sayarat ketika kita append data, capacity sudah tidak muat
+	*/
+
 	// daySlice2[0] = "Ups"
 	fmt.Println("Day Slice 2 : ", daySlice2)
 
@@ -56,13 +64,13 @@ func main() {
 
 	// Make
 	// Buat slice
-	// newSlice := make([]string, 2, 5)
-	// newSlice[0] = "Ismail"
-	// newSlice[1] = "Alam"
+	newSlice := make([]string, 2, 5)
+	newSlice[0] = "Ismail"
+	newSlice[1] = "Alam"
 
-	// fmt.Println(newSlice)
-	// fmt.Println(len(newSlice))
-	// fmt.Println(cap(newSlice))
+	fmt.Println(newSlice)
+	fmt.Println(len(newSlice))
+	fmt.Println(cap(newSlice))
 
 	// Copy
 	// ketika copy slice harus diperhatikan panjang yang dicopy

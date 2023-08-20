@@ -17,6 +17,11 @@ type Customer struct {
 	age           int
 }
 
+type Animal struct {
+	tipe, gender string
+	age          int
+}
+
 func main() {
 	ismail := Customer{
 		name:    "Ismail",
@@ -24,5 +29,12 @@ func main() {
 		age:     22,
 	}
 
-	fmt.Println(reflect.TypeOf(ismail))
+	caty := Animal{
+		tipe:   "Carnivore",
+		gender: "male",
+		age:    2,
+	}
+
+	fmt.Println(ismail)
+	fmt.Println(caty.gender)
 }
