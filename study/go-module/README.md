@@ -17,3 +17,9 @@ Teman-teman setting di .zshrc
 ```shell
 export GOPATH="route-folder/src"
 ```
+
+## PACKAGE INITIALIZATION
+
+* Saat kita membuat package, kita bisa membuat sebuah function yang akan diakses ketika package kita diakses
+* Ini sangat cocok ketika contohnya, jika package kita berisi function-function untuk berkomunikasi dengan database, kita membuat function inisialisasi untuk membuka koneksi ke database
+* Untuk membuat function yang diakses secara otomatis ketika package diakases kita cukup membuat function denang nama init
