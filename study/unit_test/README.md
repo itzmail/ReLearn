@@ -40,3 +40,32 @@ Kalau dari pyramid test, kita tahu ada => UI, Service, Unit. Unit Paling murah k
 ### Aturan Function Unit Test
 * Nama function untuk unit test harus diawali dengan nama "Test"
 * Misal, func HelloWorld => Unit testnya func TestHelloWorld
+
+
+### Menjalankan Test
+
+```shell
+-- Menjalankan semua file _test di folder root
+go test ./...
+
+-- Menjalankan di folder test
+-- bisa sama melihat function yang di test
+go test -v
+
+-- Menjalankan untuk func tertentu
+go test -v -run=TestNamaFunction
+```
+
+### Menggagalkan Test
+
+* Mengagalkan unit test menggunakan panic bukanlah bagus, karena ketika panic test selanjutnya tidak di jalankankan
+* Go-Lang sendiri sudah menyediakan cara untuk menggagalkan unit test menggunakanan testting.T
+* Terdapat function Fail(), FailNow(), dan Fatal() jika kita ingin mengagalkan unit test
+
+* t.Fail() dan t.FailNow()
+* t.Fail() Menggagalkan unit test, namun tetap melanjutkan eksekusi unit test. Namun diakhir ketika selesai, maka unit test tersebut dianggap gagal
+* t.FailNow(), akan menggagalkan unit test saat ini juga, tanpa melanjutkan eksekusi unit test
+
+* t.Error(args...) => function lebih seperti melakukan log print(error), namun setelah melakukan log error, dia akan secara otomatis memanggil function Fail(), sehingga mengakibatkan unit test dianggap gagal
+* Namun karena hanya memanggil Fail(), artinya eksekusi unit test akan tetap berjalan sampai selesai
+* t.Fatal(args...) => mirip dengan Error(), hanya saja, setelah melakukan log error, dia akan memanggil FailNow(), sehingga mengakibatkan eksekusi unit test berhenti
