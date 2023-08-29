@@ -69,3 +69,38 @@ go test -v -run=TestNamaFunction
 * t.Error(args...) => function lebih seperti melakukan log print(error), namun setelah melakukan log error, dia akan secara otomatis memanggil function Fail(), sehingga mengakibatkan unit test dianggap gagal
 * Namun karena hanya memanggil Fail(), artinya eksekusi unit test akan tetap berjalan sampai selesai
 * t.Fatal(args...) => mirip dengan Error(), hanya saja, setelah melakukan log error, dia akan memanggil FailNow(), sehingga mengakibatkan eksekusi unit test berhenti
+
+### Assertion
+* Melakukan pengecekan di unit test secara manual menggunakan if else sangatlah menyebalkan
+* Apalagi jika result data yang harus di cek itu banyak
+* Oleh karena itu, sangat disarankan untuk menggunakan Assertion untuk melakukan pengecekan 
+* Sayang Go-Lang tidak menyediakan package untuk assertion, sehingga kita butuh menambahkan library untuk melakukan assertion ini.
+
+
+#### Package untuk test assertion
+* https://github.com/stretchr/testify
+
+* Testitfy memiliki 2 package (assert & require)
+* assert => jika gagal memanggil Fail()
+* required => jika gagal memanggil FailNow()
+
+
+### Skip Test
+* Kadang dalam keadaan tertentu, kita ingin membatalkan eksekusi unit test
+* Di Go-Lang juga kita bisa membatalkan eksekusi unit test jika kita mau
+* Untuk membatalkan unit test kita bisa menggunakan function Skip()
+
+### Before and After Test
+* Biasanya dalam unit test, kadang kita ingin melakukan sesuatu sebelum dan setelah sebuah unit test dieksekusi
+* Jikalau kode yang kita lakukan sebelum dan setelah selalu sama antar unit test function, maka membuat manual di unit test function nya adalah hal yang membosankan dan terlalu banyak kode duplikat jadinya
+* Untungnya di Go-Lang terdapat fitur yang bernama testing.M
+* Fitur ini bernama Main, dimana digunakan untuk mengatur eksekusi unit test, namun hal ini juga bisa kita gunakan untuk melakukan Before and After di unit test
+
+### SubTest
+* Go-Lang mendukung fitur pembuatan function unit test di dalam function unit test
+* Fitur ini memang sedikit aneh dan jarang sekali dimiliki di unit test di bahasa pemrograman yang lainnya
+* Untuk membuat sub test, kita bisa menggunakan function Run()
+
+#### Menjalankan SubTes
+* Jika kita ingin menjalankan hanya salah satu sub test, kita bisa gunakan perintah: `go test -run TestNamaFunction/NamaSubTest`
+* Jika kita ingin menjalankan semua sub test, kita bisa gunakan perintah: `go test -run /NamaSubTest`
