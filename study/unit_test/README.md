@@ -104,3 +104,59 @@ go test -v -run=TestNamaFunction
 #### Menjalankan SubTes
 * Jika kita ingin menjalankan hanya salah satu sub test, kita bisa gunakan perintah: `go test -run TestNamaFunction/NamaSubTest`
 * Jika kita ingin menjalankan semua sub test, kita bisa gunakan perintah: `go test -run /NamaSubTest`
+
+
+### Table Test
+* Sebelumnya kita sudah belajar tentang sub test
+* Jika diperhatikan, sebenarnya dengan sub test, kita bisa membuat test  secara dinamis
+* Dan fitur sub test ini, biasa digunakan oleh programmer Go-Lang untuk membuat test dengan konsep table test
+* Table test yaitu dimana kita menyediakan data berubah slice yang berisi parameter dan ekspektasi hasil dari unit test
+* Lalu slice tersebut kita iterasi menggunakan sub test
+
+
+```go
+func TestTableHelloWorld(t *testing.T) {
+	tests := []struct {
+		name     string
+		request  string
+		expected string
+	}{
+		{
+			name:     "Ismail",
+			request:  "Ismail",
+			expected: "Hello Ismail",
+		},
+		{
+			name:     "Nur",
+			request:  "Nur",
+			expected: "Hello Nur",
+		},
+		{
+			name:     "Alam",
+			request:  "Alam",
+			expected: "Hello Alam",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			result := HelloWorld(test.request)
+			require.Equal(t, test.expected, result)
+		})
+	}
+}
+```
+
+### Mock
+* Mock adalah object yang sudah kita program dengan ekspektasi tertentu sehingga ketika dipanggil, dia akan menghasilkan data yang sudah kita program diawal
+* Mock adalah satu teknik dalam unit testing dimana kita bisa membuat mock object dari suatu object yang memang sulit untuk di testing
+* Misal kita ingin membuat unit test, namunt ternyata ada kode program kita yang harus memanggil API Call ke third party service dan belum tentu response nya sesuai dengan apa yang kita mau
+* Pada kasus seperti ini, cocok sekali untuk menggunakan mock object
+
+#### Testify Mock
+* Untuk membuat mock object, tidak ada fitur bawaan Go-Lang, namun kita bisa menggunakan library testify yang sebelumnya kita gunakan untuk assertion
+* Testify mendukung pembuatan mock object, sehingga cocok untuk kita gunakan ketika ingin membuat mock object 
+* Namun, perlu diperhatikan, jika desain kode program kita jelek, akan sulit untuk melakukan mocking, jadi pastikan kita melakukan pembuatan desain kode program kita dengan baik
+* Mari kita buat contoh kasus
+
+* Agar kode kita mudah untuk di test, disarankan agar membuat kontrak berupa Interface
