@@ -15,3 +15,33 @@
 
 * Go lang terintegrasi baik dengan git
 * Untuk merilis module, kita hanya perlu membuat Tag di Git
+
+### Cara Get Module
+
+```shell
+ go get github.com/ProgrammerZamanNow/go-say-hello
+```
+
+### Cara Upgrade Module
+
+```shell
+go get
+```
+
+### Kalau major Upgrade?
+
+kalau major upgrade lebih baik ubah noma modulnya
+
+contoh
+
+```go
+module github.com/itzmail/module_go.git
+
+go 1.19
+
+// Sebeleum
+require github.com/ProgrammerZamanNow/go-say-hello v1.5.0
+
+// Sesudah
+require github.com/ProgrammerZamanNow/go-say-hello/v2 v2.0.0 // ditamabh v2
+```
