@@ -190,3 +190,84 @@ func BenchmarkHelloWorld(b *testing.B) {
 	}
 }
 ```
+#### Menjalankan Benchmark
+
+* Untuk menajalankan seluruh benchmark di module
+```zsh
+go test -v -bench=.
+```
+* Jika hanya ingin menjalankan benchmark tanpa unit test
+```zsh
+go test -v -run=NotMathUnitTest -bench=.
+```
+
+* Menjalankan sebagian benchmark
+```zsh
+go test -v -run=NotMathUnitTest -bench=BenchmarkTest
+```
+
+* Menjalankan benchmark dari folder root
+```zsh
+go test -v -run=NotMathUnitTest -bench=. ./...
+```
+
+#### Output dari run Benchmark
+
+```shell
+BenchmarkHelloWorld-8           62120092                16.33 ns/op
+```
+* 62120092 => ini melakukan iterasi sebanyak segitu
+* 16.33 ns/op => waktunya 16.33 nano second tiap operasi
+
+### Sub Benchmark
+* Sama seperti testing.T, di testing.B juga kita bisa membuat sub benchmark menggunakan function Run()
+
+```go
+func BenchmarkSub(b *testing.B) {
+	b.Run("Ismail", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Ismail")
+		}
+	})
+	b.Run("Alam", func(b *testing.B) {
+		for i := 0; i < b.N; i++ {
+			HelloWorld("Alam")
+		}
+	})
+}
+```
+
+#### Menjalankan Sub Benchmark
+```zsh
+go test -v -run=NoMathUnitTest -bench=NamaBenchmark/NamaSubBenchmark
+```
+
+### Table Benchmark
+* Sama seperti unit test
+* Digunakan agar kita bisa mudah melakukan performance test dengan kombinasi data berbeda-beda tanpa harus membuat nbanyak benchmark function
+
+```go
+func BenchmarkTableHelloWorld(b *testing.B) {
+	benchmarks := []struct {
+		name    string
+		request string
+	}{
+		{
+			name:    "Ismail",
+			request: "Ismail",
+		},
+		{
+			name:    "Alam",
+			request: "Alam",
+		},
+	}
+
+	for _, bench := range benchmarks {
+		b.Run(bench.request, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				HelloWorld(bench.request)
+			}
+		})
+	}
+}
+```
