@@ -41,3 +41,7 @@
   *  P: Processor
 
 * Intinya ngga usah bingun dengan Go Scheduler, sudah di setting otomatis. Yang perlu diperhatikan sekarang Go Routine
+
+#### Membuat Goroutine
+* Kita hanya cukup menambahkan perintah `go` semeblum memanggil function yang akan kita jalankan dalma goroutine
+* SEbuah function kita jalankan dalam goroutine, function tersebut akan mberjalan secara asnychronouse, artinya tidak akan ditunggu sampa fucntion tersebut selesai
