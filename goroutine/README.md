@@ -26,6 +26,8 @@
 * Berbeda dengan paralel (menjalankan beberapa pekerjaan secara bersamaan), concurrency adalah menjalankan beberapa pekerjaan `secara bergantian`, waktunya tidak bersamaan
 * Dalam parallel kita biasanya membutuhkan banyak Thread, sedangkan dalam concurrency, kita hanya membutuhkan sedikit Thread
 
+
+# GOROUTINE
 ## Pengenalan Goroutine
 * Goroutine adalah sebuah thread ringan yang dikelola oleh Go Runtime
 * Ukuran Goroutine sangat kecil, sekitar 2kb, jauh lebih kecil dibandingkan Thread yang bisa sampai 1mb atau 1000Kb.
@@ -45,3 +47,38 @@
 #### Membuat Goroutine
 * Kita hanya cukup menambahkan perintah `go` semeblum memanggil function yang akan kita jalankan dalma goroutine
 * SEbuah function kita jalankan dalam goroutine, function tersebut akan mberjalan secara asnychronouse, artinya tidak akan ditunggu sampa fucntion tersebut selesai
+
+## GOROUTINE SANGAT RINGAN!!
+
+Jadi tidak masalah membuat lebih banyak GOROUTINE, tidak seperti bahasa yang menggunakan thread
+
+```go
+func DisplayNumber(number int) {
+	fmt.Println("Number : ", number)
+}
+
+func TestManyGoroutine(t *testing.T) {
+	for i := 0; i < 1000; i++ {
+		go DisplayNumber(i)
+	}
+
+	time.Sleep(5 * time.Second)
+}
+```
+
+kalau dilihat maka hasil tersebut tidak berurutan, karena berjalan secara asynchronous
+
+# CHANNEL
+
+## PENGENALAN CHANEL
+* Channel adalah tempat komunikasi secara synchronous yang bisa dilakukan oleh goroutine
+* Di Channel terdapat pengirim dan penerima, biasanya pengirim dan penerima adalah goroutine yang berbeda
+* Saat melakukan pengiriman data ke Channel, goroutine akan ter-block, sampai ada yang menerima data tersebut
+* Maka dari itu, channel disebut sebagai alat komunikasi synchronous (blocking)
+* Channel cocok sekali sebagai alternatif seperti mekanisme async await yang terdapat di beberapa bahasa pemrograman lain
+
+### Karakteristik Channel
+* Secara default channel hanya bisa menampung satu data, jika kita ingin menambahkan data lagi, harus menunggu data yang ada di channel diambil
+* Channel hanya bisa menerima satu jenis data
+* Channel bisa diambil dari lebih dari satu goroutine
+* Channel harus di close jika tidak digunakan atau bisa menyebabkan memory leak
