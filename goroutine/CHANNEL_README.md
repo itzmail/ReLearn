@@ -88,3 +88,124 @@ func TestInOutChannel(t *testing.T) {
 	time.Sleep(4 * time.Second)
 }
 ```
+
+### Buffered Channel
+
+- Seperti yang dijelaskan sebelumnya, bahwa secara default channel itu hanya bisa menerima 1 data
+- Artinya jika kita menambah data ke-2, maka kita akan diminta menunggu sampai data ke-1 ada yang mengambil
+- Kadang-kadang ada kasus dimana pengirim lebih cepat dibanding penerima, dalam hal ini jika kita menggunakan channel, maka otomatis pengirim akan ikut lambat juga
+- Untuknya ada Buffered Channel, yaitu buffer yang bisa digunakan untuk menampung data antrian di Channel
+
+### Buffered Capacity
+
+- Kita bebas memasukkan berapa jumlah kapasitas antrian di dalam buffer
+- Jika kita set misal 5, artinya kita bisa menerima 5 data di buffer.
+- Jika kita mengirim data ke 6, maka kita diminta untuk menunggu sampai buffer ada yang kosong
+- Ini cocok sekali ketika memang goroutine yang menerima data lebih lambat dari yang mengirim data
+
+### Range Channel
+
+- Kadang-kadang ada kasus sebuah channel dikirim data secara terus menerus oleh pengirim
+- Dan kadang tidak jelas kapan channel tersebut akan berhenti menerima data
+- Salah satu yang bisa kita lakukan adalah dengan menggunakan perulangan range ketika menerima data dari channel
+- Ketika sebuah channel di close(), maka secara otomatis perulangan tersebut akan berhenti
+- Ini lebih sederhana dari pada kita melakukan pengecekan channel secara manual
+
+```go
+func TestRangeChannel(t *testing.T) {
+	channel := make(chan string)
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			channel <- "Perulangan ke -" + strconv.Itoa(i)
+		}
+		close(channel)
+	}()
+
+	for data := range channel {
+		fmt.Println("Mengirim data", data)
+	}
+}
+```
+
+### Select Channel
+
+- Kadang ada kasus dimana kita membuat beberapa channel, dan menjalankan beberapa goroutine
+- Lalu kita ingin mendapatkan data dari semua channel tersebut
+- Untuk melakukan hal tersebut, kita bisa menggunakan select channel di Go-Lang
+- Dengan select channel, kita bisa memilih data tercepat dari beberapa channel, jika data datang secara bersamaan di beberapa channel, maka akan dipilih secara random
+
+```go
+func TestSelectChannel(t *testing.T) {
+	var channel1 chan string = make(chan string)
+	channel2 := make(chan string)
+	defer close(channel1)
+	defer close(channel2)
+
+	go GiveMeResponse(channel1)
+	go GiveMeResponse(channel2)
+
+	// select {
+	// case data := <-channel1:
+	// 	fmt.Println("Data dari channel 1: ", data)
+	// case data := <-channel2:
+	// 	fmt.Println("Data dari channel 2: ", data)
+	// } yang diambil hanya channel 1, karena konsepnya berurutan.
+	// kalau posisi awal sudah dapat data, maka akan langsung break
+
+	counter := 0
+	for {
+		select {
+		case data := <-channel1:
+			fmt.Println("Data dari channel 1: ", data)
+			counter++
+		case data := <-channel2:
+			fmt.Println("Data dari channel 2: ", data)
+			counter++
+		}
+
+		counter++
+
+		if counter == 4 {
+			break
+		}
+	}
+}
+```
+
+### Default Select
+
+- Apa yang terjadi jika kita melakukan select terhadap channel yang ternyata tidak ada datanya?
+- Maka kita akan menunggu sampai data ada
+- Kadang mungkin kita ingin melakukan sesuatu jika misal semua channel tidak ada datanya ketika kita melakukan select channel
+- Dalam select, kita bisa menambahkan default, dimana ini akan dieksekusi jika memang di semua channel yang kita select tidak ada datanya
+
+```go
+func TestDefaultSelectChannel(t *testing.T) {
+	var channel1 chan string = make(chan string)
+	channel2 := make(chan string)
+	defer close(channel1)
+	defer close(channel2)
+
+	go GiveMeResponse(channel1)
+	go GiveMeResponse(channel2)
+
+	counter := 0
+	for {
+		select {
+		case data := <-channel1:
+			fmt.Println("Data dari channel 1: ", data)
+			counter++
+		case data := <-channel2:
+			fmt.Println("Data dari channel 2: ", data)
+			counter++
+		default:
+			fmt.Println("Menunggu data")
+		}
+
+		if counter == 2 {
+			break
+		}
+	}
+}
+```
