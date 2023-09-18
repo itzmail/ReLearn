@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"testing"
 	"time"
+	"sync"
 )
 
 func RunHelloWorld() {
@@ -41,4 +42,22 @@ func TestRaceCondition(t *testing.T) {
 
 	time.Sleep(5 * time.Second)
 	fmt.Println("Total X : ", x) // x disini akan berubah-ubah karena ada beberapa goroutine yang tidak dijalankan
+}
+
+func TestMutex(t *testing.T){
+	x := 0
+	var mutex sync.Mutex
+
+	for i := 1; i <= 1000; i++ {
+		go func() {
+			for j := 1; j <= 100; j++ {
+				mutex.lock()
+				x = x + 1
+				mutex.unlock()
+			}
+		}()
+	}
+
+	time.Sleep(5 * time.Second)
+	fmt.Println("Total X : ", x)
 }
