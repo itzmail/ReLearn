@@ -268,3 +268,78 @@ func TestRunAsynchronous(t *testing.T) {
 	fmt.Println("Completed")
 }
 ```
+
+### sync.Once
+
+- Once adalah fitur di Go-Lang yang bisa kita gunakan untuk memastikan bahsa sebuah function di eksekusi hanya sekali
+- Jadi berapa banyak pun goroutine yang mengakses, bisa dipastikan bahwa goroutine yang pertama yang bisa mengeksekusi function nya
+- Goroutine yang lain akan di hiraukan, artinya function tidak akan dieksekusi lagi
+
+```go
+import (
+	"fmt"
+	"sync"
+	"testing"
+)
+
+var counter = 0
+
+func OnlyOnce() {
+	counter++
+}
+
+func TestOnce(t *testing.T) {
+	once := sync.Once{}
+	group := sync.WaitGroup{}
+
+	for i := 0; i < 100; i++ {
+		go func() {
+			group.Add(1)
+			once.Do(OnlyOnce)
+			group.Done()
+		}()
+	}
+
+	group.Wait()
+	fmt.Println(counter) // output : 1
+}
+```
+
+### sync.Pool
+
+- Pool adalah implementasi design pattern bernama object pool pattern.
+- Sederhananya, design pattern Pool ini digunakan untuk menyimpan data, selanjutnya untuk menggunakan datanya, kita bisa mengambil dari Pool, dan setelah selesai menggunakan datanya, kita bisa menyimpan kembali ke Pool nya
+- Implementasi Pool di Go-Lang ini sudah aman dari problem race condition
+
+```go
+import (
+	"fmt"
+	"sync"
+	"testing"
+	"time"
+)
+
+func TestPool(t *testing.T) {
+	pool := sync.Pool{
+		New: func() interface{} {
+			return "Kosong"
+		},
+	}
+
+	pool.Put("Ismail")
+	pool.Put(2)
+	pool.Put(true)
+
+	for i := 0; i < 10; i++ {
+		go func() {
+			data := pool.Get()
+			fmt.Println(data)
+			time.Sleep(1 * time.Second)
+			pool.Put(data)
+		}()
+	}
+
+	time.Sleep(11 * time.Second)
+	fmt.Println("Selesai")
+}
+```
