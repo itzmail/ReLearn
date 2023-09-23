@@ -31,7 +31,8 @@ func TestCond(t *testing.T) {
 	go func() {
 		for i := 0; i < 10; i++ {
 			time.Sleep(1 * time.Second)
-			cond.Signal()
+			// cond.Signal() jalannya satu per satu
+			cond.Broadcast() // jalannya semua
 		}
 	}()
 

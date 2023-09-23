@@ -343,3 +343,97 @@ func TestPool(t *testing.T) {
 	fmt.Println("Selesai")
 }
 ```
+
+### sync.Map
+
+- Go-Lang memiliki sebuah struct beranama sync.Map
+- Map ini mirip Go-Lang map, namun yang membedakan, Map ini aman untuk menggunaan concurrent menggunakan goroutine
+- Ada beberapa function yang bisa kita gunakan di Map :
+    - Store(key, value) untuk menyimpan data ke Map
+    - Load(key) untuk mengambil data dari Map menggunakan key
+    - Delete(key) untuk menghapus data di Map menggunakan key
+    - Range(function(key, value)) digunakan untuk melakukan iterasi seluruh data di Map
+    
+
+```go
+package goroutine
+
+import (
+	"fmt"
+	"sync"
+	"testing"
+)
+
+func AddToMap(data *sync.Map, value int, group *sync.WaitGroup) {
+	defer group.Done()
+
+	group.Add(1)
+	data.Store(value, value)
+}
+
+func TestMap(t *testing.T) {
+	data := &sync.Map{}
+	group := &sync.WaitGroup{}
+
+	for i := 0; i < 100; i++ {
+		go AddToMap(data, i, group)
+	}
+
+	group.Wait()
+
+	data.Range(func(key, value interface{}) bool {
+		fmt.Println(key, ":", value)
+		return true
+	})
+}
+```
+
+### sync.Cond
+
+- Cond adalah adalah implementasi locking berbasis kondisi.
+- Cond membutuhkan Locker (bisa menggunakan Mutex atau RWMutex) untuk implementasi locking nya, namun berbeda dengan Locker biasanya, di Cond terdapat function Wait() untuk menunggu apakah perlu menunggu atau tidak
+- Function Signal() bisa digunakan untuk memberi tahu sebuah goroutine agar tidak perlu menunggu lagi, sedangkan function Broadcast() digunakan untuk memberi tahu semua goroutine agar tidak perlu menunggu lagi
+- Untuk membuat Cond, kita bisa menggunakan function sync.NewCond(Locker)
+
+```go
+package goroutine
+
+import (
+	"fmt"
+	"sync"
+	"testing"
+	"time"
+)
+
+var locker = sync.Mutex{}
+var cond = sync.NewCond(&locker)
+var group = sync.WaitGroup{}
+
+func WaitCondition(value int) {
+	defer group.Done()
+
+	cond.L.Lock()
+
+	cond.Wait()
+	fmt.Println("Done", value)
+
+	cond.L.Unlock()
+}
+
+func TestCond(t *testing.T) {
+	for i := 0; i < 10; i++ {
+		group.Add(1)
+		go WaitCondition(i)
+	}
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			time.Sleep(1 * time.Second)
+			// cond.Signal() jalannya satu per satu
+			cond.Broadcast() // jalannya semua
+		}
+	}()
+
+	group.Wait()
+}
+```
