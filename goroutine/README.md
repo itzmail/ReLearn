@@ -437,3 +437,92 @@ func TestCond(t *testing.T) {
 	group.Wait()
 }
 ```
+
+### Atomic
+
+- Go-Lang memiliki package yang bernama sync/atomic
+- Atomic merupakan package yang digunakan untuk menggunakan data primitive secara aman pada proses concurrent
+- Contohnya sebelumnya kita telah menggunakan Mutex untuk melakukan locking ketika ingin menaikkan angka di counter. Hal ini sebenarnya bisa digunakan menggunakan Atomic package
+- Ada banyak sekali function di atomic package, kita bisa eksplore sendiri di halaman dokumentasinya
+- https://golang.org/pkg/sync/atomic/
+
+```go
+package goroutine
+
+import (
+	"fmt"
+	"sync"
+	"sync/atomic"
+	"testing"
+)
+
+func TestAtomic(t *testing.T) {
+	var x int64 = 0
+	group := sync.WaitGroup{}
+
+	for i := 1; i <= 1000; i++ {
+		go func() {
+			group.Add(1)
+			for j := 1; j <= 100; j++ {
+				// x = x + 1
+				atomic.AddInt64(&x, 1)
+			}
+
+			group.Done()
+		}()
+	}
+
+	group.Wait()
+	// time.Sleep(5 * time.Second)
+	fmt.Println("Total X : ", x) // x disini akan berubah-ubah karena ada beberapa goroutine yang tidak dijalankan
+}
+
+// Atomic ini dipakai untuk kebutuhan data primitive
+// Mutex atau RWMutex digunakan untuk kebutuhan data struct
+```
+
+### Timer
+
+- Timer adalah representasi satu kejadian
+- Ketika waktu timer sudah expire, maka event akan dikirim ke dalam channel
+- Untuk membuat Timer kita bisa menggunakan time.NewTimer(duration)
+
+```go
+package goroutine
+
+import (
+	"fmt"
+	"sync"
+	"testing"
+	"time"
+)
+
+func TestTimer(t *testing.T) {
+	timer := time.NewTimer(5 * time.Second)
+	fmt.Println(time.Now())
+
+	time := <-timer.C // data time berupa channel dari var timer
+	fmt.Println(time)
+}
+
+func TestTimerAfter(t *testing.T) {
+	channel := time.After(5 * time.Second)
+	fmt.Println(time.Now())
+
+	time := <-channel
+	fmt.Println(time)
+}
+
+func TestTimerAfterFunc(t *testing.T) {
+	group := sync.WaitGroup{}
+	group.Add(1)
+
+	time.AfterFunc(5*time.Second, func() {
+		fmt.Println(time.Now())
+		group.Done()
+	})
+
+	fmt.Println(time.Now())
+	group.Wait()
+}
+```
