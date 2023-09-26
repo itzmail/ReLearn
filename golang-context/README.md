@@ -102,3 +102,133 @@ func TestContextWithValue(t *testing.T) {
 	// konsep ambil value di context itu mengambil ke atas bukan ke bawah
 }
 ```
+
+## Context with Cancel
+
+- Selain menambahkan value ke context, kita juga bisa menambahkan sinyal cancel ke context
+- Kapan sinyal cancel diperlukan dalam context?
+- Biasanya ketika kita butuh menjalankan proses lain, dan kita ingin bisa memberi sinyal cancel ke proses tersebut
+- Biasanya proses ini berupa goroutine yang berbeda, sehingga dengan mudah jika kita ingin membatalkan eksekusi goroutine, kita bisa mengirim sinyal cancel ke context nya
+- Namun ingat, goroutine yang menggunakan context, tetap harus melakukan pengecekan terhadap context nya, jika tidak, tidak ada gunanya
+- Untuk membuat context dengan cancel signal, kita bisa menggunakan function **context.WithCancel(parent)**
+
+```go
+func CreateCounter(ctx context.Context) chan int {
+	destination := make(chan int)
+
+	go func() {
+		defer close(destination)
+		counter := 1
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			default:
+				destination <- counter
+				counter++
+			}
+		}
+	}()
+
+	return destination
+}
+func TestCounterWithCancel(t *testing.T) {
+	fmt.Println("total before", runtime.NumGoroutine())
+
+	/*destination := CreateCounter()
+	for n := range destination {
+		fmt.Println("Counter", n)
+		if n == 10 {
+
+			break
+		}
+	}*/
+	// kalau kita jalankan kode diatas, maka output 'total after' tetap 3 bukan 2. inilah yang disebut goroutine leak
+
+	parent := context.Background()
+	ctx, cancel := context.WithCancel(parent)
+
+	destination := CreateCounter(ctx)
+	for n := range destination {
+		fmt.Println("Counter -", n)
+		if n == 10 {
+			break
+		}
+	}
+	cancel() // membatalkan context, function ini berjalan secara asynchronous
+
+	time.Sleep(2 * time.Second)
+
+	fmt.Println("total after", runtime.NumGoroutine())
+}
+```
+
+## Context With Timeout
+
+- Selain menambahkan value ke context, dan juga sinyal cancel, kita juga bisa menambahkan sinyal cancel ke context secara otomatis dengan menggunakan pengaturan timeout
+- Dengan menggunakan pengaturan timeout, kita tidak perlu melakukan eksekusi cancel secara manual, cancel akan otomatis di eksekusi jika waktu timeout sudah terlewati
+- Penggunaan context dengan timeout sangat cocok ketika misal kita melakukan query ke database atau http api, namun ingin menentukan batas maksimal timeout nya
+- Untuk membuat context dengan cancel signal secara otomatis menggunakan timeout, kita bisa menggunakan function **context.WithTimeout(parent, duration)**
+
+```go
+func CreateCounter(ctx context.Context) chan int {
+	destination := make(chan int)
+
+	go func() {
+		defer close(destination)
+		counter := 1
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			default:
+				destination <- counter
+				counter++
+				time.Sleep(1 * time.Second) // simulasi delay
+			}
+		}
+	}()
+
+	return destination
+}
+
+func TestContextWithTimeout(t *testing.T) {
+	fmt.Println("total before", runtime.NumGoroutine())
+
+	parent := context.Background()
+	ctx, cancel := context.WithTimeout(parent, 5*time.Second)
+
+	defer cancel()
+
+	destination := CreateCounter(ctx)
+	for n := range destination {
+		fmt.Println("Counter -", n)
+	}
+
+	fmt.Println("total after", runtime.NumGoroutine())
+}
+```
+
+## Context With Deadline
+
+- Selain menggunakan timeout untuk melakukan cancel secara otomatis, kita juga bisa menggunakan deadline
+- Pengaturan deadline sedikit berbeda dengan timeout, jika timeout kita beri waktu dari sekarang, kalo deadline ditentukan kapan waktu timeout nya, misal jam 12 siang hari ini
+- Untuk membuat context dengan cancel signal secara otomatis menggunakan deadline, kita bisa menggunakan function **context.WithDeadline(parent, time)**
+
+```go
+func TestContextWithDeadline(t *testing.T) {
+	fmt.Println("total before", runtime.NumGoroutine())
+
+	parent := context.Background()
+	ctx, cancel := context.WithDeadline(parent, time.Now().Add(5*time.Second))
+
+	defer cancel()
+
+	destination := CreateCounter(ctx)
+	for n := range destination {
+		fmt.Println("Counter -", n)
+	}
+
+	fmt.Println("total after", runtime.NumGoroutine())
+}
+```
