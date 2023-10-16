@@ -1,0 +1,125 @@
+# GOLANG DATABASE
+
+<aside>
+❗ ****Sebelum Belajar****
+
+- Go-Lang Dasar
+- Go-Lang Modules
+- Go-Lang Unit Test
+- Go-Lang Goroutines
+- Go-Lang Context
+    - https://www.udemy.com/course/pemrograman-go-lang-pemula-sampai-mahir/?referralCode=C9C831DC7A42D8714259
+- MySQL
+    - https://www.udemy.com/course/database-mysql-pemula-sampai-mahir/?referralCode=8881586CE8D7225F0624
+</aside>
+
+## Pengenalan Package Database
+
+- Bahasa pemrograman Go-Lang secara default memiliki sebuah package bernama database
+- Package database adalah package yang berisikan kumpulan standard interface yang menjadi standard untuk berkomunikasi ke database
+- Hal ini menjadikan kode program yang kita buat untuk mengakses jenis database apapun bisa menggunakan kode yang sama
+- Yang berbeda hanya kode SQL yang perlu kita gunakan sesuai dengan database yang kita gunakan
+
+### Cara kerja Package Database
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/9c936ff6-1acb-4784-9742-4ed60015634e/d36ef265-4f75-48ee-bf6d-f90f6f40a3ea/Untitled.png)
+
+## Database Driver
+
+- Sebelum kita membuat kode program menggunakan database di Go-Lang, terlebih dahulu kita wajib menambahkan driver database nya
+- Tanpa driver database, maka package database di Go-Lang tidak mengerti apapun, karena hanya berisi kontrak interface saja
+- https://golang.org/s/sqldrivers
+
+install di package https://github.com/go-sql-driver/mysql/
+
+```bash
+$ go get -u github.com/go-sql-driver/mysql
+```
+
+### Import Package
+
+```go
+import (
+	"testing"
+
+	_ "github.com/go-sql-driver/mysql" // kasing (_ ) agar tidak error, dan kita hanya uji coba init database saja
+)
+```
+
+## Membuat Koneksi di Database
+
+- Hal yang pertama akan kita lakukan ketika membuat aplikasi yang akan menggunakan database adalah melakukan koneksi ke database nya
+- Untuk melakukan koneksi ke databsae di Golang, kita bisa membuat object **sql.DB** menggunakan function **sql.Open(driver, dataSourceName)**
+- Untuk menggunakan database MySQL, kita bisa menggunakan driver “mysql”
+- Sedangkan untuk dataSourceName, tiap database biasanya punya cara penulisan masing-masing, misal di MySQL, kita bisa menggunakan dataSourceName seperti dibawah ini :
+    - **username:password@tcp(host:port)/database_name**
+- Jika object sql.DB sudah tidak digunakan lagi, disarankan untuk menutupnya menggunakan function Close()
+
+```go
+package golangdatabase
+
+import (
+	"database/sql"
+	"testing"
+
+	_ "github.com/go-sql-driver/mysql"
+)
+
+/*
+	tanda  (_) pada saat import diatas itu
+	Untuk menyediakan driver untuk database atau layanan lainnya.
+	Misalnya, dalam contoh sebelumnya, paket github.com/go-sql-driver/mysql diimport untuk menyediakan driver MySQL untuk Golang.
+	Meskipun paket tersebut tidak digunakan dalam program, paket tersebut tetap diperlukan agar program dapat mengakses database MySQL.
+*/
+
+func TestOpenConnection(t *testing.T) {
+	db, err := sql.Open("mysql", "root:@tcp(localhost:3306)/golang_db")
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer db.Close()
+}
+```
+
+## Database Pooling
+
+- sql.DB di Golang sebenarnya bukanlah sebuah koneksi ke database
+- Melainkan sebuah pool ke database, atau dikenal dengan konsep Database Pooling
+- Di dalam sql.DB, Golang melakukan management koneksi ke database secara otomatis. Hal ini menjadikan kita tidak perlu melakukan management koneksi database secara manual
+- Dengan kemampuan database pooling ini, kita bisa menentukan jumlah minimal dan maksimal koneksi yang dibuat oleh Golang, sehingga tidak membanjiri koneksi ke database, karena biasanya ada batas maksimal koneksi yang bisa ditangani oleh database yang kita gunakan
+
+### Pengaturan Database Pooling
+
+| Method | Keterangan |
+| --- | --- |
+| (DB) SetMaxIdleConns(number) | Pengaturan berapa jumlah koneksi minimal yang dibuat |
+| (DB) SetMaxOpenConns(number) | Pengaturan berapa jumlah koneksi maksimal yang dibuat |
+| (DB) SetConnMaxIdleTime(duration) | Pengaturan berapa lama koneksi yang sudah tidak digunakan akan dihapus |
+| (DB) SetConnMaxLifetime(duration) | Pengaturan berapa lama koneksi boleh digunakan |
+
+```go
+package golangdatabase
+
+import (
+	"database/sql"
+	"time"
+)
+
+func GetConnection() *sql.DB {
+	db, err := sql.Open("mysql", "root:@tcp(localhost:3306)/golang_db")
+
+	if err != nil {
+		panic(err)
+	}
+
+	// Wajib setting pool connection
+	db.SetMaxIdleConns(10)
+	db.SetMaxOpenConns(100)
+	db.SetConnMaxIdleTime(5 * time.Minute)
+	db.SetConnMaxLifetime(60 * time.Minute)
+
+	return db
+}
+```
