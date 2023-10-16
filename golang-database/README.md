@@ -199,3 +199,109 @@ for rows.Next() {
 
 	defer rows.Close()
 ```
+
+## Tipe Data Column
+
+- Sebelumnya kita hanya membuat table dengan tipe data di kolom nya berupa VARCHAR
+- Untuk VARCHAR di database, biasanya kita gunakan String di Golang
+- Bagaimana dengan tipe data yang lain?
+- Apa representasinya di Golang, misal tipe data timestamp, date dan lain-lain
+
+### ****Mapping Tipe Data****
+
+| Tipe Data Database | Tipe Data Golang |
+| --- | --- |
+| VARCHAR, CHAR | string |
+| INT, BIGINT | int32, int64 |
+| FLOAT, DOUBLE | float32, float64 |
+| BOOLEAN | bool |
+| DATE, DATETIME, TIME, TIMESTAMP | time.Time |
+
+Kode select ini **best practicenya** select langsung sama nama columnya
+
+```go
+ctx := context.Background()
+	script := "SELECT id, name, email, balance, rating, birth_date, married, created_at FROM customer"
+	rows, err := db.QueryContext(ctx, script)
+
+	if err != nil {
+		panic(err)
+	}
+```
+
+### Menghadapi Error-Erro yang mungkin terjadi
+
+- Error untuk tipe data time
+    - Secara default, Driver MySQL untuk Golang akan melakukan query tipe data DATE, DATETIME, TIMESTAMP menjadi [ ]byte / [ ]uint8. Dimana ini bisa dikonversi menjadi String, lalu di parsing menjadi time.Time
+    - Namun hal ini merepotkan jika dilakukan manual, kita bisa meminta Driver MySQL untuk Golang secara otomatis melakukan parsing dengan menambahkan parameter parseTime=true
+        
+        ```go
+        dataSource := "root:@tcp(localhost:3306)/golang_db?parseTime=true"
+        	db, err := sql.Open("mysql", dataSource)
+        	if err != nil {
+        		panic(err)
+        	}
+        ```
+        
+
+### Nullable Type
+
+- Golang database tidak mengerti dengan tipe data NULL di database
+- Oleh karena itu, khusus untuk kolom yang bisa NULL di database, akan jadi masalah jika kita melakukan Scan secara bulat-bulat menggunakan tipe data representasinya di Golang
+
+### Tipe-Tipe Data Nullable
+
+| Tipe Data Golang | Tipe Data Nullable |
+| --- | --- |
+| string | database/sql.NullString |
+| bool | database/sql.NullBool |
+| float64 | database/sql.NullFloat64 |
+| int32 | database/sql.NullInt32 |
+| int64 | database/sql.NullInt64 |
+| time.Time | database/sql.NullTime |
+
+```go
+func TestQuerySqlComplex(t *testing.T) {
+	db := GetConnection()
+
+	ctx := context.Background()
+	script := "SELECT id, name, email, balance, rating, birth_date, married, created_at FROM customer"
+	rows, err := db.QueryContext(ctx, script)
+
+	if err != nil {
+		panic(err)
+	}
+
+	for rows.Next() {
+		var id int32
+		var name string
+		var email sql.NullString
+		var balance int32
+		var rating float64
+		var createdAt time.Time
+		var birthDate sql.NullTime
+		var married bool
+
+		err := rows.Scan(&id, &name, &email, &balance, &rating, &birthDate, &married, &createdAt)
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Println("====================")
+		fmt.Println("Id:", id)
+		fmt.Println("Name:", name)
+		if email.Valid {
+			fmt.Print("Email:", email.String)
+		}
+		fmt.Println("Balance:", balance)
+		fmt.Println("Rating:", rating)
+		if birthDate.Valid {
+			fmt.Println("Birth Date:", birthDate.Time)
+		}
+		fmt.Println("Married:", married)
+		fmt.Println("Created At:", createdAt)
+	}
+
+	defer rows.Close()
+}
+```
