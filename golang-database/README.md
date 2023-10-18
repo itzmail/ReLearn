@@ -305,3 +305,59 @@ func TestQuerySqlComplex(t *testing.T) {
 	defer rows.Close()
 }
 ```
+
+## SQL dengan Parameter
+
+- Sekarang kita sudah tahu bahaya nya SQL Injection jika menggabungkan string ketika membuat query
+- Jika ada kebutuhan seperti itu, sebenarnya function Exec dan Query memiliki parameter tambahan yang bisa kita gunakan untuk mensubtitusi parameter dari function tersebut ke SQL query yang kita buat.
+- Untuk menandai sebuah SQL membutuhkan parameter, kita bisa gunakan karakter ? (tanda tanya)
+
+```go
+func TestSqlInjectionSafe(t *testing.T) {
+	db := GetConnection()
+
+	ctx := context.Background()
+
+	username := "admin"
+	password := "admin"
+
+	script := "SELECT username FROM user WHERE user.username = ? AND user.password = ? LIMIT 1"
+	rows, err := db.QueryContext(ctx, script, username, password)
+
+	if err != nil {
+		panic(err)
+	}
+
+	if rows.Next() {
+		var username string
+		err := rows.Scan(&username)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println("Success Login", username)
+	} else {
+		fmt.Println("Failed Login")
+	}
+
+	defer rows.Close()
+}
+
+func TestExecSqlSafe(t *testing.T) {
+	db := GetConnection()
+	defer db.Close()
+
+	ctx := context.Background()
+
+	username := "jos"
+	password := "gandos"
+
+	script := "INSERT INTO user(username, password) VALUES(?, ?)"
+	_, err := db.ExecContext(ctx, script, username, password)
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Success insert new user")
+}
+```

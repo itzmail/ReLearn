@@ -92,3 +92,80 @@ func TestQuerySqlComplex(t *testing.T) {
 
 	defer rows.Close()
 }
+
+func TestSqlInjection(t *testing.T) {
+	db := GetConnection()
+
+	ctx := context.Background()
+
+	username := "admin"
+	password := "admin"
+
+	script := "SELECT username FROM user WHERE username = ? AND password = ? LIMIT 1"
+	rows, err := db.QueryContext(ctx, script, username, password)
+
+	if err != nil {
+		panic(err)
+	}
+
+	if rows.Next() {
+		var username string
+		err := rows.Scan(&username)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println("Success Login", username)
+	} else {
+		fmt.Println("Failed Login")
+	}
+
+	defer rows.Close()
+}
+
+func TestSqlInjectionSafe(t *testing.T) {
+	db := GetConnection()
+
+	ctx := context.Background()
+
+	username := "admin"
+	password := "admin"
+
+	script := "SELECT username FROM user WHERE user.username = ? AND user.password = ? LIMIT 1"
+	rows, err := db.QueryContext(ctx, script, username, password)
+
+	if err != nil {
+		panic(err)
+	}
+
+	if rows.Next() {
+		var username string
+		err := rows.Scan(&username)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Println("Success Login", username)
+	} else {
+		fmt.Println("Failed Login")
+	}
+
+	defer rows.Close()
+}
+
+func TestExecSqlSafe(t *testing.T) {
+	db := GetConnection()
+	defer db.Close()
+
+	ctx := context.Background()
+
+	username := "jos"
+	password := "gandos"
+
+	script := "INSERT INTO user(username, password) VALUES(?, ?)"
+	_, err := db.ExecContext(ctx, script, username, password)
+
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("Success insert new user")
+}
