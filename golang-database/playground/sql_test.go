@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"strconv"
 	"testing"
 	"time"
 )
@@ -193,4 +194,77 @@ func TestAutoIncrement(t *testing.T) {
 	}
 
 	fmt.Println("Success insert new comment with id", insertId)
+}
+
+func TestPrepareStatement(t *testing.T) {
+	db := GetConnection()
+	defer db.Close()
+
+	ctx := context.Background()
+	script := "INSERT INTO comments (email, comment) VALUES(?, ?)"
+	stmt, err := db.PrepareContext(ctx, script)
+	if err != nil {
+		panic(err)
+	}
+
+	defer stmt.Close()
+
+	for i := 0; i < 10; i++ {
+		email := "ismail" + strconv.Itoa(i) + "@gmail.com"
+		comment := "Ini komen ke-" + strconv.Itoa(i)
+		result, err := stmt.ExecContext(ctx, email, comment)
+
+		if err != nil {
+			panic(err)
+		}
+
+		lastInsertId, err := result.LastInsertId()
+
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Println("Coment Id:", lastInsertId)
+	}
+}
+
+func TestTransaction(t *testing.T) {
+	db := GetConnection()
+	defer db.Close()
+
+	ctx := context.Background()
+	tx, err := db.Begin()
+
+	if err != nil {
+		panic(err)
+	}
+
+	script := "INSERT INTO comments(email, comment) VALUES(?, ?)"
+	// do transaction
+	for i := 0; i < 10; i++ {
+		email := "ismail" + strconv.Itoa(i) + "@gmail.com"
+		comment := "Ini komen ke-" + strconv.Itoa(i)
+		result, err := tx.ExecContext(ctx, script, email, comment)
+
+		if err != nil {
+			panic(err)
+		}
+
+		lastInsertId, err := result.LastInsertId()
+
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Println("Coment Id:", lastInsertId)
+	}
+
+	err = tx.Commit()
+	// untuk commit transaction
+
+	err = tx.Rollback()
+	// untuk rollback transaction
+	if err != nil {
+		panic(err)
+	}
 }
