@@ -15,18 +15,21 @@ fun trick() {
 }*/
 
 fun main() {
-    val coins: (Int) -> String = {quantity ->
-       "$quantity quarters"
+    val coins: (Int) -> String = {
+       "$it quarters"
     }
 
 //    val cupcake: (Int) -> String = {
 //        "Have a cupcake"
 //    }
 
-    val treatFunction = trickOrTreat(false, coins)
+    val treatFunction = trickOrTreat(false, { "$it quarters" })
     val trickFunction = trickOrTreat(true, null)
 
-    treatFunction()
+    repeat(4) {
+        treatFunction()
+    }
+
     trickFunction()
 }
 
@@ -49,3 +52,31 @@ val trick: () -> Unit = {
 val treat: () -> Unit = {
     println("Treats for you!")
 }
+
+/*
+val coins: (Int) -> String = {quantity ->
+    "$quantity quarters"
+}
+
+Ubah template string "$quantity quarters" untuk merujuk ke parameter tunggal menggunakan $it.
+*/
+
+//val coins: (Int) -> String = {
+//    "$it quarters"
+//}
+
+/*
+* Ringkasan
+1. Fungsi di Kotlin merupakan konstruksi kelas satu dan dapat diperlakukan seperti jenis data.
+2. Ekspresi lambda menyediakan sintaksis singkat untuk menulis fungsi.
+3. Anda dapat meneruskan jenis fungsi ke fungsi lain.
+4. Anda dapat menampilkan jenis fungsi dari fungsi lain.
+5. Ekspresi lambda menampilkan nilai ekspresi terakhir.
+6. Jika label parameter dihilangkan dalam ekspresi lambda dengan parameter tunggal, parameter tersebut akan dirujuk dengan ID it.
+7. Lambda dapat ditulis inline tanpa nama variabel.
+8. Jika parameter terakhir fungsi merupakan jenis fungsi, Anda dapat menggunakan sintaksis lambda akhir untuk memindahkan ekspresi lambda setelah tanda kurung terakhir saat memanggil fungsi.
+9. Fungsi tingkat tinggi merupakan fungsi yang menggunakan fungsi lain sebagai parameter atau menampilkan fungsi.
+10. Fungsi repeat() merupakan fungsi tingkat tinggi yang berfungsi mirip dengan loop for.
+
+* Pelajari lebih lanjut, Lambda dan fungsi tingkat tinggi
+* */
