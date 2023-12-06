@@ -95,3 +95,65 @@ func TestMux(t *testing.T) {
 		fmt.Fprintf(writer, "Bye World")
 	})
 ```
+
+### Request
+* Request adalah struct yang merepresentasikan HTTP Request yang dikirim oleh Web Browser 
+* Semua informasi request yang dikirim bisa kita dapatkan di Request 
+* Seperti, URL, http method, http header, http body, dan lain-lain
+
+```go
+func TestRequest(t *testing.T) {
+	var handler http.HandlerFunc = func(writter http.ResponseWriter, request *http.Request) {
+		fmt.Fprintln(writter, request.Method)
+		fmt.Fprintln(writter, request.RequestURI)
+	}
+
+	server := http.Server{
+		Addr:    "localhost:8080",
+		Handler: handler,
+	}
+
+	err := server.ListenAndServe()
+	if err != nil {
+		panic(err)
+	}
+}
+```
+
+### HTTP Test
+
+* Request adalah struct yang merepresentasikan HTTP Request yang dikirim oleh Web Browser 
+* Semua informasi request yang dikirim bisa kita dapatkan di Request 
+* Seperti, URL, http method, http header, http body, dan lain-lain
+
+
+```go
+import (
+	"fmt"
+	"io"
+	"net/http"
+	"net/http/httptest"
+	"testing"
+)
+
+func HelloHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "Hello World")
+}
+
+func TestHttp(t *testing.T) {
+	request := httptest.NewRequest(http.MethodGet, "http://localhost:8080/hello", nil)
+	recorder := httptest.NewRecorder()
+
+	HelloHandler(recorder, request)
+
+	response := recorder.Result()
+	body, err := io.ReadAll(response.Body)
+
+	if err != nil {
+		panic(err)
+	}
+
+	bodyString := string(body)
+	fmt.Println(bodyString)
+}
+```
