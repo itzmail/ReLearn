@@ -271,3 +271,95 @@ func TestMultipleQueryParamsMap(t *testing.T) {
 }
 ```
 
+## Header
+* Selain Query Parameter, dalam HTTP, ada juga yang bernama Header
+* Header adalah informasi tambahan yang biasa dikirim dari client ke server atau sebaliknya
+* Jadi dalam Header, tidak hanya ada pada HTTP Request, pada HTTP Response pun kita bisa menambahkan informasi header
+* Saat kita menggunakan browser, biasanya secara otomatis header akan ditambahkan oleh browser, seperti informasi browser, jenis tipe content yang dikirim dan diterima oleh browser, dan lain-lain
+
+### Request Header
+* Untuk menangkap request header yang dikirim oleh client, kita bisa mengambilnya di Request.Header 
+* Header mirip seperti Query Parameter, isinya adalah `map[string][]string` 
+* Berbeda dengan Query Parameter yang case sensitive, secara spesifikasi, Header key tidaklah case sensitive
+
+```go
+func RequestHeader(writter http.ResponseWriter, request *http.Request) {
+	contentType := request.Header.Get("content-type")
+	fmt.Fprint(writter, contentType)
+}
+
+func TestRequestHeader(t *testing.T) {
+    request := httptest.NewRequest(http.MethodPost, "http://localhost:8080/", nil)
+    request.Header.Add("Content-Type", "appplication/json")
+
+    recorder := httptest.NewRecorder()
+
+    RequestHeader(recorder, request)
+
+    response := recorder.Result()
+    body, _ := io.ReadAll(response.Body)
+
+    fmt.Println(string(body))
+}
+```
+Sedangkan jika kita ingin menambahkan header pada response, kita bisa menggunakan function `ResponseWriter.Header()`
+
+```go
+func ResponseHeader(writter http.ResponseWriter, request *http.Request) {
+	writter.Header().Add("X-Powered-By", "programmer zaman now")
+	fprint, err := fmt.Fprint(writter, "Hello")
+	if err != nil {
+		return
+	}
+
+	fmt.Println(fprint)
+}
+
+func TestResponseHeader(t *testing.T) {
+	request := httptest.NewRequest(http.MethodPost, "http://localhost:8080/", nil)
+	request.Header.Add("content-type", "application/json")
+
+	recorder := httptest.NewRecorder()
+
+	ResponseHeader(recorder, request)
+
+	response := recorder.Result()
+	body, _ := io.ReadAll(response.Body)
+
+	fmt.Println(string(body))
+	fmt.Println(response.Header.Get("x-powered-by"))
+}
+```
+
+## Form Post
+* Saat kita belajar HTML, kita tahu bahwa saat kita membuat form, kita bisa submit datanya dengan method GET atau POST
+* Jika menggunakan method GET, maka hasilnya semua data di form akan menjadi query parameter
+* Sedangkan jika menggunakan POST, maka semua data di form akan dikirim via body HTTP request
+* Di Go-Lang, untuk mengambil data Form Post sangatlah mudah
+
+```go
+func FormPost(writter http.ResponseWriter, request *http.Request) {
+	err := request.ParseForm()
+	if err != nil {
+		panic(err)
+	}
+
+	firstName := request.PostForm.Get("firstName")
+	lastName := request.PostForm.Get("lastName")
+
+	fmt.Fprintf(writter, "Hello %s %s", firstName, lastName)
+}
+
+func TestFormPost(t *testing.T) {
+	requestBody := strings.NewReader("firstName=Ismail&lastName=Alam")
+	request := httptest.NewRequest("POST", "http://localhost/", requestBody)
+	request.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	recorder := httptest.NewRecorder()
+
+	FormPost(recorder, request)
+
+	response := recorder.Result()
+	body, _ := io.ReadAll(response.Body)
+	fmt.Println(string(body))
+}
+```
