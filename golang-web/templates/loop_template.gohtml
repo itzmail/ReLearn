@@ -1,0 +1,16 @@
+<html>
+    <body>
+    <h1>{{.Name}}</h1>
+
+    <div>
+        <p>Street : {{.Address.Street}}</p>
+        <p>Number : {{.Address.Number}}</p>
+    </div>
+    {{/* Contoh Komentar */}}
+    {{range $index, $element := .Hobbies}}
+    <p>{{$element}}</p>
+    {{else}}
+    <p>Anda tidak punya hobi</p>
+    {{end}}
+    </body>
+</html>
