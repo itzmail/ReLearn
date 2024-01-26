@@ -23,6 +23,12 @@ footer {
   font-weight: bold;
 }
 
+nav li {
+  display: inline;
+  list-style-type: none;
+  margin-right: 20px;
+}
+
 nav a {
   font-size: 18px;
 
@@ -32,6 +38,18 @@ nav a {
 
 nav a:hover {
   font-weight: bold;
+}
+
+nav {
+  background-color: #00a2c6;
+  padding: 5px;
+ 
+  position: sticky;
+  top: 0;
+}
+
+header {
+  display: inline;
 }
 
 .profile header {
@@ -106,6 +124,5 @@ aside {
   #content, aside {
     width: 100%;
     padding: 0;
-    background-color: brown;
   }
 }
