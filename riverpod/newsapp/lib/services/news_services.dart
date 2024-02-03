@@ -11,7 +11,7 @@ class NewsService {
 
   fetchNews() async {
     var response = await _dio.get(
-      'v2/top-headlines?country=us&apiKey=${ApiUrls.apiKey}',
+      'v2/top-headlines?country=id&apiKey=${ApiUrls.apiKey}',
     );
     return response.data;
   }

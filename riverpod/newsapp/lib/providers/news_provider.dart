@@ -9,28 +9,31 @@ part 'news_provider.freezed.dart';
 @freezed
 class NewsState with _$NewsState {
   const factory NewsState({
-    @Default(true) bool isLoading,
-    required NewsModel news,
+    @Default(false) bool isLoading,
+    required NewsModel newsModel,
   }) = _NewsState;
 
   const NewsState._();
 }
 
 class NewsNotifier extends StateNotifier<NewsState> {
-  NewsNotifier() : super(NewsState(news: NewsModel(articles: []))) {}
+  NewsNotifier() : super(NewsState(newsModel: NewsModel(articles: []))) {
+    loadNews();
+  }
 
   loadNews() async {
+    print('loading news');
     state = state.copyWith(isLoading: true);
     final newsResponse = await NewsService().fetchNews();
     final news = NewsModel.fromJson(newsResponse);
-    state = state.copyWith(news: news, isLoading: false);
+    state = state.copyWith(newsModel: news, isLoading: false);
   }
 
   loadSearchedNews(String title) async {
     state = state.copyWith(isLoading: true);
     final newsResponse = await NewsService().fetchNewsBySearching(title);
     final news = NewsModel.fromJson(newsResponse);
-    state = state.copyWith(news: news, isLoading: false);
+    state = state.copyWith(newsModel: news, isLoading: false);
   }
 }
 
