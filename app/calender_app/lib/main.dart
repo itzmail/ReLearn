@@ -1,3 +1,4 @@
+import 'package:calender_app/pages/oauth/oauth_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:calender_app/pages/events_calender.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: TableEventsExample(),
+      home: const OauthScreen(),
     );
   }
 }

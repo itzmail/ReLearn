@@ -107,6 +107,7 @@ class _TableEventsExampleState extends State<TableEventsExample> {
             ),
             onDaySelected: _onDaySelected,
             onRangeSelected: _onRangeSelected,
+            headerVisible: false,
             onFormatChanged: (format) {
               if (_calendarFormat != format) {
                 setState(() {
