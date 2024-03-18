@@ -228,3 +228,47 @@ db.products.find({
         return this.price.toNumber() * 10 > 50000
     }
 });
+
+use belajar
+
+db.products.insertMany([
+    {
+        name: "Laptop",
+        price: new NumberLong(15000000),
+        category: "Elektronik",
+        tags: ["laptop", "computer"]
+    },
+    {
+        name: "Mouse",
+        price: new NumberLong(150000),
+        category: "Elektronik",
+        tags: ["mouse", "computer"]
+    },
+    {
+        name: "Buku",
+        price: new NumberLong(200000),
+        category: "Stationary",
+        tags: ["buku", "tulis"]
+    }
+])
+
+db.products.find({
+    tags: {
+        $all: ["laptop", "computer"]
+    }
+})
+
+db.products.find({
+    tags: {
+        $elemMatch: {
+            $eq: "laptop",
+            $eq: "computer"
+        }
+    }
+})
+
+db.products.find({
+    tags: {
+        $size: 2
+    }
+})
