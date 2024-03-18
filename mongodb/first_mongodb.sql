@@ -124,3 +124,107 @@ db.products.find({
         $gt: 1000
     }
 })
+
+use belajar
+
+db.products.find({
+    $or: [
+        {category: "food"},
+        {category: "laptop"}
+    ]
+})
+
+db.product.find(
+    {
+        $nor: [
+            {category: "laptop"}
+        ]
+    }
+)
+
+db.products.find({
+    $and: [
+        {category: "laptop"},
+        {price: {$gt: 10000}}
+    ]
+})
+
+db.products.find({
+    $and : [
+        {
+            category: {
+                $type: "string"
+            }
+        },
+        {
+            price: {
+                $type: ["long", "int"]
+            }
+        }]
+})
+
+// Evaluation query operator
+
+db.customers.insertOne({
+    _id: 'joko',
+    name: "joko",
+})
+
+db.customers.find({
+    $expr: {
+        $eq: ["$_id","$name"] // nama field _id dan name harus sama
+    }
+})
+
+// jsonSchema query
+
+db.products.find({
+    $jsonSchema: {
+       required: ["name", "price"],
+    }
+})
+
+db.products.find({
+    $jsonSchema: {
+        required: ["name", "price"],
+        properties: {
+            name: {
+                type: "string"
+            },
+            price: {
+                type: "number"
+            }
+        }
+    }
+})
+
+// Mod query operator
+db.products.find({
+    $and: [
+        {
+            price: {
+                $mod: [5, 0]
+            }
+        },
+        {
+            price: {
+                $mod: [100000, 0]
+            }
+        }
+    ]
+})
+
+// Regex query operator
+db.products.find({
+    name: {
+        $regex: /top/,
+        $options: "i"
+    }
+})
+
+// Where query operator
+db.products.find({
+    $where: () => {
+        return this.price.toNumber() * 10 > 50000
+    }
+});
