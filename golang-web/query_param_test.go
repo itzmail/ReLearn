@@ -67,14 +67,16 @@ func MultipleParamsMap(writter http.ResponseWriter, request *http.Request) {
 	query := request.URL.Query()
 	name := query["name"]
 
-	fmt.Fprint(writter, strings.Join(name, " "))
+	data := strings.Join(name, " ")
+
+	fmt.Fprint(writter, data)
 	//for _, value := range keyParam {
 	//	fmt.Fprintf(writter, "Hello %s %s\n", value, query.Get(value))
 	//}
 }
 
 func TestMultipleQueryParamsMap(t *testing.T) {
-	url := "http://localhost:8080/hello?name=Ismail&name=Muhammad&name=Ghifari"
+	url := "http://localhost:8080/hello?name=Ismail&name=Muhammad&name=Ghifari&val=123&val=456"
 
 	request := httptest.NewRequest(http.MethodGet, url, nil)
 	recorder := httptest.NewRecorder()

@@ -1,6 +1,6 @@
 package web
 
 type CategoryUpdateRequest struct {
-	ID   int
-	Name string `validate:"required"`
+	ID   int    `validate:"required"`
+	Name string `validate:"required,max=200,min=1" json:"name"`
 }

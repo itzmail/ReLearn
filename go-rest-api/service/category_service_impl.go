@@ -3,6 +3,7 @@ package service
 import (
 	"context"
 	"database/sql"
+	"go-rest-api/exception"
 	"go-rest-api/helper"
 	"go-rest-api/model/domain"
 	"go-rest-api/model/web"
@@ -51,7 +52,9 @@ func (service *CategoryServiceImpl) Update(ctx context.Context, request web.Cate
 	defer helper.CommitOrRollback(tx)
 
 	category, err := service.CategoryRepository.FindById(ctx, tx, request.ID)
-	helper.PanicIfError(err)
+	if err != nil {
+		panic(exception.NewNotFoundError(err.Error()))
+	}
 
 	category.Name = request.Name
 
@@ -66,10 +69,11 @@ func (service *CategoryServiceImpl) Delete(ctx context.Context, categoryId int) 
 	defer helper.CommitOrRollback(tx)
 
 	category, err := service.CategoryRepository.FindById(ctx, tx, categoryId)
-	helper.PanicIfError(err)
+	if err != nil {
+		panic(exception.NewNotFoundError(err.Error()))
+	}
 
 	service.CategoryRepository.Delete(ctx, tx, category)
-
 }
 
 func (service *CategoryServiceImpl) FindById(ctx context.Context, categoryId int) web.CategoryResponse {
@@ -78,7 +82,9 @@ func (service *CategoryServiceImpl) FindById(ctx context.Context, categoryId int
 	defer helper.CommitOrRollback(tx)
 
 	category, err := service.CategoryRepository.FindById(ctx, tx, categoryId)
-	helper.PanicIfError(err)
+	if err != nil {
+		panic(exception.NewNotFoundError(err.Error()))
+	}
 
 	return helper.ToCategoryResponse(category)
 }
@@ -90,10 +96,5 @@ func (service *CategoryServiceImpl) FindAll(ctx context.Context) []web.CategoryR
 
 	categories := service.CategoryRepository.FindAll(ctx, tx)
 
-	var categoryResponses []web.CategoryResponse
-	for _, category := range categories {
-		categoryResponses = append(categoryResponses, helper.ToCategoryResponse(category))
-	}
-
-	return categoryResponses
+	return helper.ToCategoryResponses(categories)
 }
