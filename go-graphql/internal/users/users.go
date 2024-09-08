@@ -20,7 +20,7 @@ func (user *User) Create() {
 		log.Fatal(err)
 	}
 
-	hashedPassword, err := HashPassword(user.Password)
+	hashedPassword, _ := HashPassword(user.Password)
 	_, err = stmt.Exec(user.Username, hashedPassword)
 	if err != nil {
 		log.Fatal(err)
@@ -55,4 +55,48 @@ func GetUserIdByUsername(username string) (int, error) {
 		return 0, err
 	}
 	return Id, nil
+}
+
+func GetUserByUserId(ID int) *User {
+	stmt, err := database.Db.Prepare("SELECT ID, Username FROM Users WHERE ID = ?")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer stmt.Close()
+
+	row := stmt.QueryRow(ID)
+
+	var user User
+	err = row.Scan(&user.ID, &user.Username)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return nil
+		} else {
+			log.Fatal(err)
+		}
+	}
+
+	return &user
+}
+
+func (user *User) Authenticate() bool {
+	stmt, err := database.Db.Prepare("SELECT password FROM Users WHERE username = ?")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer stmt.Close()
+
+	row := stmt.QueryRow(user.Username)
+
+	var hashedPassword string
+	err = row.Scan(&hashedPassword)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			return false
+		} else {
+			log.Fatal(err)
+		}
+	}
+
+	return CheckPasswordHash(user.Password, hashedPassword)
 }

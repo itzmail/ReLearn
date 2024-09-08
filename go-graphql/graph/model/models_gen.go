@@ -20,6 +20,7 @@ type Mutation struct {
 type NewLink struct {
 	Title   string `json:"title"`
 	Address string `json:"address"`
+	UserID  int    `json:"UserId"`
 }
 
 type NewUser struct {
