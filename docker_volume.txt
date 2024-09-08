@@ -1,0 +1,2 @@
+docker volume ls -> digunakan untuk melihat isi volume
+docker volume create namavolume -> digunakan untuk membuat volume
