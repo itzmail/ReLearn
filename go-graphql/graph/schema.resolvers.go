@@ -7,18 +7,61 @@ package graph
 import (
 	"context"
 	"fmt"
+	"strconv"
 
 	"github.com/itzmail/hackernews/graph/model"
+	"github.com/itzmail/hackernews/internal/links"
 )
 
-// CreateTodo is the resolver for the createTodo field.
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: CreateTodo - createTodo"))
+// CreateLink is the resolver for the createLink field.
+func (r *mutationResolver) CreateLink(ctx context.Context, input model.NewLink) (*model.Link, error) {
+	link := links.Link{
+		Title:   input.Title,
+		Address: input.Address,
+	}
+	linkID := link.Save()
+	return &model.Link{ID: strconv.FormatInt(linkID, 10), Title: link.Title, Address: link.Address}, nil
 }
 
-// Todos is the resolver for the todos field.
-func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: Todos - todos"))
+// CreateUser is the resolver for the createUser field.
+func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) (string, error) {
+	panic(fmt.Errorf("not implemented: CreateUser - createUser"))
+}
+
+// Login is the resolver for the login field.
+func (r *mutationResolver) Login(ctx context.Context, input model.Login) (string, error) {
+	panic(fmt.Errorf("not implemented: Login - login"))
+}
+
+// RefreshToken is the resolver for the refreshToken field.
+func (r *mutationResolver) RefreshToken(ctx context.Context, input model.RefreshTokenInput) (string, error) {
+	panic(fmt.Errorf("not implemented: RefreshToken - refreshToken"))
+}
+
+// Links is the resolver for the links field.
+func (r *queryResolver) Links(ctx context.Context) ([]*model.Link, error) {
+	/*
+		// Dummy data
+		var links []*model.Link
+		dummyLink := model.Link{
+			Title:   "Our dummy link",
+			Address: "https://address.org",
+			User:    &model.User{Name: "admin"},
+		}
+		links = append(links, &dummyLink)
+	*/
+
+	var resultList []*model.Link
+	dbLinks := links.GetAll()
+	for _, link := range dbLinks {
+		resultList = append(resultList, &model.Link{
+			ID:      link.ID,
+			Title:   link.Title,
+			Address: link.Address,
+		})
+	}
+
+	return resultList, nil
 }
 
 // Mutation returns MutationResolver implementation.
