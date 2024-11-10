@@ -37,6 +37,32 @@ func CheckPasswordHash(password, hash string) bool {
 	return err == nil
 }
 
+func GetAll() []User {
+	stmt, err := database.Db.Prepare("SELECT ID, Username FROM Users")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer stmt.Close()
+
+	rows, err := stmt.Query()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	var users []User
+	for rows.Next() {
+		var user User
+		err := rows.Scan(&user.ID, &user.Username)
+		if err != nil {
+			log.Fatal(err)
+		}
+		users = append(users, user)
+	}
+
+	return users
+}
+
 // GetUserIdByUsername check if a user exists in database by given username
 func GetUserIdByUsername(username string) (int, error) {
 	stmt, err := database.Db.Prepare("SELECT ID from Users WHERE Username = ?")

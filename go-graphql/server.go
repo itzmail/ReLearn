@@ -8,7 +8,10 @@ import (
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/go-chi/chi"
-	hackernews "github.com/itzmail/hackernews/graph"
+	linkResolver "github.com/itzmail/hackernews/graphql/link/graph"
+	link "github.com/itzmail/hackernews/graphql/link/graph/generated"
+	userResolver "github.com/itzmail/hackernews/graphql/user/graph"
+	user "github.com/itzmail/hackernews/graphql/user/graph/generated"
 	"github.com/itzmail/hackernews/internal/auth"
 	database "github.com/itzmail/hackernews/internal/pkg/db/mysql"
 )
@@ -29,7 +32,8 @@ func main() {
 	defer database.CloseDB()
 	database.Migrate()
 	// Membuat server GraphQL
-	srv := handler.NewDefaultServer(hackernews.NewExecutableSchema(hackernews.Config{Resolvers: &hackernews.Resolver{}}))
+	srvLink := handler.NewDefaultServer(link.NewExecutableSchema(link.Config{Resolvers: &linkResolver.Resolver{}}))
+	srvUser := handler.NewDefaultServer(user.NewExecutableSchema(user.Config{Resolvers: &userResolver.Resolver{}}))
 	/*
 	 * Membuat server GraphQL menggunakan NewDefaultServer dari package handler.
 	 * NewExecutableSchema digunakan untuk membuat skema eksekusi GraphQL dengan konfigurasi yang diberikan, termasuk resolver.
@@ -57,8 +61,8 @@ func main() {
 
 	// Membuat endpoint GraphQL playground
 	router.Handle("/", playground.Handler("GraphQL playground", "/query"))
-	router.Handle("/query", srv)
-	router.Handle("/mutation", srv)
+	router.Handle("/link", srvLink)
+	router.Handle("/user", srvUser)
 
 	http.Handle("/", router)
 

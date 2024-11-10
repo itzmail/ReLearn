@@ -1,6 +1,7 @@
 package links
 
 import (
+	"errors"
 	"log"
 
 	database "github.com/itzmail/hackernews/internal/pkg/db/mysql"
@@ -74,4 +75,75 @@ func GetAll() []Link {
 	}
 
 	return links
+}
+
+func GetByID(id string) (Link, error) {
+	stmt, err := database.Db.Prepare("SELECT L.id, L.title, L.address, L.UserID, U.Username FROM Links L INNER JOIN Users U on L.UserID = U.ID WHERE L.id = ?")
+	if err != nil {
+		log.Fatal(err)
+		return Link{}, err
+	}
+
+	defer stmt.Close()
+
+	row := stmt.QueryRow(id)
+	var link Link
+	var username string
+	var userID string
+	err = row.Scan(&link.ID, &link.Title, &link.Address, &userID, &username)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	link.User = &users.User{
+		ID:       userID,
+		Username: username,
+	}
+
+	return link, nil
+}
+
+func Update(link Link) (Link, error) {
+	if link.ID == "" {
+		return Link{}, errors.New("ID is required")
+	}
+
+	stmt, err := database.Db.Prepare("UPDATE Links SET Title = ?, Address = ? WHERE ID = ?")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	_, err = stmt.Exec(link.Title, link.Address, link.ID)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Print("Link updated in database")
+	return link, nil
+}
+
+func Delete(id string) (string, error) {
+	if id == "" {
+		return "", errors.New("ID is required")
+	}
+
+	_, err := GetByID(id)
+	if err != nil {
+		log.Fatal(err)
+		return "", err
+	}
+
+	stmt, err := database.Db.Prepare("DELETE FROM Links WHERE ID = ?")
+	if err != nil {
+		log.Fatal(err)
+		return "", err
+	}
+
+	_, err = stmt.Exec(id)
+	if err != nil {
+		log.Fatal(err)
+		return "", err
+	}
+
+	return "Link deleted from database", nil
 }
